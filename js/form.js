@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   forms.forEach((form) => {
     const nameInput = form.querySelector('input[name="your-name"]');
     const phoneInput = form.querySelector('input[name="your-phone"]');
-    const purposeSelect = form.querySelector('select[name="purpose"]');
+    const purposeSelect = form.querySelector('select[name="purpose"]'); // теперь не обязательно
     const checkbox = form.querySelector('input[type="checkbox"]');
     const formAcceptInput = form.querySelector(".form-accept-item-input");
     const submitBtn = form.querySelector(".submit-btn");
@@ -19,15 +19,11 @@ document.addEventListener("DOMContentLoaded", function () {
     statusMessage.style.borderRadius = "4px";
     submitBtn.insertAdjacentElement("afterend", statusMessage);
 
-    // ✅ Всегда checked и видим активное состояние
     if (checkbox) {
       checkbox.checked = true;
       formAcceptInput?.classList.add("active");
     }
 
-    // Убираем ненужный обработчик checkbox.addEventListener(...)
-
-    // При фокусе — вставляем 380, если нет кода
     phoneInput.addEventListener("focus", () => {
       if (!phoneInput.value.startsWith("380")) {
         phoneInput.value = "380";
@@ -62,18 +58,17 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const name = nameInput.value.trim();
       let phone = phoneInput.value.trim();
-      const purpose = purposeSelect.value;
+      const purpose = purposeSelect?.value || ""; // может быть пустым
 
-      if (!name || !phone || !purpose) {
-        statusMessage.textContent = "Будь ласка, заповніть всі поля.";
+      if (!name || !phone) {
+        statusMessage.textContent = "Будь ласка, заповніть ім'я та номер телефону.";
         return;
       }
+
       if (phone.length !== 12) {
-        statusMessage.textContent = "Введіть коректний номер телефону з 380 на початку";
+        statusMessage.textContent = "Введіть коректний номер телефону з 380 на початку.";
         return;
       }
-
-      console.log("Номер для відправки:", phone);
 
       const data = {
         "your-name": name,
@@ -91,7 +86,7 @@ document.addEventListener("DOMContentLoaded", function () {
         body: new URLSearchParams(data),
       })
         .then((res) => res.text())
-        .then(resultText => {
+        .then((resultText) => {
           let result;
           try {
             result = JSON.parse(resultText);
@@ -100,11 +95,11 @@ document.addEventListener("DOMContentLoaded", function () {
             submitBtn.disabled = false;
             return;
           }
+
           if (result.result === "success") {
             statusMessage.textContent = "Дякуємо! Вашу заявку надіслано.";
             form.reset();
 
-            // ✅ Поддерживаем checkbox после очистки формы
             if (checkbox) {
               checkbox.checked = true;
               formAcceptInput?.classList.add("active");
@@ -116,7 +111,6 @@ document.addEventListener("DOMContentLoaded", function () {
             submitBtn.disabled = false;
           }
         })
-
         .catch(() => {
           statusMessage.textContent = "Помилка при надсиланні. Спробуйте пізніше.";
           submitBtn.disabled = false;
