@@ -22,7 +22,15 @@ deploy:
     - |
       ssh $SSH_USER@$SSH_HOST bash <<EOF
         set -ex
-        cd $APP_FOLDER
+        if [ ! -d "$APP_FOLDER" ]; then
+          echo "Folder $APP_FOLDER does not exist. Creating..."
+          mkdir -p $APP_FOLDER
+          cd $APP_FOLDER
+          git clone git@gitlab.com:$CI_PROJECT_PATH.git .
+        else
+          cd $APP_FOLDER
+        fi
+
         git config --global --add safe.directory $APP_FOLDER
         git fetch origin $CI_COMMIT_REF_NAME
         git checkout -B $CI_COMMIT_REF_NAME origin/$CI_COMMIT_REF_NAME
@@ -38,6 +46,11 @@ rollback:
     - |
       ssh $SSH_USER@$SSH_HOST bash <<EOF
         set -ex
+        if [ ! -d "$APP_FOLDER" ]; then
+          echo "Error: Folder $APP_FOLDER does not exist!"
+          exit 1
+        fi
+        
         cd $APP_FOLDER
         git config --global --add safe.directory $APP_FOLDER
         git fetch origin $CI_COMMIT_REF_NAME
