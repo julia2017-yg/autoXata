@@ -73,3 +73,12 @@ button{
   width: 16px;
   height: 16px;
 }
+.single-post.post-content .single-post__publish-date {
+    display: block;
+    color: var(--Grey_middle, #838587);
+    line-height: 1;
+    text-transform: lowercase;
+}
+.single-post.post-content h3 {
+    font-size: 1rem;
+}
