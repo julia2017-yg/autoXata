@@ -2,6 +2,7 @@
 <html class="no-js" lang="uk">
 <head>
 	<meta charset="utf-8">
+	<link rel="preload" href="./images/bg.webp" as="image">
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLVLN894SL"></script>
 	<script>
@@ -2168,9 +2169,9 @@
 			margin-bottom: 30px;
 			position: relative;
 			padding-top: 190px;
-			background-image: url('./images/bg.webp');
+			/* background-image: url('./images/bg.webp');
 			background-size: cover;
-			background-position: center;
+			background-position: center; */
 			z-index: 1;
 		}
 
@@ -3224,7 +3225,8 @@
 		<h1 hidden="">Головна</h1>
 		<section class="hero-section">
 			<div class="doaction">
-				<div class="doaction__content">
+				<div class="doaction__content"
+					style="background-image: url('./images/bg.webp'); background-size: cover; background-position: center;">
 					<div class="action">
 						<div class="action_title">Купити авто</div>
 						<div class="action_desc">
