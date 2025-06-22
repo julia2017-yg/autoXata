@@ -2995,9 +2995,9 @@
 <body>
 
 
-	<!-- <div class="preloader">
+	<div class="preloader" id="preloader">
 		<img src="./images/logo.png" alt="Logo">
-	</div> -->
+	</div>
 	<div class="hidden-page-title" style="display:none;">Головна</div>
 	<div class="body-wrapper">
 		<header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4">
@@ -4043,14 +4043,14 @@
 			</div>
 		</footer>
 	</div>
-	<div class="preloader d-none" id="preloader">
+	<!-- <div class="preloader d-none" id="preloader">
 		<div class="preloader-inner">
 			<div class="spinner">
 				<div class="dot1"></div>
 				<div class="dot2"></div>
 			</div>
 		</div>
-	</div>
+	</div> -->
 	<div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
 		<div class="feedback-popup feedback-popup-consultation">
 			<div class="close-popup">×</div>
@@ -4112,7 +4112,14 @@
 	<div class="popup-fill"></div>
 	<div class="popup-fill2"></div>
 	<div class="popup-fill3"></div>
-
+<script>
+  window.addEventListener('load', () => {
+    const preloader = document.getElementById('preloader')
+    preloader.classList.add('preloader--hidden')
+    // Удалить прелоадер из DOM через время (опционально):
+    setTimeout(() => preloader.remove(), 500)
+  })
+</script>
 	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
 	<script src="./js/menu.js"></script>
 	<script src="./js/popup.js"></script>
