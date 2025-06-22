@@ -2166,7 +2166,7 @@
 			height: 100vh;
 			font-family: Cuprum, sans-serif;
 			font-size: 18px;
-			margin-bottom: 30px;
+			/* margin-bottom: 30px; */
 			position: relative;
 			padding-top: 190px;
 			/* background-image: url('./images/bg.webp');
@@ -2983,7 +2983,7 @@
 	<meta name="twitter:card" content="summary_large_image">
 	<script type="application/ld+json"
 		class="yoast-schema-graph">{"@context":"https://schema.org","@graph":[{"@type":"WebPage","@id":"https://autoxata.mk.ua/","url":"https://autoxata.mk.ua/","name":"Головна - АвтоХата","isPartOf":{"@id":"https://autoxata.mk.ua/#website"},"datePublished":"2022-10-03T12:54:32+00:00","dateModified":"2024-12-25T14:22:24+00:00","description":"Автосалон “АвтоХата” у Миколаєві за адресою вул. Чкалова 51б (вул. Ігоря Бедзая, 51б) пропонує своїм клієнтам тільки чесні та перевірені автомобілі, а також вигідні умови з викупу та комісійного продажу. У нашому автосалоні продаються автомобілі з прозорою історією та справним технічним станом.","breadcrumb":{"@id":"https://autoxata.mk.ua/#breadcrumb"},"inLanguage":"uk","potentialAction":[{"@type":"ReadAction","target":["https://autoxata.mk.ua/"]}]},{"@type":"BreadcrumbList","@id":"https://autoxata.mk.ua/#breadcrumb","itemListElement":[{"@type":"ListItem","position":1,"name":"Головна"}]},{"@type":"WebSite","@id":"https://autoxata.mk.ua/#website","url":"https://autoxata.mk.ua/","name":"АвтоХата","description":"Автосалон вживаних автомобілів","potentialAction":[{"@type":"SearchAction","target":{"@type":"EntryPoint","urlTemplate":"https://autoxata.mk.ua/?s={search_term_string}"},"query-input":{"@type":"PropertyValueSpecification","valueRequired":true,"valueName":"search_term_string"}}],"inLanguage":"uk"}]}</script>
-	<script type="text/javascript" src="js/jquery.min.js" id="jquery-core-js" defer></script>
+	<!-- <script type="text/javascript" src="js/jquery.min.js" id="jquery-core-js" defer></script> -->
 	<link rel="shortlink" href="https://autoxata.mk.ua/">
 	<link rel="icon" href="images/favicon.png" sizes="32x32">
 	<link rel="icon" href="images/favicon.png" sizes="192x192">
@@ -3224,9 +3224,13 @@
 		<div class="ltn__utilize-overlay"></div>
 		<h1 hidden="">Головна</h1>
 		<section class="hero-section">
-			<div class="doaction">
-				<div class="doaction__content"
-					style="background-image: url('./images/bg.webp'); background-size: cover; background-position: center;">
+			<div class="doaction" style="position: relative; overflow: hidden;">
+				<!-- Главная картинка -->
+				<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" fetchpriority="high"
+					decoding="async"
+					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" />
+
+				<div class="doaction__content" style="position: relative; z-index: 1;">
 					<div class="action">
 						<div class="action_title">Купити авто</div>
 						<div class="action_desc">
@@ -3235,9 +3239,7 @@
 						<a class="theme-btn-1 btn btn-effect-1 feedback-btn" href="https://auto.ria.com/dealers/autoxata/3634/"
 							target="_blank">Дивитися</a>
 					</div>
-
 					<div class="action_line"></div>
-
 					<div class="action">
 						<div class="action_title">Продати авто</div>
 						<div class="action_desc">
@@ -3248,6 +3250,7 @@
 				</div>
 			</div>
 		</section>
+
 		<div
 			class="ltn__feature-area section-bg-1 home-p-main-services-blocks pt-120 pb-80 pt-mob-80 pb-mob-40 pt-mob-60 pb-mob-60">
 			<div class="container">
@@ -4108,7 +4111,7 @@
 	<div class="popup-fill2"></div>
 	<div class="popup-fill3"></div>
 
-	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+	<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
 	<script src="./js/menu.js"></script>
 	<script src="./js/popup.js"></script>
 	<script src="./js/form.js"></script>
