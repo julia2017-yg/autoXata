@@ -2,17 +2,8 @@
 <html class="no-js" lang="uk">
 <head>
 	<meta charset="utf-8">
-	<link rel="preload" href="./images/bg.webp" as="image"
-		imagesrcset="./images/bg-small.webp 480w, ./images/bg.webp 1920w" imagesizes="100vw" />
+	<link rel="preload" href="./images/bg.webp" as="image" type="image/webp">
 
-	<!-- Google tag (gtag.js) -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLVLN894SL"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag() { dataLayer.push(arguments); }
-		gtag('js', new Date());
-		gtag('config', 'G-QLVLN894SL');
-	</script>
 	<style id="litespeed-ccss">
 		ol,
 		ul {
@@ -2997,17 +2988,22 @@
 	<link rel="apple-touch-icon" href="favicon.png">
 
 	<link rel="stylesheet" href="./css/style.css">
-	<link rel="stylesheet"
-  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"
-/>
-
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+	<!-- Google tag (gtag.js) -->
+	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLVLN894SL"></script>
+	<script>
+		window.dataLayer = window.dataLayer || [];
+		function gtag() { dataLayer.push(arguments); }
+		gtag('js', new Date());
+		gtag('config', 'G-QLVLN894SL');
+	</script>
 
 </head>
 <body>
 
 
 	<div class="preloader" id="preloader">
-		<img src="./images/logo.png" alt="Logo">
+		<img src="./images/logo-2.webp" alt="Logo">
 	</div>
 	<div class="hidden-page-title" style="display:none;">Головна</div>
 	<div class="body-wrapper">
@@ -3246,10 +3242,10 @@
 		<section class="hero-section">
 			<div class="doaction">
 				<picture>
-					<source media="(max-width:600px)" srcset="./images/bg-small.webp" />
-					<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" fetchpriority="high"
-						decoding="async"
-						style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;" />
+					<source media="(max-width: 480px)" srcset="./images/bg-small.webp" type="image/webp">
+					<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" decoding="async"
+						fetchpriority="high"
+						style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
 				</picture>
 				<div class="doaction__content">
 					<div class="action">
