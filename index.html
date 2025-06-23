@@ -2,7 +2,9 @@
 <html class="no-js" lang="uk">
 <head>
 	<meta charset="utf-8">
-	<link rel="preload" href="./images/bg.webp" as="image">
+	<link rel="preload" href="./images/bg.webp" as="image"
+		imagesrcset="./images/bg-small.webp 480w, ./images/bg.webp 1920w" imagesizes="100vw" />
+
 	<!-- Google tag (gtag.js) -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-QLVLN894SL"></script>
 	<script>
@@ -2153,6 +2155,7 @@
 			justify-content: center;
 			align-items: center;
 			position: relative;
+			min-height: 100vh;
 			z-index: 1;
 			overflow: hidden;
 		}
@@ -2257,12 +2260,11 @@
 				width: 100%;
 				padding: 0;
 				margin-bottom: 30px;
+				height: 300px;
 			}
 
 			.action_line {
-				width: 100%;
-				height: 1px;
-
+				display: none;
 			}
 
 			.tachka_title {
@@ -2297,11 +2299,12 @@
 			}
 
 			.action {
-				height: 380px;
+				margin-bottom: 30px;
+				height: 340px;
 			}
 
 			.action_title {
-				margin-top: 40px;
+				margin-top: 30px;
 			}
 
 			.action_desc {
@@ -3228,26 +3231,24 @@
 		<h1 hidden="">Головна</h1>
 		<section class="hero-section">
 			<div class="doaction">
-				<!-- Главная картинка -->
-				<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" fetchpriority="high"
-					decoding="async"
-					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" />
-
+				<picture>
+					<source media="(max-width:600px)" srcset="./images/bg-small.webp" />
+					<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" fetchpriority="high"
+						decoding="async"
+						style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;" />
+				</picture>
 				<div class="doaction__content">
 					<div class="action">
-						<div class="action_title">Купити авто</div>
-						<div class="action_desc">
-							Ви зможете вибрати свій автомобіль із десятків представлених на наших автомайданчиках.
-						</div>
+						<h2 class="action_title">Купити авто</h2>
+						<p class="action_desc">Ви зможете вибрати свій автомобіль із десятків представлених на наших
+							автомайданчиках.</p>
 						<a class="theme-btn-1 btn btn-effect-1 feedback-btn" href="https://auto.ria.com/dealers/autoxata/3634/"
 							target="_blank">Дивитися</a>
 					</div>
 					<div class="action_line"></div>
 					<div class="action">
-						<div class="action_title">Продати авто</div>
-						<div class="action_desc">
-							Ми маємо багато різних варіантів допомогти Вам продати автомобіль швидко.
-						</div>
+						<h2 class="action_title">Продати авто</h2>
+						<p class="action_desc">Ми маємо багато варіантів допомогти вам продати автомобіль швидко.</p>
 						<a class="theme-btn-1 btn btn-effect-1 feedback-btn" href="./service.html">Дізнатись умови</a>
 					</div>
 				</div>
