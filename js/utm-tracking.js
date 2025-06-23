@@ -1,30 +1,32 @@
 (function () {
   const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
 
+  // Сохраняем UTM при первом заходе
   const params = new URLSearchParams(window.location.search);
   const utms = {};
   utmKeys.forEach(k => {
     if (params.has(k)) utms[k] = params.get(k);
   });
-
-  if (Object.keys(utms).length > 0) {
+  if (Object.keys(utms).length) {
     localStorage.setItem('utmParams', JSON.stringify(utms));
   }
 
+  // Добавляем UTM ко всем локальным ссылкам
   function appendUTMToLinks() {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
-    if (Object.keys(savedUtms).length === 0) return;
+    if (!Object.keys(savedUtms).length) return;
 
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-      if (href.startsWith('/') || href.startsWith(window.location.origin)) {
+      // Проверяем: если ссылка локальная
+      if (href.startsWith('/') || href.startsWith('./') || href.startsWith('../') || href.startsWith(window.location.origin)) {
         const url = new URL(href, window.location.origin);
         for (let k in savedUtms) {
-          if (!url.searchParams.has(k)) url.searchParams.set(k, savedUtms[k]);
+          url.searchParams.set(k, savedUtms[k]);
         }
-        link.setAttribute('href', url.toString());
+        link.href = url.href;
       }
     });
   }
