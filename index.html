@@ -2154,6 +2154,7 @@
 			align-items: center;
 			position: relative;
 			z-index: 1;
+			overflow: hidden;
 		}
 
 		.doaction__content {
@@ -3089,7 +3090,7 @@
 						<div class="col">
 							<div class="site-logo-wrap">
 								<div class="site-logo">
-									<a href="./index.html"><img src="images/logo.png" alt="Logo" class="logo_img"></a>
+									<a href="./index.html"><img src="images/logo-2.webp" alt="Logo" class="logo_img"></a>
 								</div>
 							</div>
 						</div>
@@ -3226,13 +3227,13 @@
 		<div class="ltn__utilize-overlay"></div>
 		<h1 hidden="">Головна</h1>
 		<section class="hero-section">
-			<div class="doaction" style="position: relative; overflow: hidden;">
+			<div class="doaction">
 				<!-- Главная картинка -->
 				<img src="./images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" fetchpriority="high"
 					decoding="async"
 					style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; object-fit: cover; z-index: -1;" />
 
-				<div class="doaction__content" style="position: relative; z-index: 1;">
+				<div class="doaction__content">
 					<div class="action">
 						<div class="action_title">Купити авто</div>
 						<div class="action_desc">
@@ -3536,7 +3537,7 @@
 						<a href="https://auto.ria.com/auto_ford_focus_38301189.html"
 							class="ltn__product-item ltn__product-item-3 text-center" target="_blank" rel="noopener noreferrer">
 							<div class="product-img">
-								<img height="200" src="./images/ford.png" alt="Ford Focus 2014">
+								<img height="200" src="./images/ford.webp" alt="Ford Focus 2014">
 							</div>
 							<div class="product-info">
 								<h2 class="product-title">Ford Focus 2014</h2>
@@ -3557,7 +3558,7 @@
 						<a href="https://auto.ria.com/auto_subaru_solterra_38343870.html"
 							class="ltn__product-item ltn__product-item-3 text-center" target="_blank" rel="noopener noreferrer">
 							<div class="product-img">
-								<img height="200" src="./images/subaru.png" alt="Subaru Solterra 2023">
+								<img height="200" src="./images/subaru.webp" alt="Subaru Solterra 2023">
 							</div>
 							<div class="product-info">
 								<h2 class="product-title">Subaru Solterra 2023</h2>
@@ -3578,7 +3579,7 @@
 						<a href="https://auto.ria.com/auto_volvo_xc90_38214993.html"
 							class="ltn__product-item ltn__product-item-3 text-center" target="_blank" rel="noopener noreferrer">
 							<div class="product-img">
-								<img height="200" src="./images/volovo.png" alt="Volvo XC90 2018">
+								<img height="200" src="./images/volovo.webp" alt="Volvo XC90 2018">
 							</div>
 							<div class="product-info">
 								<h2 class="product-title">Volvo XC90 2018</h2>
@@ -3599,7 +3600,7 @@
 						<a href="https://auto.ria.com/auto_tesla_model-3_38139829.html"
 							class="ltn__product-item ltn__product-item-3 text-center" target="_blank" rel="noopener noreferrer">
 							<div class="product-img">
-								<img height="200" src="./images/tesla.png" alt="Tesla Model 3 2021">
+								<img height="200" src="./images/tesla.webp" alt="Tesla Model 3 2021">
 							</div>
 							<div class="product-info">
 								<h2 class="product-title">Tesla Model 3 2021</h2>
@@ -4156,8 +4157,8 @@
 				document.addEventListener('DOMContentLoaded', appendUTMToLinks);
 			})();
 	</script>
-	<script src="/js/preloader.js" defer></script>
-	<script src="/js/utm-tracking.js" defer></script>
+	<script src="./js/preload.js" defer></script>
+	<script src="./js/utm-tracking.js" defer></script>
 	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 	<script src="./js/menu.js"></script>
 	<script src="./js/popup.js"></script>
