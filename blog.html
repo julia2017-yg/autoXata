@@ -3043,7 +3043,7 @@
 		</div>
 		<div class="ltn__blog-area pt-80 pb-120 pt-mob-80 pb-mob-80 pt-mob-60 pb-mob-60">
 			<div class="container">
-				<div class="row">
+				<div class="row" id="blog-container">
 					<div class="col-lg-12">
 						<div class="ltn__social-media-widget d-flex flex-wrap align-items-center pb-80"
 							style="flex-direction: column;">
@@ -3068,13 +3068,13 @@
 							</div>
 						</div>
 					</div>
-					<div class="col-12">
+					<div class="col-12" id="form">
 						<form class="search-section" style=" position: relative!important;
 							width: 100%!important;
 							max-width: 350px!important;
 							padding: 0!important;">
-							<h2 style="margin-bottom: 0.5rem!important;">Пошук по статтям</h2>
-							<input id="searchInput" type="search" placeholder="Почніть вводити текст..." style=" width: 100%!important;
+							<h2 style="margin-bottom: 0.5rem!important;">Пошук</h2>
+							<input id="searchInput" type="search" placeholder="Пошук статті..." style=" width: 100%!important;
 								height: 60px!important;
 								padding: 0 1rem 0 1rem!important;
 								font-size: 16px!important;
@@ -3082,12 +3082,15 @@
 								background: var(--white)!important;
 								border: 2px solid var(--border-color-9)!important;
 								border-radius: 0!important;">
-							<!-- <button type="submit">
-								<span><i class="icon-search"></i></span>
-							</button> -->
 							<ul id="searchResults"></ul>
 						</form>
-
+					</div>
+					<div class="ltn__blog-meta" style="text-align: lefts;">
+						<ul>
+							<li class="ltn__blog-category">
+								<a href="./de-i-yak-pereviryty-avto-za-vin-kodom.html">Блог</a>
+							</li>
+						</ul>
 					</div>
 					<div class="col-12">
 						<div class="ltn__blog-list-wrap">
@@ -3100,13 +3103,7 @@
 								</div>
 								<!-- Контент справа -->
 								<div class="ltn__blog-brief" style="flex: 1;">
-									<div class="ltn__blog-meta">
-										<ul>
-											<li class="ltn__blog-category">
-												<a href="./de-i-yak-pereviryty-avto-za-vin-kodom.html">Блог</a>
-											</li>
-										</ul>
-									</div>
+
 									<h3 class="ltn__blog-title">
 										<a href="./de-i-yak-pereviryty-avto-za-vin-kodom.html">Де і як перевірити авто за VIN-кодом</a>
 									</h3>
@@ -3128,9 +3125,6 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
 						</div>
 					</div>
 					<div class="col-12">
@@ -3144,7 +3138,6 @@
 								</div>
 								<!-- Контент справа -->
 								<div class="ltn__blog-brief" style="flex: 1;">
-
 									<h3 class="ltn__blog-title">
 										<a href="./chy-varto-kupuvaty-avto-zi-ssha-plyusy-ta-minusy.html">Чому варто купувати авто зі США:
 											головні переваги та ризики</a>
@@ -3152,7 +3145,7 @@
 									<div class="ltn__blog-meta">
 										<ul>
 											<li class="ltn__blog-date">
-												<i class="far fa-calendar-alt"></i>21 Березня , 2025
+												<i class="far fa-calendar-alt"></i>21 Березня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3166,9 +3159,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
 							</div>
 						</div>
 					</div>
@@ -3191,7 +3181,7 @@
 									<div class="ltn__blog-meta">
 										<ul>
 											<li class="ltn__blog-date">
-												<i class="far fa-calendar-alt"></i>14 Червня , 2025
+												<i class="far fa-calendar-alt"></i>17 Червня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3205,9 +3195,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
 							</div>
 						</div>
 					</div>
@@ -3229,7 +3216,7 @@
 									<div class="ltn__blog-meta">
 										<ul>
 											<li class="ltn__blog-date">
-												<i class="far fa-calendar-alt"></i>13 Червня , 2025
+												<i class="far fa-calendar-alt"></i>13 Червня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3243,9 +3230,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3267,7 +3252,7 @@
 									<div class="ltn__blog-meta">
 										<ul>
 											<li class="ltn__blog-date">
-												<i class="far fa-calendar-alt"></i>16 Травня , 2025
+												<i class="far fa-calendar-alt"></i>16 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3281,9 +3266,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3306,7 +3289,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												13 Травня , 2025
+												13 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3320,9 +3303,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3344,7 +3325,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												10 Травня , 2025
+												10 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3358,9 +3339,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3382,7 +3361,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												8 Травня , 2025
+												8 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3396,9 +3375,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3420,7 +3397,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												1 Травня , 2025
+												1 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3434,9 +3411,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3458,7 +3433,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												5 Травня , 2025
+												5 Травня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3472,9 +3447,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3499,7 +3472,7 @@
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
 
-												28 Квітня , 2025
+												28 Квітня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3513,9 +3486,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3540,7 +3511,7 @@
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
 
-												8 Лютого , 2025
+												8 Лютого, 2025
 											</li>
 										</ul>
 									</div>
@@ -3557,9 +3528,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3581,7 +3550,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												21 Березня , 2025
+												21 Березня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3599,9 +3568,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3622,7 +3589,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												23 Березня , 2025
+												23 Березня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3635,9 +3602,6 @@
 										</div>
 									</div>
 								</div>
-							</div>
-							<div class="col-md-12">
-								<div class="pagination-wrapp"></div>
 							</div>
 						</div>
 					</div>
@@ -3659,7 +3623,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												9 Лютого , 2025
+												9 Лютого, 2025
 											</li>
 										</ul>
 									</div>
@@ -3676,9 +3640,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="paginnazvano-najpopulyarnishyj-krosover-svitu.htmlation-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3699,7 +3661,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												1 Лютого , 2025
+												1 Лютого, 2025
 											</li>
 										</ul>
 									</div>
@@ -3716,9 +3678,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="paginnazvano-najpopulyarnishyj-krosover-svitu.htmlation-wrapp"></div>
-							</div>
+
 						</div>
 					</div>
 					<div class="col-12">
@@ -3751,9 +3711,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="paginnazvano-najpopulyarnishyj-krosover-svitu.htmlation-wrapp"></div>
-							</div>
+
 						</div>
 					</div>'<div class="col-12">
 						<div class="ltn__blog-list-wrap">
@@ -3773,7 +3731,7 @@
 										<ul>
 											<li class="ltn__blog-date">
 												<i class="far fa-calendar-alt"></i>
-												14 Червня , 2025
+												14 Червня, 2025
 											</li>
 										</ul>
 									</div>
@@ -3788,9 +3746,7 @@
 									</div>
 								</div>
 							</div>
-							<div class="col-md-12">
-								<div class="paginnazvano-najpopulyarnishyj-krosover-svitu.htmlation-wrapp"></div>
-							</div>
+
 						</div>
 					</div>'
 				</div>
@@ -3993,7 +3949,69 @@
 			</div>
 		</div>
 	</div>
+	<script>
+		document.addEventListener('DOMContentLoaded', () => {
+			const months = {
+				"Січня": 0, "Лютого": 1, "Березня": 2, "Квітня": 3,
+				"Травня": 4, "Червня": 5, "Липня": 6, "Серпня": 7,
+				"Вересня": 8, "Жовтня": 9, "Листопада": 10, "Грудня": 11
+			};
 
+			const container = document.getElementById('blog-container') || document.querySelector('.ltn__blog-area .row');
+			if (!container) return;
+
+			// Удаляем текстовый узел с кавычками '' сразу после блока #form (если есть)
+			const formBlock = document.getElementById('form');
+			if (formBlock) {
+				let next = formBlock.nextSibling;
+				if (next && next.nodeType === Node.TEXT_NODE && next.textContent.trim().match(/^'+$/)) {
+					console.log('Removing text node after #form:', JSON.stringify(next.textContent));
+					next.parentNode.removeChild(next);
+				}
+			}
+
+			// Рекурсивно удаляем пустые и узлы с кавычками в контейнере
+			function cleanTextNodes(node) {
+				for (let i = node.childNodes.length - 1; i >= 0; i--) {
+					const child = node.childNodes[i];
+					if (child.nodeType === Node.TEXT_NODE) {
+						const trimmed = child.textContent.trim();
+						if (trimmed === '' || /^'+$/.test(trimmed)) {
+							// console.log('Removing text node:', JSON.stringify(child.textContent));
+							node.removeChild(child);
+						}
+					} else if (child.nodeType === Node.ELEMENT_NODE) {
+						cleanTextNodes(child);
+					}
+				}
+			}
+
+			// Выбираем статьи: .col-12 с .ltn__blog-date, исключая #form
+			const articleCols = Array.from(container.children).filter(child =>
+				child.matches('.col-12') &&
+				child.querySelector('.ltn__blog-date') &&
+				child.id !== 'form'
+			);
+
+			const parseDate = (dateStr) => {
+				if (!dateStr) return new Date(0);
+				const [day, monthStr, year] = dateStr.split(/[\s,]+/);
+				return new Date(year, months[monthStr], day);
+			};
+
+			articleCols.sort((a, b) => {
+				const dateA = a.querySelector('.ltn__blog-date')?.textContent.trim() || '';
+				const dateB = b.querySelector('.ltn__blog-date')?.textContent.trim() || '';
+				return parseDate(dateB) - parseDate(dateA);
+			});
+
+			// Перемещаем статьи в отсортированном порядке
+			articleCols.forEach(col => container.appendChild(col));
+
+			// Очищаем контейнер от пустых и кавычечных текстовых узлов после сортировки
+			cleanTextNodes(container);
+		});
+	</script>
 
 	<div class="popup-fill"></div>
 	<div class="popup-fill2"></div>

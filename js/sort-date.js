@@ -1,38 +1,35 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const months = {
-    "Січня": 0, "Лютого": 1, "Березня": 2, "Квітня": 3, "Травня": 4, "Червня": 5,
-    "Липня": 6, "Серпня": 7, "Вересня": 8, "Жовтня": 9, "Листопада": 10, "Грудня": 11
-  };
+  const { parse, compareDesc, isValid } = dateFns;
+  const ukLocale = dateFnsLocaleUk;
 
-  // Находим контейнер со статьями
   const container = document.querySelector('.ltn__blog-list-wrap');
   if (!container) return;
 
-  // Получаем все статьи
   const articles = Array.from(container.querySelectorAll('.ltn__blog-item'));
 
   const parsedArticles = articles.map(article => {
     const dateEl = article.querySelector('.ltn__blog-date');
     if (!dateEl) return null;
 
-    const dateText = dateEl.textContent.trim().replace(/\s+/g, ' '); 
-    // Ожидание формата "1 Лютого, 2025"
-    const match = dateText.match(/(\d+)\s+([А-Яа-яЇїІіЄєҐґ]+),\s+(\d{4})/);
-    if (!match) return null;
+    // Берём текст после иконки
+    let dateText = '';
+    dateEl.childNodes.forEach(node => {
+      if (node.nodeType === Node.TEXT_NODE) {
+        dateText += node.textContent.trim() + ' ';
+      }
+    });
+    dateText = dateText.trim();
 
-    const [, day, monthName, year] = match;
-    const timestamp = new Date(
-      parseInt(year),
-      months[monthName],
-      parseInt(day)
-    ).getTime();
+    // Парсим дату: формат 'd MMMM, yyyy' - например, "21 Березня, 2025"
+    const date = parse(dateText, 'd MMMM, yyyy', new Date(), { locale: ukLocale });
+    if (!isValid(date)) return null;
 
-    return { article, timestamp };
+    return { article, date };
   }).filter(Boolean);
 
   // Сортируем по убыванию даты
-  parsedArticles.sort((a, b) => b.timestamp - a.timestamp);
+  parsedArticles.sort((a, b) => compareDesc(a.date, b.date));
 
-  // Очищаем контейнер и вставляем заново
+  // Вставляем статьи заново в нужном порядке
   parsedArticles.forEach(({ article }) => container.appendChild(article));
 });
