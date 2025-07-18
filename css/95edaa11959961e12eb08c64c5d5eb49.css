@@ -32246,7 +32246,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 }
 .ltn__main-menu>ul>li>a {
     font-size: 16px;
-    padding: 20px 10px!important;
+    padding: 15px 14px!important;
     display: inline-block;
     white-space: nowrap;
     color: var(--ltn__heading-color);
@@ -33799,7 +33799,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
     }
 
     .ltn__main-menu>ul>li>a {
-        padding: 20px 10px
+        padding: 15px 14px
     }
 
     .ltn__main-menu>ul>li {
