@@ -32240,12 +32240,10 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 .ltn__main-menu>ul>li:last-child {
     margin-right: 0
 }
-
 .ltn__main-menu>ul>li {
     padding-right: 0;
     margin-right: 0
 }
-
 .ltn__main-menu>ul>li>a {
     font-size: 16px;
     padding: 20px 8px;
@@ -32255,7 +32253,6 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
     font-weight: 700;
     font-family: var(--ltn__heading-font)
 }
-
 .ltn__main-menu>ul>li.menu-item-has-children>a {
     padding-right: 20px
 }
@@ -33802,7 +33799,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
     }
 
     .ltn__main-menu>ul>li>a {
-        padding: 20px 15px
+        padding: 20px 10px
     }
 
     .ltn__main-menu>ul>li {
