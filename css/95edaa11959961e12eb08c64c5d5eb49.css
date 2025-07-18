@@ -32246,7 +32246,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 }
 .ltn__main-menu>ul>li>a {
     font-size: 16px;
-    padding: 15px 14px!important;
+    padding: 15px 20px!important;
     display: inline-block;
     white-space: nowrap;
     color: var(--ltn__heading-color);
@@ -33307,7 +33307,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 }
 
 .special-link {
-    margin-left: 30px!important;
+    margin-left: 60px!important;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center
