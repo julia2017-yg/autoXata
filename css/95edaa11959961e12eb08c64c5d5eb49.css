@@ -33307,7 +33307,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 }
 
 .special-link {
-    margin-left: 60px!important;
+     margin: 0 0 0 60px;
     -ms-flex-item-align: center;
     -ms-grid-row-align: center;
     align-self: center
@@ -33323,13 +33323,13 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 
 @media only screen and (max-width: 1200px) {
     .special-link {
-        margin:20px 0!important;
+        margin:20px 0 20px 60px;
         text-align: center
     }
 }
 @media only screen and (max-width:420px) {
 			.special-link {
-				margin-left: 0!important;
+				margin:20px 0 20px 0px;
 			}
 		}
 .special-link a {
