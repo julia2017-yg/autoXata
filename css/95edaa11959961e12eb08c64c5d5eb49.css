@@ -33328,8 +33328,8 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
     }
 }
 @media only screen and (max-width:420px) {
-			.special-link {
-				margin:20px 0 20px 0px;
+			.menu-golovne-menyu-1 .special-link {
+				margin:20px 0 20px 0px!important;
 			}
 		}
 .special-link a {
