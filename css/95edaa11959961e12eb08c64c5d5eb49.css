@@ -33323,7 +33323,7 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
 
 @media only screen and (max-width: 1200px) {
     .special-link {
-        margin:20px 0;
+        margin:20px 0!important;
         text-align: center
     }
 }
