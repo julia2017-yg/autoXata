@@ -1139,12 +1139,26 @@
 			max-width: 240px
 		}
 
-		.special-link {
-			margin-left: 25px !important;
+	.special-link {
+			margin: 0 0 0 60px;
 			-ms-flex-item-align: center;
 			-ms-grid-row-align: center;
 			align-self: center
 		}
+
+		@media (max-width: 1200px) {
+			.special-link {
+				margin: 20px 0 20px 60px;
+				text-align: center
+			}
+		}
+
+		@media (max-width:420px) {
+			#menu-golovne-menyu-1 .special-link {
+				margin: 20px 0 20px 0px !important;
+			}
+		}
+
 
 		.special-link a {
 			border: 1px solid #ee253d
@@ -1159,12 +1173,6 @@
 			}
 		}
 
-		@media only screen and (max-width:1200px) {
-			.special-link {
-				margin: 20px 0;
-				text-align: center
-			}
-		}
 
 		.special-link a {
 			background-color: var(--ltn__secondary-color);

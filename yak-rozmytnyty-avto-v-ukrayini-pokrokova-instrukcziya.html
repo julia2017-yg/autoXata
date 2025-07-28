@@ -1140,10 +1140,23 @@
 		}
 
 		.special-link {
-			margin-left: 25px !important;
+			margin: 0 0 0 60px;
 			-ms-flex-item-align: center;
 			-ms-grid-row-align: center;
 			align-self: center
+		}
+
+		@media (max-width: 1200px) {
+			.special-link {
+				margin: 20px 0 20px 60px;
+				text-align: center
+			}
+		}
+
+		@media (max-width:420px) {
+			#menu-golovne-menyu-1 .special-link {
+				margin: 20px 0 20px 0px !important;
+			}
 		}
 
 		.special-link a {
@@ -1159,12 +1172,6 @@
 			}
 		}
 
-		@media only screen and (max-width:1200px) {
-			.special-link {
-				margin: 20px 0;
-				text-align: center
-			}
-		}
 
 		.special-link a {
 			background-color: var(--ltn__secondary-color);
@@ -3177,9 +3184,8 @@
 			<div class="ltn__utilize-menu-inner ltn__scrollbar">
 				<div class="ltn__utilize-menu">
 					<ul id="menu-golovne-menyu-1" class="menu">
-						<li id="menu-item-766"
-												class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-766"><a
-													href="./index.html" target="_blank">Головна</a></li>
+						<li id="menu-item-766" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-766"><a
+								href="./index.html" target="_blank">Головна</a></li>
 						<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-726"><a
 								href="https://auto.ria.com/dealers/autoxata/3634/" target="_blank">Каталог авто</a></li>
 						<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128">
