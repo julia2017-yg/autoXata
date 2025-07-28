@@ -106,3 +106,32 @@ a{
   border: 2px solid var(--border-color-9)!important;
   border-radius: 0!important;
 }
+ol {
+    list-style-type: none;
+    counter-reset: item;
+    padding-left: 1.2em;
+    padding-bottom: 0.8em;
+    padding-top: 0.4em
+}
+
+ol li {
+    position: relative;
+    margin-bottom: 1em;
+    padding-left: 2.5em
+}
+
+ol li:before {
+    content: counter(item);
+    counter-increment: item;
+    display: block;
+    position: absolute;
+    top: 0.3em;
+    left: 0;
+    width: 1em;
+    height: 1em;
+    line-height: 1em;
+    text-align: center;
+    color: red;
+    font-weight: bold;
+    font-size: 18px
+}

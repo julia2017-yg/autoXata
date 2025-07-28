@@ -33327,7 +33327,11 @@ ul.wp-block-latest-posts.alignwide,ul.wp-block-latest-posts.alignfull,ul.wp-bloc
         text-align: center
     }
 }
-
+@media only screen and (max-width:420px) {
+			.special-link {
+				margin-left: 0!important;
+			}
+		}
 .special-link a {
     background-color: var(--ltn__secondary-color);
     color: var(--white) !important;
