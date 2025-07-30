@@ -13,9 +13,12 @@
 	<style id="litespeed-ccss">
 		ol,
 		ul {
-			box-sizing: border-box
+			box-sizing: border-box;
 		}
-
+ol li::before {
+  content: none!important;
+  counter-increment: none!important;
+}
 		:root {
 			--wp--preset--font-size--normal: 16px;
 			--wp--preset--font-size--huge: 42px
@@ -1483,19 +1486,6 @@
 			}
 		}
 
-		.ltn__slide-item-inner {
-			height: 100%;
-			display: -webkit-box;
-			display: -ms-flexbox;
-			display: flex;
-			-webkit-box-align: center;
-			-ms-flex-align: center;
-			align-items: center
-		}
-
-		.ltn__slide-item-inner>.container {
-			position: relative
-		}
 
 		.slide-item-info-inner {
 			width: 100%
@@ -1729,19 +1719,8 @@
 		}
 
 		@media (min-width:991px) {
-			.home-p-slider {
-				padding-bottom: 60px
-			}
 
-			.ltn__slide-item-inner {
-				display: table;
-				width: 100%
-			}
 
-			.ltn__slide-item-inner .col-lg-12 {
-				display: flex;
-				align-items: center
-			}
 
 			.ltn__slide-item-2 {
 				height: 700px !important;
@@ -2724,200 +2703,7 @@
 			}
 		}
 
-		.header-salons-wrapp {
-			position: relative;
-			margin-right: 30px !important
-		}
 
-		.header-salons-wrapp>span>i {
-			position: relative;
-			top: 1px
-		}
-
-		.header-salons-wrapp:before {
-			content: "\e911";
-			font-size: 14px;
-			position: absolute;
-			top: -1px;
-			right: -15px;
-			font-family: 'icomoon';
-			color: #ee253d
-		}
-
-		.header-salons-wrapp .header-salons-list {
-			position: absolute;
-			display: none;
-			width: calc(100vw - 17px);
-			top: 38px;
-			left: 0;
-			z-index: 99
-		}
-
-		@media only screen and (min-width:1202px) {
-			.header-salons-wrapp .header-salons-list>.container {
-				max-width: 1202px
-			}
-		}
-
-		@media only screen and (max-width:767px) {
-			.header-salons-wrapp .header-salons-list {
-				width: calc(100vw - 0px);
-				top: 32px
-			}
-		}
-
-		@media only screen and (max-width:576px) {
-			.header-salons-wrapp .header-salons-list>.container {
-				padding: 0
-			}
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner {
-			max-height: calc(100vh - 38px);
-			padding: 32px;
-			padding-bottom: 12px;
-			background: #fff;
-			overflow: auto
-		}
-
-		@media only screen and (max-width:767px) {
-			.header-salons-wrapp .header-salons-list .header-salons-list-inner {
-				max-height: calc(100vh - 32px);
-				padding: 24px;
-				padding-bottom: 0
-			}
-
-			.logo_img[src*="white_logo.png"] {
-				width: 160px !important;
-				max-width: 160px !important;
-			}
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-item-city-title {
-			position: relative;
-			padding-left: 26px;
-			margin-bottom: 16px;
-			font-size: 20px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 20px;
-			color: #2c2d43
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-item-city-title:before {
-			content: "//";
-			position: absolute;
-			display: block;
-			top: -1px;
-			left: 0;
-			font-size: 20px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 20px;
-			color: #ee253d
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-items {
-			display: table;
-			width: 100%;
-			clear: both
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-item {
-			width: 100%;
-			float: left;
-			margin-right: 10px;
-			margin-bottom: 24px;
-			padding: 24px;
-			border: 2px solid #ededed
-		}
-
-		.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-item:nth-child(even) {
-			float: right;
-			margin-right: 0;
-			margin-left: 10px
-		}
-
-		@media only screen and (max-width:992px) {
-
-			.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-item,
-			.header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-item:nth-child(even) {
-				width: 100%;
-				float: none;
-				margin-left: 0;
-				margin-right: 0
-			}
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-content {
-			float: left;
-			width: calc(100% - 200px)
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-content .header-salons-list-office-item-title a {
-			display: block;
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 20px;
-			color: #2c2d43
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-content .header-salons-list-office-item-label {
-			display: table;
-			margin-top: 12px;
-			padding: 4px 12px;
-			background: #e6ecf0;
-			font-size: 12px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 20px;
-			color: #2c2d43
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones {
-			position: relative;
-			float: right;
-			max-width: 200px;
-			padding-left: 36px
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones>img {
-			position: absolute;
-			display: block;
-			height: 24px;
-			width: 24px;
-			top: 0;
-			left: 0
-		}
-
-		.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones a {
-			display: block;
-			width: 100%;
-			font-size: 16px;
-			font-style: normal;
-			font-weight: 700;
-			line-height: 24px;
-			text-align: right;
-			color: #2c2d43
-		}
-
-		@media only screen and (max-width:992px) {
-
-			.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-content,
-			.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones {
-				width: 100%;
-				float: none
-			}
-
-			.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones {
-				margin-top: 20px
-			}
-
-			.header-salons-wrapp .header-salons-list-office-item .header-salons-list-office-item-phones a {
-				text-align: left
-			}
-		}
 
 		.nice-select.custom-purpose-select {
 			width: 100%;
@@ -3326,7 +3112,8 @@
 						<p><span style="font-weight: 400">Терміни, що вживаються нижче, мають значення, наведені у Законі України
 								«Про захист персональних даних» та інших чинних нормативно-правових актах України.</span></p>
 						<ol>
-							<li><span style="font-weight: 400"> Політика обробки персональних даних наших Клієнтів базується на
+
+							<li><span><b>1.</b></span><span style="font-weight: 400"> Політика обробки персональних даних наших Клієнтів базується на
 									таких основних принципах:</span></li>
 						</ol>
 						<ul>
@@ -3341,7 +3128,7 @@
 							</li>
 						</ul>
 						<ol start="2">
-							<li><span style="font-weight: 400"> База персональних даних Клієнтів Компанії включає персональні дані,
+							<li><span><b>2.</b></span><span style="font-weight: 400"> База персональних даних Клієнтів Компанії включає персональні дані,
 									які були добровільно надані Клієнтом під час придбання товарів та послуг автосалону “АвтоХата”,
 									користування послугами/сервісами Компанії, участі у маркетингово-рекламних заходах, участі в
 									опитуваннях, під час відвідування та користування веб-сайтом Компанії, заповнення відповідних
@@ -3350,11 +3137,11 @@
 									листа, або які були отримані Компанією на інших законних підставах.</span></li>
 						</ol>
 						<ol start="3">
-							<li><span style="font-weight: 400"> Володільцем бази персональних даних Клієнтів є “АвтоХата” 
+							<li><span><b>3.</b></span><span style="font-weight: 400"> Володільцем бази персональних даних Клієнтів є “АвтоХата” 
 									(Фактична адреса: м. Миколаїв, вул. Ігоря Бедзая, 51б, Николаев (ул. Чкалова 51б))</span></li>
 						</ol>
 						<ol start="4">
-							<li><span style="font-weight: 400"> Метою обробки персональних даних Клієнтів є здійснення діяльності та
+							<li><span><b>4.</b></span><span style="font-weight: 400"> Метою обробки персональних даних Клієнтів є здійснення діяльності та
 									виконання зобов’язань Компанією на території України у тому числі щодо:</span></li>
 						</ol>
 						<ul>
@@ -3374,21 +3161,21 @@
 									законодавства України.</span></li>
 						</ul>
 						<ol start="5">
-							<li><span style="font-weight: 400"> Обробка персональних даних передбачає такі дії або сукупність дій:
+							<li><span><b>5.</b></span><span style="font-weight: 400"> Обробка персональних даних передбачає такі дії або сукупність дій:
 									збирання, накопичення, зберігання, адаптування, зміна, поновлення, використання та поширення
 									(розповсюдження, реалізація, передача), знеособлення, знищення персональних даних, та здійснюється
 									як із застосуванням автоматизованих засобів, так із застосуванням неавтоматизованих засобів, у
 									документальній (паперовій), електронній формі та/або у формі картотек.</span></li>
 						</ol>
 						<ol start="6">
-							<li><span style="font-weight: 400"> Персональні дані обробляються у строк не більше, ніж це необхідно
+							<li><span><b>6.</b></span><span style="font-weight: 400"> Персональні дані обробляються у строк не більше, ніж це необхідно
 									відповідно до мети їхньої обробки або для дотримання встановлених законодавством вимог, або до
 									моменту відкликання Клієнтом наданої згоди на обробку персональних даних, пред’явлення вмотивованої
 									вимоги Клієнта із запереченням проти обробки персональних даних, пред’явлення вмотивованої вимоги
 									Клієнта щодо знищення своїх персональних даних.</span></li>
 						</ol>
 						<ol start="7">
-							<li><span style="font-weight: 400"> Персональні дані Клієнта, які обробляються Компанією, складаються з
+							<li><span><b>7.</b></span><span style="font-weight: 400"> Персональні дані Клієнта, які обробляються Компанією, складаються з
 									таких даних: прізвище, ім’я, по батькові фізичної особи, адреса проживання (для листування),
 									контактна інформація (номери телефонів, електронні адреси, поштова адреса), а також – інші
 									персональні дані, які були добровільно надані Клієнтом та які необхідні для реалізації
@@ -3403,7 +3190,7 @@
 						<p><span style="font-weight: 400">Компанія не обробляє персональних даних осіб, які знаходяться на
 								території Європейського Союзу.</span></p>
 						<ol start="8">
-							<li><span style="font-weight: 400"> Персональні дані Клієнтів можуть передаватися компаніям —
+							<li><span><b>8.</b></span><span style="font-weight: 400"> Персональні дані Клієнтів можуть передаватися компаніям —
 									провайдерам послуг (зокрема, з розсилки рекламно-маркетингових повідомлень, проведення опитувань),
 									за умови дотримання ними умов конфіденційності; при цьому, Компанія при переданні персональних даних
 									вимагає від своїх партнерів забезпечення не нижчого рівня захисту для персональних даних Клієнтів,
@@ -3412,7 +3199,7 @@
 						<p><span style="font-weight: 400">Крім того, персональні дані можуть бути передані державним органам
 								виключно у випадках, на підставі, у порядку та відповідно до чинного законодавства України.</span></p>
 						<ol start="9">
-							<li><span style="font-weight: 400"> Компанія дбає про безпеку персональних даних Клієнтів, впроваджує
+							<li><span><b>9.</b></span><span style="font-weight: 400"> Компанія дбає про безпеку персональних даних Клієнтів, впроваджує
 									організаційні та технічні заходи й засоби з метою забезпечення належного рівня захисту персональних
 									даних від випадкової втрати, неавторизованої або незаконної обробки, у тому числі незаконного
 									знищення чи доступу до персональних даних, за будь-яких обставин, крім обставин, які знаходяться
@@ -3423,7 +3210,7 @@
 									числі персональних даних. </span></li>
 						</ol>
 						<ol start="10">
-							<li><span style="font-weight: 400"> Клієнт як суб’єкт персональних даних має такі права:</span></li>
+							<li><span><b>10.</b></span><span style="font-weight: 400"> Клієнт як суб’єкт персональних даних має такі права:</span></li>
 						</ol>
 						<ul>
 							<li style="font-weight: 400"><span style="font-weight: 400">знати про джерела збирання, місцезнаходження
