@@ -10640,7 +10640,7 @@ body .wpc-filters-open-button-container a.wpc-filters-open-widget,body .wpc-filt
 body {
     margin: 0;
     font-family: var(--bs-font-sans-serif);
-    font-size: 1rem;
+    font-size: 1.1rem;
     font-weight: 400;
     line-height: 1.5;
     color: #212529;
@@ -22777,7 +22777,7 @@ body {
     color: var(--ltn__paragraph-color);
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 18px;
     font-family: var(--ltn__body-font);
     line-height: 1.8;
     margin: 0 auto
