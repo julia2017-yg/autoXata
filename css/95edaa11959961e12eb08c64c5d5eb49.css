@@ -24466,7 +24466,7 @@ dl,ol,ul {
 }
 
 .pb-120 {
-    padding-bottom: 120px
+    padding-bottom: 80px
 }
 
 .pb-122 {
@@ -38330,9 +38330,11 @@ html.disable-scroll,html.disable-scroll2,html.disable-scroll3,html.disable-scrol
 }
 
 .pb-120 {
-    padding-bottom: 120px !important
+    padding-bottom: 80px !important
 }
-
+.pb-footer {
+    padding-bottom: 40px !important
+}
 @media only screen and (max-width: 1200px) {
     .pb-mob-60 {
         padding-bottom:60px !important
