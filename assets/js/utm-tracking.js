@@ -17,7 +17,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // ✅ 2.1 Если в URL нет UTM, но они есть в localStorage — добавляем их в адрес
+    // 3️⃣ Если в URL нет UTM, но они есть в localStorage — добавляем их
     if (Object.keys(savedUtms).length > 0) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
@@ -30,44 +30,41 @@
       }
 
       if (changed) {
-        // заменяем URL без перезагрузки
         window.history.replaceState({}, "", currentUrl.href);
       }
     }
 
-    // 3️⃣ Подставляем UTM во все внутренние ссылки
-    if (Object.keys(savedUtms).length > 0) {
-      document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
+    // 4️⃣ Подставляем UTM в все внутренние ссылки
+    document.querySelectorAll('a[href]').forEach(link => {
+      const href = link.getAttribute('href');
 
-        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-        if (
-          href.startsWith('/') ||
-          href.startsWith('./') ||
-          href.startsWith('../') ||
-          href.startsWith(window.location.origin)
-        ) {
-          const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-          const targetUrl = new URL(href, base);
+      if (
+        href.startsWith('/') ||
+        href.startsWith('./') ||
+        href.startsWith('../') ||
+        href.startsWith(window.location.origin)
+      ) {
+        const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
+        const targetUrl = new URL(href, base);
 
-          for (const param in savedUtms) {
-            targetUrl.searchParams.set(param, savedUtms[param]);
-          }
-
-          link.href = targetUrl.href;
+        for (const param in savedUtms) {
+          targetUrl.searchParams.set(param, savedUtms[param]);
         }
-      });
-    }
 
-    // 4️⃣ Переключение языка — сохраняем текущую страницу и UTM
+        link.href = targetUrl.href;
+      }
+    });
+
+    // 5️⃣ Переключение языка — сохраняем текущую страницу и UTM
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
-        if (Object.keys(savedUtms).length === 0) return; // если UTM нет, обычный переход
+        if (Object.keys(savedUtms).length === 0) return;
 
         e.preventDefault();
 
-        const currentPath = window.location.pathname; // пример: /ru/blog.html или /service.html
+        const currentPath = window.location.pathname; // текущий путь
         let newPath;
 
         if (link.dataset.lang === "ru") {
@@ -75,11 +72,15 @@
           if (!currentPath.startsWith("/ru/")) {
             newPath = "/ru" + currentPath;
           } else {
-            newPath = currentPath;
+            newPath = currentPath; // уже RU
           }
         } else {
           // 🇺🇦 на укр → убираем /ru/
-          newPath = currentPath.replace(/^\/ru/, "") || "/";
+          if (currentPath.startsWith("/ru/")) {
+            newPath = currentPath.replace(/^\/ru/, "") || "/";
+          } else {
+            newPath = currentPath; // уже UA
+          }
         }
 
         const targetUrl = new URL(newPath, window.location.origin);
