@@ -1,7 +1,7 @@
 (function() {
   const domain = 'https://autoxata.mk.ua';
 
-  // 1️⃣ Получаем UTM-параметры из URL
+  // 1️⃣ Получаем все UTM-параметры из URL
   const urlParams = new URLSearchParams(window.location.search);
   const utms = {};
   urlParams.forEach((value, key) => {
@@ -30,30 +30,33 @@
     }
 
     // 4️⃣ Функция для генерации URL с правильным языком и UTM
-    function generateUrl(pathname) {
-      let path = pathname;
-
+    function generateUrl(href) {
+      const url = new URL(href, domain);
       const isRU = window.location.pathname.startsWith('/ru/');
-      if (isRU && !path.startsWith('/ru/')) {
-        path = path === '/' ? '/ru/' : '/ru' + path;
-      } else if (!isRU && path.startsWith('/ru/')) {
-        path = path.replace(/^\/ru/, '') || '/';
+
+      // Если текущая страница на RU и ссылка внутренняя
+      if (isRU && url.origin === domain && !url.pathname.startsWith('/ru/')) {
+        url.pathname = url.pathname === '/' ? '/ru/' : '/ru' + url.pathname;
       }
 
-      const url = new URL(domain + path);
+      // Если текущая страница на UA и ссылка начинается с /ru/, убрать /ru
+      if (!isRU && url.pathname.startsWith('/ru/')) {
+        url.pathname = url.pathname.replace(/^\/ru/, '') || '/';
+      }
+
+      // Добавляем все UTM
       for (const param in savedUtms) {
         url.searchParams.set(param, savedUtms[param]);
       }
+
       return url.href;
     }
 
     // 5️⃣ Подставляем UTM во все внутренние ссылки
     document.querySelectorAll('a[href]').forEach(link => {
-      let href = link.getAttribute('href');
+      const href = link.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-
-      const url = new URL(href, domain);
-      link.href = generateUrl(url.pathname);
+      link.href = generateUrl(href);
     });
 
     // 6️⃣ Переключение языка
