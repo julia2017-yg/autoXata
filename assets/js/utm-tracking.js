@@ -38,15 +38,10 @@
     if (Object.keys(savedUtms).length > 0) {
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
-
         if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-        if (
-          href.startsWith('/') ||
-          href.startsWith('./') ||
-          href.startsWith('../') ||
-          href.startsWith(window.location.origin)
-        ) {
+        // только внутренние ссылки
+        if (href.startsWith('/') || href.startsWith('./') || href.startsWith('../') || href.startsWith(window.location.origin)) {
           const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
           const targetUrl = new URL(href, base);
 
@@ -59,24 +54,22 @@
       });
     }
 
-    // 4️⃣ Переключение языка — сохраняем текущую страницу и UTM
+    // 4️⃣ Переключение языка — корректно сохраняем путь и UTM
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
         if (Object.keys(savedUtms).length === 0) return;
 
         e.preventDefault();
 
-        const currentPath = window.location.pathname; 
-        let newPath;
+        const href = link.getAttribute('href'); // берём ссылку прямо из меню
+        let newPath = href;
 
         if (link.dataset.lang === "ru") {
-          if (!currentPath.startsWith("/ru/")) {
-            newPath = "/ru" + currentPath;
-          } else {
-            newPath = currentPath;
+          if (!href.startsWith("/ru/")) {
+            newPath = "/ru" + (href.startsWith("/") ? href : "/" + href);
           }
         } else {
-          newPath = currentPath.replace(/^\/ru/, "") || "/";
+          newPath = href.replace(/^\/ru/, "") || "/";
         }
 
         const targetUrl = new URL(newPath, window.location.origin);
