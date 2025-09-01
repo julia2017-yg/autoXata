@@ -17,7 +17,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // 3️⃣ Если в URL нет UTM, но они есть в localStorage — добавляем их
+    // 3️⃣ Всегда подставляем UTM в URL, если их нет
     if (Object.keys(savedUtms).length > 0) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
@@ -34,12 +34,12 @@
       }
     }
 
-    // 4️⃣ Подставляем UTM в все внутренние ссылки
+    // 4️⃣ Подставляем UTM во все внутренние ссылки
     document.querySelectorAll('a[href]').forEach(link => {
       const href = link.getAttribute('href');
-
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
+      // Определяем базу для относительных ссылок
       if (
         href.startsWith('/') ||
         href.startsWith('./') ||
@@ -48,6 +48,11 @@
       ) {
         const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
         const targetUrl = new URL(href, base);
+
+        // Если мы на RU и ссылка внутренняя без /ru/, добавляем /ru/
+        if (window.location.pathname.startsWith('/ru/') && !targetUrl.pathname.startsWith('/ru/')) {
+          targetUrl.pathname = '/ru' + targetUrl.pathname;
+        }
 
         for (const param in savedUtms) {
           targetUrl.searchParams.set(param, savedUtms[param]);
@@ -64,7 +69,7 @@
 
         e.preventDefault();
 
-        const currentPath = window.location.pathname; // текущий путь
+        let currentPath = window.location.pathname;
         let newPath;
 
         if (link.dataset.lang === "ru") {
@@ -72,14 +77,14 @@
           if (!currentPath.startsWith("/ru/")) {
             newPath = "/ru" + currentPath;
           } else {
-            newPath = currentPath; // уже RU
+            newPath = currentPath;
           }
         } else {
           // 🇺🇦 на укр → убираем /ru/
           if (currentPath.startsWith("/ru/")) {
             newPath = currentPath.replace(/^\/ru/, "") || "/";
           } else {
-            newPath = currentPath; // уже UA
+            newPath = currentPath;
           }
         }
 
@@ -89,6 +94,7 @@
           targetUrl.searchParams.set(param, savedUtms[param]);
         }
 
+        // Переходим на страницу с UTM и правильным языком
         window.location.href = targetUrl.href;
       });
     });
