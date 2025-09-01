@@ -1,5 +1,7 @@
 (function() {
-  // 1️⃣ Получаем все UTM из URL
+  const domain = 'https://autoxata.mk.ua';
+
+  // 1️⃣ Получаем все UTM-параметры из текущего URL
   const urlParams = new URLSearchParams(window.location.search);
   const utms = {};
   urlParams.forEach((value, key) => {
@@ -14,7 +16,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // 3️⃣ Если в URL нет UTM, но есть в localStorage — добавляем их
+    // 3️⃣ Обновляем URL текущей страницы, если UTM есть в localStorage, но их нет в query
     if (Object.keys(savedUtms).length) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
@@ -27,20 +29,21 @@
       if (changed) window.history.replaceState({}, '', currentUrl.href);
     }
 
-    // 4️⃣ Подставляем UTM во все внутренние ссылки
+    // 4️⃣ Обновляем все внутренние ссылки
     document.querySelectorAll('a[href]').forEach(link => {
-      const href = link.getAttribute('href');
+      let href = link.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-      const base = window.location.origin;
-      const targetUrl = new URL(href, base);
-
-      // Добавляем UTM
-      for (const param in savedUtms) targetUrl.searchParams.set(param, savedUtms[param]);
+      const targetUrl = new URL(href, domain);
 
       // Если мы на RU и ссылка внутренняя без /ru/, добавляем /ru/
       if (window.location.pathname.startsWith('/ru/') && !targetUrl.pathname.startsWith('/ru/')) {
         targetUrl.pathname = '/ru' + targetUrl.pathname;
+      }
+
+      // Добавляем UTM
+      for (const param in savedUtms) {
+        targetUrl.searchParams.set(param, savedUtms[param]);
       }
 
       link.href = targetUrl.href;
@@ -50,6 +53,7 @@
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
+        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
         let currentPath = window.location.pathname;
         let newPath;
@@ -68,10 +72,12 @@
           }
         }
 
-        const targetUrl = new URL(newPath, window.location.origin);
+        const targetUrl = new URL(domain + newPath);
 
-        // Подставляем UTM
-        for (const param in savedUtms) targetUrl.searchParams.set(param, savedUtms[param]);
+        // Добавляем UTM
+        for (const param in savedUtms) {
+          targetUrl.searchParams.set(param, savedUtms[param]);
+        }
 
         window.location.href = targetUrl.href;
       });
