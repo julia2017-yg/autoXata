@@ -39677,7 +39677,7 @@ html.disable-scroll,html.disable-scroll2,html.disable-scroll3,html.disable-scrol
 
 @media only screen and (max-width: 767px) {
     .header-salons-wrapp .header-salons-list {
-        width:calc(100vw - 0px);
+        width:calc(60vw - 0px);
         top: 32px
     }
 }
@@ -39735,7 +39735,7 @@ html.disable-scroll,html.disable-scroll2,html.disable-scroll3,html.disable-scrol
 }
 
 .header-salons-wrapp .header-salons-list .header-salons-list-inner .header-salons-list-office-item {
-    width: calc(50% - 10px);
+    /* width: calc(50% - 10px); */
     float: left;
     margin-right: 10px;
     margin-bottom: 24px;
