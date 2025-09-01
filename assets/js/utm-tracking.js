@@ -17,7 +17,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // 3️⃣ Всегда подставляем UTM в URL, если их нет
+    // 3️⃣ Если в URL нет UTM, но они есть в localStorage — добавляем их в адрес
     if (Object.keys(savedUtms).length > 0) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
@@ -39,7 +39,6 @@
       const href = link.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-      // Определяем базу для относительных ссылок
       if (
         href.startsWith('/') ||
         href.startsWith('./') ||
@@ -54,6 +53,7 @@
           targetUrl.pathname = '/ru' + targetUrl.pathname;
         }
 
+        // Подставляем UTM
         for (const param in savedUtms) {
           targetUrl.searchParams.set(param, savedUtms[param]);
         }
@@ -65,9 +65,9 @@
     // 5️⃣ Переключение языка — сохраняем текущую страницу и UTM
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
-        if (Object.keys(savedUtms).length === 0) return;
+        e.preventDefault(); // отменяем стандартный переход
 
-        e.preventDefault();
+        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
         let currentPath = window.location.pathname;
         let newPath;
@@ -75,7 +75,7 @@
         if (link.dataset.lang === "ru") {
           // 🇷🇺 на русскую → добавляем /ru/ если нет
           if (!currentPath.startsWith("/ru/")) {
-            newPath = "/ru" + currentPath;
+            newPath = currentPath === "/" ? "/ru/" : "/ru" + currentPath;
           } else {
             newPath = currentPath;
           }
@@ -90,11 +90,11 @@
 
         const targetUrl = new URL(newPath, window.location.origin);
 
+        // Добавляем UTM
         for (const param in savedUtms) {
           targetUrl.searchParams.set(param, savedUtms[param]);
         }
 
-        // Переходим на страницу с UTM и правильным языком
         window.location.href = targetUrl.href;
       });
     });
