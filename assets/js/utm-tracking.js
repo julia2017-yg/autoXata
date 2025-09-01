@@ -16,7 +16,7 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // 3️⃣ Обновляем URL текущей страницы, если UTM есть в localStorage, но их нет в query
+    // 3️⃣ Если в URL нет UTM, но есть в localStorage — добавляем их в адрес
     if (Object.keys(savedUtms).length) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
@@ -29,19 +29,19 @@
       if (changed) window.history.replaceState({}, '', currentUrl.href);
     }
 
-    // 4️⃣ Обновляем все внутренние ссылки
+    // 4️⃣ Подставляем UTM во все внутренние ссылки
     document.querySelectorAll('a[href]').forEach(link => {
-      let href = link.getAttribute('href');
+      const href = link.getAttribute('href');
       if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
       const targetUrl = new URL(href, domain);
 
       // Если мы на RU и ссылка внутренняя без /ru/, добавляем /ru/
       if (window.location.pathname.startsWith('/ru/') && !targetUrl.pathname.startsWith('/ru/')) {
-        targetUrl.pathname = '/ru' + targetUrl.pathname;
+        targetUrl.pathname = '/ru' + (targetUrl.pathname === '/' ? '' : targetUrl.pathname);
       }
 
-      // Добавляем UTM
+      // Подставляем UTM
       for (const param in savedUtms) {
         targetUrl.searchParams.set(param, savedUtms[param]);
       }
@@ -53,18 +53,20 @@
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
+        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
         let currentPath = window.location.pathname;
         let newPath;
 
         if (link.dataset.lang === 'ru') {
+          // На RU
           if (!currentPath.startsWith('/ru/')) {
             newPath = currentPath === '/' ? '/ru/' : '/ru' + currentPath;
           } else {
             newPath = currentPath;
           }
         } else {
+          // На UA
           if (currentPath.startsWith('/ru/')) {
             newPath = currentPath.replace(/^\/ru/, '') || '/';
           } else {
