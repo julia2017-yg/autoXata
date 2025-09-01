@@ -34,22 +34,22 @@
       }
     }
 
-    // 3️⃣ Подставляем UTM во все внутренние ссылки
+    // 3️⃣ Подставляем UTM во все внутренние ссылки (любые пути внутри домена)
     if (Object.keys(savedUtms).length > 0) {
       document.querySelectorAll('a[href]').forEach(link => {
         const href = link.getAttribute('href');
         if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-        // только внутренние ссылки
-        if (href.startsWith('/') || href.startsWith('./') || href.startsWith('../') || href.startsWith(window.location.origin)) {
-          const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-          const targetUrl = new URL(href, base);
-
-          for (const param in savedUtms) {
-            targetUrl.searchParams.set(param, savedUtms[param]);
+        try {
+          const targetUrl = new URL(href, window.location.origin);
+          if (targetUrl.origin === window.location.origin) {
+            for (const param in savedUtms) {
+              targetUrl.searchParams.set(param, savedUtms[param]);
+            }
+            link.href = targetUrl.href;
           }
-
-          link.href = targetUrl.href;
+        } catch (err) {
+          // игнорируем некорректные URL
         }
       });
     }
