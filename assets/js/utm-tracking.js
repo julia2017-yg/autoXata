@@ -1,12 +1,11 @@
 (function() {
+  const domain = 'https://autoxata.mk.ua';
+
   // 1️⃣ Получаем все UTM-параметры из URL
   const urlParams = new URLSearchParams(window.location.search);
   const utms = {};
-
   urlParams.forEach((value, key) => {
-    if (key.startsWith('utm_')) {
-      utms[key] = value;
-    }
+    if (key.startsWith('utm_')) utms[key] = value;
   });
 
   // 2️⃣ Сохраняем UTM в localStorage
@@ -17,73 +16,59 @@
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // ✅ 2.1 Если в URL нет UTM, но они есть в localStorage — добавляем их в адрес
+    // 2.1 Если в URL нет UTM, но они есть в localStorage — добавляем их
     if (Object.keys(savedUtms).length > 0) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
-
       for (const param in savedUtms) {
         if (!currentUrl.searchParams.has(param)) {
           currentUrl.searchParams.set(param, savedUtms[param]);
           changed = true;
         }
       }
-
-      if (changed) {
-        // заменяем URL без перезагрузки
-        window.history.replaceState({}, "", currentUrl.href);
-      }
+      if (changed) window.history.replaceState({}, "", currentUrl.href);
     }
 
     // 3️⃣ Подставляем UTM во все внутренние ссылки
     if (Object.keys(savedUtms).length > 0) {
       document.querySelectorAll('a[href]').forEach(link => {
-        const href = link.getAttribute('href');
-
+        let href = link.getAttribute('href');
         if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
 
-        if (
-          href.startsWith('/') ||
-          href.startsWith('./') ||
-          href.startsWith('../') ||
-          href.startsWith(window.location.origin)
-        ) {
-          const base = window.location.origin + window.location.pathname.replace(/[^/]*$/, '');
-          const targetUrl = new URL(href, base);
+        // Всегда формируем абсолютный URL через домен
+        const url = new URL(href, domain);
 
-          for (const param in savedUtms) {
-            targetUrl.searchParams.set(param, savedUtms[param]);
-          }
-
-          link.href = targetUrl.href;
+        // Если на RU и ссылка внутренняя без /ru/, добавляем /ru/
+        if (window.location.pathname.startsWith('/ru/') && !url.pathname.startsWith('/ru/')) {
+          url.pathname = url.pathname === '/' ? '/ru/' : '/ru' + url.pathname;
         }
+
+        // Добавляем UTM
+        for (const param in savedUtms) {
+          url.searchParams.set(param, savedUtms[param]);
+        }
+
+        link.href = url.href;
       });
     }
 
-    // 4️⃣ Переключение языка — сохраняем текущую страницу и UTM
+    // 4️⃣ Переключение языка
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
-        if (Object.keys(savedUtms).length === 0) return; // если UTM нет, обычный переход
-
         e.preventDefault();
 
-        const currentPath = window.location.pathname; // пример: /ru/blog.html или /service.html
+        const currentPath = window.location.pathname;
         let newPath;
 
         if (link.dataset.lang === "ru") {
-          // 🇷🇺 на русскую → добавляем /ru/ если нет
-          if (!currentPath.startsWith("/ru/")) {
-            newPath = "/ru" + currentPath;
-          } else {
-            newPath = currentPath;
-          }
+          newPath = currentPath.startsWith('/ru/') ? currentPath : (currentPath === '/' ? '/ru/' : '/ru' + currentPath);
         } else {
-          // 🇺🇦 на укр → убираем /ru/
-          newPath = currentPath.replace(/^\/ru/, "") || "/";
+          newPath = currentPath.startsWith('/ru/') ? currentPath.replace(/^\/ru/, '') || '/' : currentPath;
         }
 
-        const targetUrl = new URL(newPath, window.location.origin);
+        const targetUrl = new URL(domain + newPath);
 
+        // Подставляем UTM
         for (const param in savedUtms) {
           targetUrl.searchParams.set(param, savedUtms[param]);
         }
