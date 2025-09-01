@@ -1,7 +1,7 @@
 (function() {
   const domain = 'https://autoxata.mk.ua';
 
-  // 1️⃣ Получаем все UTM-параметры из URL
+  // 1️⃣ Получаем UTM-параметры из URL
   const urlParams = new URLSearchParams(window.location.search);
   const utms = {};
   urlParams.forEach((value, key) => {
@@ -9,15 +9,15 @@
   });
 
   // 2️⃣ Сохраняем UTM в localStorage
-  if (Object.keys(utms).length > 0) {
+  if (Object.keys(utms).length) {
     localStorage.setItem('utmParams', JSON.stringify(utms));
   }
 
   document.addEventListener('DOMContentLoaded', () => {
     const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
 
-    // 2.1 Если в URL нет UTM, но они есть в localStorage — добавляем их
-    if (Object.keys(savedUtms).length > 0) {
+    // 3️⃣ Если в URL нет UTM, добавляем их
+    if (Object.keys(savedUtms).length) {
       const currentUrl = new URL(window.location.href);
       let changed = false;
       for (const param in savedUtms) {
@@ -26,33 +26,37 @@
           changed = true;
         }
       }
-      if (changed) window.history.replaceState({}, "", currentUrl.href);
+      if (changed) window.history.replaceState({}, '', currentUrl.href);
     }
 
-    // 3️⃣ Подставляем UTM во все внутренние ссылки
-    if (Object.keys(savedUtms).length > 0) {
-      document.querySelectorAll('a[href]').forEach(link => {
-        let href = link.getAttribute('href');
-        if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+    // 4️⃣ Функция для генерации URL с правильным языком и UTM
+    function generateUrl(pathname) {
+      let path = pathname;
 
-        // Всегда формируем абсолютный URL через домен
-        const url = new URL(href, domain);
+      const isRU = window.location.pathname.startsWith('/ru/');
+      if (isRU && !path.startsWith('/ru/')) {
+        path = path === '/' ? '/ru/' : '/ru' + path;
+      } else if (!isRU && path.startsWith('/ru/')) {
+        path = path.replace(/^\/ru/, '') || '/';
+      }
 
-        // Если на RU и ссылка внутренняя без /ru/, добавляем /ru/
-        if (window.location.pathname.startsWith('/ru/') && !url.pathname.startsWith('/ru/')) {
-          url.pathname = url.pathname === '/' ? '/ru/' : '/ru' + url.pathname;
-        }
-
-        // Добавляем UTM
-        for (const param in savedUtms) {
-          url.searchParams.set(param, savedUtms[param]);
-        }
-
-        link.href = url.href;
-      });
+      const url = new URL(domain + path);
+      for (const param in savedUtms) {
+        url.searchParams.set(param, savedUtms[param]);
+      }
+      return url.href;
     }
 
-    // 4️⃣ Переключение языка
+    // 5️⃣ Подставляем UTM во все внутренние ссылки
+    document.querySelectorAll('a[href]').forEach(link => {
+      let href = link.getAttribute('href');
+      if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+
+      const url = new URL(href, domain);
+      link.href = generateUrl(url.pathname);
+    });
+
+    // 6️⃣ Переключение языка
     document.querySelectorAll('.lang-switch').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -60,20 +64,13 @@
         const currentPath = window.location.pathname;
         let newPath;
 
-        if (link.dataset.lang === "ru") {
+        if (link.dataset.lang === 'ru') {
           newPath = currentPath.startsWith('/ru/') ? currentPath : (currentPath === '/' ? '/ru/' : '/ru' + currentPath);
         } else {
           newPath = currentPath.startsWith('/ru/') ? currentPath.replace(/^\/ru/, '') || '/' : currentPath;
         }
 
-        const targetUrl = new URL(domain + newPath);
-
-        // Подставляем UTM
-        for (const param in savedUtms) {
-          targetUrl.searchParams.set(param, savedUtms[param]);
-        }
-
-        window.location.href = targetUrl.href;
+        window.location.href = generateUrl(newPath);
       });
     });
   });
