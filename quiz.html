@@ -376,28 +376,39 @@
       }
 
       function calculateResult() {
-        state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-        quizConfig.forEach(q => {
-          const ans = q.answers.find(a => a.id === state.answers[q.id]);
-          if (!ans?.weights) return;
-          Object.entries(ans.weights).forEach(([k, v]) => state.score[k] += v);
-        });
+  state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
 
-        const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
-        const top = sorted[0][0];
-        const top2 = sorted[1] ? sorted[1][0] : '';
-        const map = ARCHETYPE_MAP[top];
+  quizConfig.questions.forEach(q => {
+    const answerId = state.answers[q.id];
+    if (!answerId) return;
 
-        state.result = {
-          archetype: top,
-          top2_archetype: top2,
-          brand: map.brand,
-          model: map.model,
-          description: map.text,
-          intent_segment: state.answers.q10
-        };
-        console.log('🏁 FINAL RESULT:', state);
-      }
+    const ans = q.answers.find(a => a.id === answerId);
+    if (!ans || !ans.weights) return;
+
+    Object.entries(ans.weights).forEach(([archetype, value]) => {
+      state.score[archetype] += value;
+    });
+  });
+
+  const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
+  const top = sorted[0][0];
+
+  const map = ARCHETYPE_MAP[top];
+
+  state.result = {
+    archetype: top,
+    brand: map.brand,
+    model: map.model,
+    description: map.text,
+    intent: state.answers.q10 // intent_segment
+  };
+
+  console.log('🏁 FINAL RESULT:', {
+    answers: state.answers,
+    score: state.score,
+    result: state.result
+  });
+}
 
       function buildPayload(cta = '') {
         return {
