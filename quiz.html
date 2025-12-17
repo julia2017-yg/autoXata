@@ -231,12 +231,10 @@
     document.addEventListener('DOMContentLoaded', () => {
       console.log('🚀 Quiz script loaded');
 
-      // ===== CONFIG =====
       const REFERRER = 'buyer quiz which car';
-      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzuNAyigr_Q-mQZx_pz-3yWeYC4UYOE18YpSJfBQrp3Gz758w4SR-u1ZRXjsSRl78Gj/exec';
-      let ctaClicked = false; // защита от повторных кликов
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHR8tQAO85ovBC3xoXBg-nOswJym1mx39QDDdTiMYnTv3NKDR-Fi51v9CjctQQI8v7/exec';
+      let ctaClicked = false;
 
-      // Получение UTM из URL
       const urlParams = new URLSearchParams(window.location.search);
       const utm_source = urlParams.get('utm_source') || '';
       const utm_medium = urlParams.get('utm_medium') || '';
@@ -244,25 +242,103 @@
       const utm_content = urlParams.get('utm_content') || '';
       const utm_term = urlParams.get('utm_term') || '';
 
+      const ARCHETYPE_MAP = {
+        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання' },
+        B: { brand: 'Volkswagen', model: 'Golf', text: 'збалансований автомобіль для сімʼї та міста' },
+        C: { brand: 'BMW', model: '3 Series', text: 'динамічний автомобіль для тих, хто любить драйв' },
+        D: { brand: 'Subaru', model: 'Forester', text: 'ідеальний для подорожей та активного способу життя' },
+        E: { brand: 'Skoda', model: 'Octavia', text: 'раціональний вибір з максимумом користі' }
+      };
+
       const quizConfig = {
         questions: [
-          { id: 'q1', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?', answers: [{ id: 'cat', label: '🐱 Кіт', weights: { A: 3, C: 1 } }, { id: 'dog', label: '🐕 Пес', weights: { B: 3, D: 1 } }, { id: 'cheetah', label: '🐆 Гепард', weights: { C: 3, A: 1 } }] },
-          { id: 'q2', text: 'Ваш ідеальний вихідний — це…', answers: [{ id: 'city', label: 'Місто + кава', weights: { A: 2 } }, { id: 'nature', label: 'Природа', weights: { D: 2 } }] },
-          { id: 'q3', text: 'Авто для вас — це…', answers: [{ id: 'transport', label: 'Транспорт', weights: { E: 2 } }, { id: 'style', label: 'Стиль', weights: { C: 2 } }] },
-          { id: 'q4', text: 'Коли щось ламається, ви…', answers: [{ id: 'fix_forget', label: 'Вирішую і забуваю', weights: { E: 2 } }, { id: 'control', label: 'Контролюю все', weights: { A: 2 } }] },
-          { id: 'q5', text: 'У дорозі важливіше…', answers: [{ id: 'safe', label: 'Безпека', weights: { B: 2 } }, { id: 'feel', label: 'Керування', weights: { C: 2 } }] },
-          { id: 'q6', text: 'Паркування для вас — це…', answers: [{ id: 'easy', label: 'Легко', weights: { A: 2 } }, { id: 'stress', label: 'Стрес', weights: { B: 1, D: 1 } }] },
-          { id: 'q7', text: 'У багажнику частіше…', answers: [{ id: 'bags', label: 'Покупки', weights: { B: 2 } }, { id: 'hobby', label: 'Хобі', weights: { C: 2 } }] },
-          { id: 'q8', text: 'Коли вибір складний, ви…', answers: [{ id: 'ask', label: 'Раджусь', weights: { B: 2 } }, { id: 'analyze', label: 'Аналізую', weights: { E: 2 } }] },
-          { id: 'q9', text: 'Як ви водите?', answers: [{ id: 'careful', label: 'Акуратно', weights: { B: 2 } }, { id: 'sport', label: 'Динамічно', weights: { C: 3 } }] },
-          { id: 'q10', text: 'Що для вас зараз важливіше?', answers: [{ id: 'awareness', label: 'Цікавість' }, { id: 'decision', label: 'Визначитись' }] }
+          {
+            id: 'q1', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?', answers: [
+              { id: 'cat', label: '🐱 Кіт', weights: { A: 3, C: 1 } },
+              { id: 'dog', label: '🐕 Пес', weights: { B: 3, D: 1 } },
+              { id: 'cheetah', label: '🐆 Гепард', weights: { C: 3, A: 1 } },
+              { id: 'bear', label: '🐻 Ведмідь', weights: { D: 3, B: 1 } },
+              { id: 'fox', label: '🦊 Лис', weights: { E: 3, A: 1 } }
+            ]
+          },
+          {
+            id: 'q2', text: 'Ваш ідеальний вихідний — це…', answers: [
+              { id: 'city', label: 'Місто + кава', weights: { A: 2 } },
+              { id: 'nature', label: 'Природа / за місто', weights: { D: 2 } },
+              { id: 'home', label: 'Дім, затишок', weights: { B: 2 } },
+              { id: 'trip', label: 'Спонтанна подорож', weights: { C: 2 } },
+              { id: 'planned', label: 'Все сплановано', weights: { E: 2 } }
+            ]
+          },
+          {
+            id: 'q3', text: 'Авто для вас — це…', answers: [
+              { id: 'transport', label: 'Просто транспорт', weights: { E: 2 } },
+              { id: 'assistant', label: 'Помічник', weights: { B: 2 } },
+              { id: 'style', label: 'Частина стилю', weights: { C: 2 } },
+              { id: 'simplify', label: 'Спрощує життя', weights: { A: 2 } }
+            ]
+          },
+          {
+            id: 'q4', text: 'Коли щось ламається, ви…', answers: [
+              { id: 'want_work', label: 'Хочу, щоб просто працювало', weights: { D: 2 } },
+              { id: 'fix', label: 'Вирішую і забуваю', weights: { E: 2 } },
+              { id: 'tolerate', label: 'Терплю', weights: { B: 1, A: 1 } },
+              { id: 'control', label: 'Контролюю все', weights: { A: 2 } }
+            ]
+          },
+          {
+            id: 'q5', text: 'У дорозі важливіше…', answers: [
+              { id: 'quiet', label: 'Тиша і плавність', weights: { A: 2 } },
+              { id: 'safety', label: 'Відчуття безпеки', weights: { B: 2 } },
+              { id: 'control_drive', label: 'Контроль і керування', weights: { C: 2 } },
+              { id: 'reliability', label: 'Надійність', weights: { D: 2 } }
+            ]
+          },
+          {
+            id: 'q6', text: 'Паркування для вас — це…', answers: [
+              { id: 'easy', label: 'Не проблема', weights: { A: 2 } },
+              { id: 'usual', label: 'Звична справа', weights: { E: 2 } },
+              { id: 'stress', label: 'Стрес', weights: { B: 1, D: 1 } },
+              { id: 'depends', label: 'Залежить від ситуації', weights: { C: 2 } }
+            ]
+          },
+          {
+            id: 'q7', text: 'У багажнику частіше…', answers: [
+              { id: 'nothing', label: 'Майже нічого', weights: { A: 2 } },
+              { id: 'bags', label: 'Покупки', weights: { B: 2 } },
+              { id: 'stuff', label: 'Речі “про всяк випадок”', weights: { D: 2 } },
+              { id: 'hobby', label: 'Хобі / спорт', weights: { C: 2 } }
+            ]
+          },
+          {
+            id: 'q8', text: 'Коли вибір складний, ви…', answers: [
+              { id: 'intuition', label: 'Інтуїтивно', weights: { C: 2 } },
+              { id: 'ask', label: 'Раджусь', weights: { B: 2 } },
+              { id: 'analyze', label: 'Довго аналізую', weights: { E: 2 } },
+              { id: 'simple', label: 'Хочу просте рішення', weights: { A: 2 } }
+            ]
+          },
+          {
+            id: 'q9', text: 'Як ви водите?', answers: [
+              { id: 'calm', label: 'Спокійно', weights: { A: 2, D: 1 } },
+              { id: 'confident', label: 'Акуратно, впевнено', weights: { B: 2, A: 1 } },
+              { id: 'love_drive', label: 'Люблю відчувати дорогу', weights: { C: 3 } },
+              { id: 'varied', label: 'По-різному', weights: { E: 2 } }
+            ]
+          },
+          {
+            id: 'q10', text: 'Що для вас зараз важливіше?', answers: [
+              { id: 'informational', label: 'Зрозуміти, що мені підходить' },
+              { id: 'consideration', label: 'Порівнюю варіанти' },
+              { id: 'decision', label: 'Хочу визначитись' },
+              { id: 'awareness', label: 'Просто цікаво' }
+            ]
+          }
         ]
       };
 
-      // ===== STATE =====
       const state = { step: 0, answers: {}, score: { A: 0, B: 0, C: 0, D: 0, E: 0 }, result: {} };
 
-      // ===== DOM =====
       const quizEl = document.getElementById('quiz');
       const resultEl = document.getElementById('result');
       const progressEl = document.getElementById('quizProgress');
@@ -276,29 +352,23 @@
       const ctaPrimary = document.getElementById('ctaPrimary');
       const ctaSecondary = document.getElementById('ctaSecondary');
 
-      // ===== FUNCTIONS =====
       function renderQuestion() {
         const q = quizConfig.questions[state.step];
-        console.log(`➡️ Render ${q.id}`);
         progressEl.textContent = `Питання ${state.step + 1} з ${quizConfig.questions.length}`;
         questionEl.textContent = q.text;
         answersEl.innerHTML = '';
         btnNext.disabled = true;
 
-        q.answers.forEach(answer => {
+        q.answers.forEach(a => {
           const btn = document.createElement('button');
           btn.className = 'quiz__answer';
-          btn.textContent = answer.label;
-          if (state.answers[q.id] === answer.id) { btn.classList.add('selected'); btnNext.disabled = false; }
-
+          btn.textContent = a.label;
           btn.onclick = () => {
-            console.log(`✅ Selected ${q.id}: ${answer.id}`);
-            state.answers[q.id] = answer.id;
+            state.answers[q.id] = a.id;
             [...answersEl.children].forEach(b => b.classList.remove('selected'));
             btn.classList.add('selected');
             btnNext.disabled = false;
           };
-
           answersEl.appendChild(btn);
         });
 
@@ -306,92 +376,73 @@
       }
 
       function calculateResult() {
-        console.log('🧮 Calculating result');
         state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
-        quizConfig.questions.forEach(q => {
-          const ansId = state.answers[q.id];
-          const ans = q.answers.find(a => a.id === ansId);
-          if (!ans || !ans.weights) return;
+        quizConfig.forEach(q => {
+          const ans = q.answers.find(a => a.id === state.answers[q.id]);
+          if (!ans?.weights) return;
           Object.entries(ans.weights).forEach(([k, v]) => state.score[k] += v);
         });
-        console.log('📊 Score:', state.score);
+
         const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
-        state.result.top = sorted[0][0];
-        state.result.top2 = sorted[1][0];
-        state.result.intent = state.answers.q10;
-        state.result.brand = 'Subaru'; // demo
-        state.result.model = 'Forester'; // demo
-        console.log('🏆 Result:', state.result);
+        const top = sorted[0][0];
+        const top2 = sorted[1] ? sorted[1][0] : '';
+        const map = ARCHETYPE_MAP[top];
+
+        state.result = {
+          archetype: top,
+          top2_archetype: top2,
+          brand: map.brand,
+          model: map.model,
+          description: map.text,
+          intent_segment: state.answers.q10
+        };
+        console.log('🏁 FINAL RESULT:', state);
       }
 
       function buildPayload(cta = '') {
-        const payload = {
+        return {
           timestamp_iso: new Date().toISOString(),
           referrer: REFERRER,
           utm_source, utm_medium, utm_campaign, utm_content, utm_term,
-          ...state.answers,
-          top_archetype: state.result.top,
-          top2_archetype: state.result.top2,
-          intent_segment: state.result.intent,
-          result_brand: state.result.brand,
-          result_model: state.result.model,
+          answers: state.answers,
+          score: state.score,
+          result: state.result,
+          top2_archetype: state.result.top2_archetype,
+          intent_segment: state.result.intent_segment,
           cta_clicked: cta
         };
-        console.log('📦 Payload:', payload);
-        return payload;
       }
 
       async function sendPayload(payload) {
         try {
-          const resp = await fetch(APPS_SCRIPT_URL, {
+          await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(payload)
+            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+            body: new URLSearchParams({ payload: JSON.stringify(payload) })
           });
-
-          const data = await resp.json();
-          console.log('✅ Payload sent:', data);
-        } catch (e) {
-          console.error('❌ Error sending payload:', e);
-        }
+        } catch (e) { console.error('❌ Send error', e); }
       }
 
-
-      // ===== NAVIGATION =====
       btnNext.onclick = async () => {
-        if (state.step < quizConfig.questions.length - 1) {
-          state.step++; renderQuestion();
-        } else {
+        if (state.step < quizConfig.questions.length - 1) { state.step++; renderQuestion(); }
+        else {
           calculateResult();
-          const payload = buildPayload('');
-          await sendPayload(payload); // quiz_complete
-          quizEl.style.display = 'none'; resultEl.style.display = 'block';
+          resultTitle.textContent = `Вам найбільше підходить бренд ${state.result.brand}`;
+          resultText.textContent = `Наприклад, ${state.result.brand} ${state.result.model} — ${state.result.description}.`;
+          await sendPayload(buildPayload('quiz_complete'));
+          quizEl.style.display = 'none';
+          resultEl.style.display = 'block';
         }
       };
 
       btnBack.onclick = () => { if (state.step > 0) { state.step--; renderQuestion(); } };
+      ctaPrimary.onclick = async () => { if (ctaClicked) return; ctaClicked = true; await sendPayload(buildPayload('autoria')); window.location.href = 'https://auto.ria.com/uk/dealers/autoxata/3634/'; };
+      ctaSecondary.onclick = async () => { if (ctaClicked) return; ctaClicked = true; await sendPayload(buildPayload('consult')); alert('Менеджер звʼяжеться з вами'); };
 
-      // ===== CTA =====
-      ctaPrimary.onclick = async () => {
-        if (ctaClicked) return; ctaClicked = true;
-        console.log('👉 CTA Autoria');
-        const payload = buildPayload('autoria');
-        await sendPayload(payload);
-        window.location.href = 'https://auto.ria.com/uk/dealers/autoxata/3634/'; // редирект
-      };
-
-      ctaSecondary.onclick = async () => {
-        if (ctaClicked) return; ctaClicked = true;
-        console.log('👉 CTA Consult');
-        const payload = buildPayload('consult');
-        await sendPayload(payload);
-        alert('Менеджер зв\'яжеться з вами'); // можно заменить на форму
-      };
-
-      // ===== INIT =====
       renderQuestion();
     });
   </script>
+
 
 
 </body>
