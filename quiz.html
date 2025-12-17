@@ -345,14 +345,17 @@
         try {
           const resp = await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            mode: 'cors',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(payload)
           });
+
           const data = await resp.json();
           console.log('✅ Payload sent:', data);
-        } catch (e) { console.error('❌ Error sending payload:', e); }
+        } catch (e) {
+          console.error('❌ Error sending payload:', e);
+        }
       }
+
 
       // ===== NAVIGATION =====
       btnNext.onclick = async () => {
