@@ -11,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const statusMessage = document.createElement("p");
     statusMessage.style.marginTop = "10px";
-    statusMessage.style.marginBottom = "10px";
+    // statusMessage.style.marginBottom = "10px";
     statusMessage.style.color = "#21b66e";
     statusMessage.style.textAlign = "center";
     statusMessage.style.fontWeight = "bold";
