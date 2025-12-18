@@ -425,18 +425,19 @@
       }
 
       async function sendPayload(payload) {
+        const formData = new URLSearchParams();
+        formData.append('payload', JSON.stringify(payload));
+
         try {
           await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: {
-              'Content-Type': 'application/json'
-            },
-            body: JSON.stringify(payload)
+            body: formData   // ⬅️ БЕЗ headers
           });
         } catch (e) {
           console.error('❌ Send error', e);
         }
       }
+
 
 
       btnNext.onclick = async () => {
