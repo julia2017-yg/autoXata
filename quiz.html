@@ -232,7 +232,7 @@
       console.log('🚀 Quiz script loaded');
 
       const REFERRER = 'buyer quiz which car';
-      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbzHR8tQAO85ovBC3xoXBg-nOswJym1mx39QDDdTiMYnTv3NKDR-Fi51v9CjctQQI8v7/exec';
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbz8iRRhGijF6FDvOIeGUO7yCumcLs9nfXgECNMRNjIBzSB7Gqbdr786mndWF3UVxKr-/exec';
       let ctaClicked = false;
 
       const urlParams = new URLSearchParams(window.location.search);
@@ -425,19 +425,17 @@
       }
 
       async function sendPayload(payload) {
-        const formData = new URLSearchParams();
-        formData.append('payload', JSON.stringify(payload));
-
-        try {
-          await fetch(APPS_SCRIPT_URL, {
-            method: 'POST',
-            body: formData   // ⬅️ БЕЗ headers
-          });
-        } catch (e) {
-          console.error('❌ Send error', e);
-        }
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            payload: JSON.stringify(payload)
+          })
+        });
       }
-
 
 
       btnNext.onclick = async () => {
