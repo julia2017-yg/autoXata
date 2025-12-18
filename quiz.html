@@ -376,39 +376,39 @@
       }
 
       function calculateResult() {
-  state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
 
-  quizConfig.questions.forEach(q => {
-    const answerId = state.answers[q.id];
-    if (!answerId) return;
+        quizConfig.questions.forEach(q => {
+          const answerId = state.answers[q.id];
+          if (!answerId) return;
 
-    const ans = q.answers.find(a => a.id === answerId);
-    if (!ans || !ans.weights) return;
+          const ans = q.answers.find(a => a.id === answerId);
+          if (!ans || !ans.weights) return;
 
-    Object.entries(ans.weights).forEach(([archetype, value]) => {
-      state.score[archetype] += value;
-    });
-  });
+          Object.entries(ans.weights).forEach(([archetype, value]) => {
+            state.score[archetype] += value;
+          });
+        });
 
-  const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
-  const top = sorted[0][0];
+        const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
+        const top = sorted[0][0];
 
-  const map = ARCHETYPE_MAP[top];
+        const map = ARCHETYPE_MAP[top];
 
-  state.result = {
-    archetype: top,
-    brand: map.brand,
-    model: map.model,
-    description: map.text,
-    intent: state.answers.q10 // intent_segment
-  };
+        state.result = {
+          archetype: top,
+          brand: map.brand,
+          model: map.model,
+          description: map.text,
+          intent: state.answers.q10 // intent_segment
+        };
 
-  console.log('🏁 FINAL RESULT:', {
-    answers: state.answers,
-    score: state.score,
-    result: state.result
-  });
-}
+        console.log('🏁 FINAL RESULT:', {
+          answers: state.answers,
+          score: state.score,
+          result: state.result
+        });
+      }
 
       function buildPayload(cta = '') {
         return {
@@ -428,11 +428,16 @@
         try {
           await fetch(APPS_SCRIPT_URL, {
             method: 'POST',
-            headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-            body: new URLSearchParams({ payload: JSON.stringify(payload) })
+            headers: {
+              'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(payload)
           });
-        } catch (e) { console.error('❌ Send error', e); }
+        } catch (e) {
+          console.error('❌ Send error', e);
+        }
       }
+
 
       btnNext.onclick = async () => {
         if (state.step < quizConfig.questions.length - 1) { state.step++; renderQuestion(); }
