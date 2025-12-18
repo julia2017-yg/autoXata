@@ -56,13 +56,13 @@
     }
 
     .quiz__answer:hover {
-      border-color: #000;
+      border-color: #2c2d43;
       background: #f0f0f0;
     }
 
     .quiz__answer.selected {
-      border-color: #000;
-      background: #000;
+      border-color: #2c2d43;
+      background: #2c2d43;
       color: #fff;
     }
 
@@ -82,7 +82,7 @@
     }
 
     .quiz__btn--next {
-      background: #000;
+      background: #2c2d43;
       color: #fff;
     }
 
@@ -128,7 +128,7 @@
     }
 
     .result__btn--primary {
-      background: #000;
+      background: #2c2d43;
       color: #fff;
     }
 
@@ -327,7 +327,7 @@
             ]
           },
           {
-            id: 'q10', text: 'Що для вас зараз важливіше?', answers: [
+            id: 'q10', text: 'Що для вас зараз важливіше у виборі авто?', answers: [
               { id: 'informational', label: 'Зрозуміти, що мені підходить' },
               { id: 'consideration', label: 'Порівнюю варіанти' },
               { id: 'decision', label: 'Хочу визначитись' },
@@ -437,18 +437,41 @@
         });
       }
 
-
+      let isSubmittingFinal = false;
       btnNext.onclick = async () => {
-        if (state.step < quizConfig.questions.length - 1) { state.step++; renderQuestion(); }
-        else {
-          calculateResult();
-          resultTitle.textContent = `Вам найбільше підходить бренд ${state.result.brand}`;
-          resultText.textContent = `Наприклад, ${state.result.brand} ${state.result.model} — ${state.result.description}.`;
-          await sendPayload(buildPayload('quiz_complete'));
-          quizEl.style.display = 'none';
-          resultEl.style.display = 'block';
+        // обычные вопросы
+        if (state.step < quizConfig.questions.length - 1) {
+          state.step++;
+          renderQuestion();
+          return;
         }
+
+        // ===== q10 (ФИНАЛ) =====
+        if (isSubmittingFinal) return; // ⛔ защита от двойного клика
+        isSubmittingFinal = true;
+
+        btnNext.disabled = true;
+        btnNext.textContent = 'Обробляємо...';
+
+        calculateResult();
+
+        resultTitle.textContent = `Вам найбільше підходить бренд ${state.result.brand}`;
+        resultText.textContent = `Наприклад, ${state.result.brand} ${state.result.model} — ${state.result.description}.`;
+
+        try {
+          await sendPayload(buildPayload('quiz_complete'));
+        } catch (e) {
+          console.error('Send failed', e);
+          isSubmittingFinal = false;
+          btnNext.disabled = false;
+          btnNext.textContent = 'Далі';
+          return;
+        }
+
+        quizEl.style.display = 'none';
+        resultEl.style.display = 'block';
       };
+
 
       btnBack.onclick = () => { if (state.step > 0) { state.step--; renderQuestion(); } };
       ctaPrimary.onclick = async () => { if (ctaClicked) return; ctaClicked = true; await sendPayload(buildPayload('autoria')); window.location.href = 'https://auto.ria.com/uk/dealers/autoxata/3634/'; };
