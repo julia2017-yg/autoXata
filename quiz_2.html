@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .quiz {
+      max-width: 520px;
+      margin: 40px auto;
+      font-family: system-ui, sans-serif;
+    }
+
+    .quiz-title {
+      font-size: 24px;
+      margin-bottom: 8px;
+    }
+
+    .quiz-subtitle {
+      color: #666;
+      margin-bottom: 24px;
+    }
+
+    .form-group {
+      margin-bottom: 16px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 6px;
+      font-weight: 500;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+    }
+
+    .quiz-question {
+      margin-bottom: 16px;
+    }
+
+    .quiz-answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .quiz__answer {
+      padding: 14px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      text-align: left;
+    }
+
+    .quiz__answer.selected {
+      border-color: #1e88e5;
+      background: #e3f2fd;
+    }
+
+    .quiz-nav {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 24px;
+    }
+
+    .btn-primary {
+      padding: 14px 18px;
+      background: #1e88e5;
+      color: #fff;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+    }
+
+    .btn-primary:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .btn-secondary {
+      padding: 14px 18px;
+      background: #eee;
+      border-radius: 10px;
+      border: none;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <div class="quiz" id="quiz">
+
+    <!-- Экран 0: данные авто -->
+    <div class="quiz-step" id="step-car">
+      <h2 class="quiz-title">Чому ваше авто не продається?</h2>
+      <p class="quiz-subtitle">
+        Ця інформація допоможе зробити рекомендації точнішими
+      </p>
+
+      <div class="form-group">
+        <label>Марка авто</label>
+        <input type="text" id="carBrand" placeholder="Наприклад: Toyota">
+      </div>
+
+      <div class="form-group">
+        <label>Модель авто</label>
+        <input type="text" id="carModel" placeholder="Наприклад: Corolla">
+      </div>
+
+      <div class="form-group">
+        <label>Рік випуску</label>
+        <input type="number" id="carYear" placeholder="Наприклад: 2018">
+      </div>
+
+      <button class="btn-primary" id="btnStart">Продовжити</button>
+    </div>
+
+    <!-- Экран вопросов -->
+    <div class="quiz-step hidden" id="step-questions">
+      <div class="quiz-progress" id="quizProgress"></div>
+      <h3 class="quiz-question" id="quizQuestion"></h3>
+
+      <div class="quiz-answers" id="quizAnswers"></div>
+
+      <div class="quiz-nav">
+        <button class="btn-secondary" id="btnBack">Назад</button>
+        <button class="btn-primary" id="btnNext" disabled>Далі</button>
+      </div>
+    </div>
+
+    <!-- Экран результата -->
+    <div class="quiz-step hidden" id="step-result">
+      <h2 id="resultTitle"></h2>
+      <p id="resultText"></p>
+
+      <ul id="resultTips"></ul>
+
+      <button class="btn-primary" id="ctaMain"></button>
+    </div>
+
+  </div>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+
+      /** =====================
+       * STATE
+       ====================== */
+      const state = {
+        step: 0,
+        car: {
+          brand: '',
+          model: '',
+          year: ''
+        },
+        answers: {},
+        score: { A: 0, B: 0, C: 0 },
+        scenario: null
+      };
+
+      /** =====================
+       * CONFIG (позже заменим JSON)
+       ====================== */
+      const quizConfig = {
+        questions: [] // ⬅️ ты дашь JSON — просто вставим
+      };
+
+      /** =====================
+       * ELEMENTS
+       ====================== */
+      const stepCar = document.getElementById('step-car');
+      const stepQuestions = document.getElementById('step-questions');
+      const stepResult = document.getElementById('step-result');
+
+      const quizProgress = document.getElementById('quizProgress');
+      const quizQuestion = document.getElementById('quizQuestion');
+      const quizAnswers = document.getElementById('quizAnswers');
+
+      const btnStart = document.getElementById('btnStart');
+      const btnNext = document.getElementById('btnNext');
+      const btnBack = document.getElementById('btnBack');
+
+      /** =====================
+       * START
+       ====================== */
+      btnStart.onclick = () => {
+        state.car.brand = document.getElementById('carBrand').value.trim();
+        state.car.model = document.getElementById('carModel').value.trim();
+        state.car.year = document.getElementById('carYear').value.trim();
+
+        if (!state.car.brand || !state.car.model || !state.car.year) {
+          alert('Будь ласка, заповніть всі поля');
+          return;
+        }
+
+        stepCar.classList.add('hidden');
+        stepQuestions.classList.remove('hidden');
+        renderQuestion();
+      };
+
+      /** =====================
+       * RENDER QUESTION
+       ====================== */
+      function renderQuestion() {
+        const q = quizConfig.questions[state.step];
+        if (!q) return;
+
+        quizProgress.textContent =
+          `Питання ${state.step + 1} з ${quizConfig.questions.length}`;
+
+        quizQuestion.textContent = q.text;
+        quizAnswers.innerHTML = '';
+        btnNext.disabled = true;
+
+        q.answers.forEach(a => {
+          const btn = document.createElement('button');
+          btn.className = 'quiz__answer';
+          btn.textContent = a.label;
+
+          btn.onclick = () => {
+            state.answers[q.id] = a.id;
+            [...quizAnswers.children].forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            btnNext.disabled = false;
+          };
+
+          quizAnswers.appendChild(btn);
+        });
+
+        btnBack.style.visibility = state.step === 0 ? 'hidden' : 'visible';
+      }
+
+      /** =====================
+       * NAVIGATION
+       ====================== */
+      btnNext.onclick = () => {
+        if (state.step < quizConfig.questions.length - 1) {
+          state.step++;
+          renderQuestion();
+        } else {
+          showResult();
+        }
+      };
+
+      btnBack.onclick = () => {
+        if (state.step > 0) {
+          state.step--;
+          renderQuestion();
+        }
+      };
+
+      /** =====================
+       * RESULT (заглушка)
+       ====================== */
+      function showResult() {
+        stepQuestions.classList.add('hidden');
+        stepResult.classList.remove('hidden');
+
+        document.getElementById('resultTitle').textContent =
+          'Результат буде сформовано';
+
+        document.getElementById('resultText').textContent =
+          `Для авто ${state.car.brand} ${state.car.model} ${state.car.year}
+       ми підготуємо персональний сценарій.`;
+
+        document.getElementById('ctaMain').textContent =
+          'Поспілкуватися з менеджером AutoXata';
+      }
+
+    });
+  </script>
+
+</body>
+</html>

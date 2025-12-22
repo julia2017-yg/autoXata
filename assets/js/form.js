@@ -59,6 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const name = nameInput.value.trim();
       let phone = phoneInput.value.trim();
       const purpose = purposeSelect?.value || ""; // может быть пустым
+      const referrer = form.querySelector('input[name="referrer"]')?.value || "";
 
       if (!name || !phone) {
         statusMessage.textContent = "Будь ласка, заповніть ім'я та номер телефону.";
@@ -74,6 +75,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "your-name": name,
         "your-phone": phone,
         purpose: purpose,
+        referrer: referrer
       };
 
       submitBtn.disabled = true;
