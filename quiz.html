@@ -14,24 +14,52 @@
     }
 
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      /* background: #f5f6f7; */
+      position: relative;
       color: #222;
-      background-image: url('./assets/images/hero-car-keys-resized.png');
-      background-size: cover;
-      background-position: center;
-      background-repeat: no-repeat;
-      background-attachment: fixed;
+      margin: 0;
+      padding: 0;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      /* квиз по центру */
+      align-items: center;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
     }
 
+    /* Картинка слева */
     body::before {
-      content: '';
-      position: fixed;
-      inset: 0;
-      background: rgba(7, 28, 31, .9);
-      z-index: -1;
+      content: "";
+      position: absolute;
+      left: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      /* ширина картинки */
+      height: 400px;
+      /* высота картинки */
+      background-image: url('./assets/images/bg-left-quiz.jpg');
+      /* твоя картинка */
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+      /* чтобы быть под квизом */
+    }
 
+    /* Картинка справа */
+    body::after {
+      content: "";
+      position: absolute;
+      right: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 400px;
+      background-image: url('./assets/images/bg-right-quiz.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
     }
 
     .quiz {
@@ -41,10 +69,21 @@
       background: #fff;
       border-radius: 12px;
       padding: 24px;
-      /* box-shadow: 0 10px 30px rgba(0, 0, 0, .08); */
       background: rgba(255, 255, 255, 0.95);
       border-radius: 14px;
       box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .quiz {
+      position: relative;
+      z-index: 1;
+      /* чтобы быть выше картинок */
+      width: 90%;
+      max-width: 600px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     }
 
     .quiz__progress {
@@ -69,7 +108,7 @@
       margin-bottom: 20px;
       padding-bottom: 20px;
       border-bottom: 2px solid #ee253d;
-      
+
     }
 
     .quiz__question-image {
@@ -138,7 +177,7 @@
     .quiz__btn--back {
       background: transparent;
       background: #2c2d43;
-    color: #fff;
+      color: #fff;
     }
 
     /* RESULT */
@@ -185,6 +224,14 @@
       max-width: 400px;
       width: 100%;
       margin: auto;
+    }
+
+    @media (max-width: 768px) {
+
+      body::before,
+      body::after {
+        display: none;
+      }
     }
 
     /* MOBILE UX */
@@ -250,7 +297,7 @@
       }
 
       .result__image img {
-        max-width: 400px;
+        max-width: 500px;
         width: 100%;
         height: auto;
         border-radius: 12px;
@@ -281,7 +328,7 @@
 
     <div class="quiz__question-wrap">
       <div class="quiz__answers" id="quizAnswers"></div>
-      <img class="quiz__question-image" id="quizQuestionImage" alt="">
+      <!-- <img class="quiz__question-image" id="quizQuestionImage" alt=""> -->
     </div>
     <div class="quiz__footer">
       <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
@@ -302,7 +349,7 @@
         менеджера</a>
     </div>
     <div class="result__image">
-      <img id="resultImage" style="max-width: 400px;padding-bottom: 20px;padding-top: 10px;" src="" alt="" />
+      <img id="resultImage" style="max-width: 500px;padding-bottom: 20px;padding-top: 10px;" src="" alt="" />
     </div>
   </div>
   <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
@@ -419,7 +466,7 @@
       const utm_term = urlParams.get('utm_term') || '';
 
       const ARCHETYPE_MAP = {
-        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання', image: './assets/images/toyota-quiz.jpg' },
+        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання', image: './assets/images/quiz-result-corolla.avif' },
         B: { brand: 'Volkswagen', model: 'Golf', text: 'збалансований автомобіль для сімʼї та міста', image: './assets/images/golf-quiz.jpg' },
         C: { brand: 'BMW', model: '3 Series', text: 'динамічний автомобіль для тих, хто любить драйв', image: './assets/images/bmw_3-series-quiz.webp' },
         D: { brand: 'Subaru', model: 'Forester', text: 'ідеальний для подорожей та активного способу життя', image: './assets/images/subaru-quiz.png' },
@@ -430,7 +477,7 @@
         questions: [
           {
             id: 'q1', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?',
-            image: './assets/images/quiz-text-photo-1.avif',
+            // image: './assets/images/quiz-text-photo-1.avif',
             answers: [
               { id: 'cat', label: '🐱 Кіт', weights: { A: 3, C: 1 } },
               { id: 'dog', label: '🐕 Пес', weights: { B: 3, D: 1 } },
@@ -441,7 +488,7 @@
           },
           {
             id: 'q2', text: 'Ваш ідеальний вихідний — це…',
-            image: './assets/images/quiz-text-photo-2.avif',
+            // image: './assets/images/quiz-text-photo-2.avif',
             answers: [
               { id: 'city', label: 'Місто + кава', weights: { A: 2 } },
               { id: 'nature', label: 'Природа / за місто', weights: { D: 2 } },
@@ -452,7 +499,7 @@
           },
           {
             id: 'q3', text: 'Авто для вас — це…',
-            image: './assets/images/quiz-text-photo-3.jpg',
+            // image: './assets/images/quiz-text-photo-3.jpg',
             answers: [
               { id: 'transport', label: 'Просто транспорт', weights: { E: 2 } },
               { id: 'assistant', label: 'Помічник', weights: { B: 2 } },
@@ -462,7 +509,7 @@
           },
           {
             id: 'q4', text: 'Коли щось ламається, ви…',
-            image: './assets/images/quiz-text-photo-4.jpg',
+            // image: './assets/images/quiz-text-photo-4.jpg',
             answers: [
               { id: 'want_work', label: 'Хочу, щоб просто працювало', weights: { D: 2 } },
               { id: 'fix', label: 'Вирішую і забуваю', weights: { E: 2 } },
@@ -472,7 +519,7 @@
           },
           {
             id: 'q5', text: 'У дорозі важливіше…',
-            image: './assets/images/quiz-text-photo-5.jpg',
+            // image: './assets/images/quiz-text-photo-5.jpg',
             answers: [
               { id: 'quiet', label: 'Тиша і плавність', weights: { A: 2 } },
               { id: 'safety', label: 'Відчуття безпеки', weights: { B: 2 } },
@@ -482,7 +529,7 @@
           },
           {
             id: 'q6', text: 'Паркування для вас — це…',
-            image: './assets/images/quiz-text-photo-6.jpg',
+            // image: './assets/images/quiz-text-photo-6.jpg',
             answers: [
               { id: 'easy', label: 'Не проблема', weights: { A: 2 } },
               { id: 'usual', label: 'Звична справа', weights: { E: 2 } },
@@ -492,7 +539,7 @@
           },
           {
             id: 'q7', text: 'У багажнику частіше…',
-            image: './assets/images/quiz-text-photo-7.jpg',
+            // image: './assets/images/quiz-text-photo-7.jpg',
             answers: [
               { id: 'nothing', label: 'Майже нічого', weights: { A: 2 } },
               { id: 'bags', label: 'Покупки', weights: { B: 2 } },
@@ -502,7 +549,7 @@
           },
           {
             id: 'q8', text: 'Коли вибір складний, ви…',
-            image: './assets/images/quiz-text-photo-8.jpg',
+            // image: './assets/images/quiz-text-photo-8.jpg',
             answers: [
               { id: 'intuition', label: 'Інтуїтивно', weights: { C: 2 } },
               { id: 'ask', label: 'Раджусь', weights: { B: 2 } },
@@ -512,7 +559,7 @@
           },
           {
             id: 'q9', text: 'Як ви водите?',
-            image: './assets/images/quiz-text-photo-9.jpg',
+            // image: './assets/images/quiz-text-photo-9.jpg',
             answers: [
               { id: 'calm', label: 'Спокійно', weights: { A: 2, D: 1 } },
               { id: 'confident', label: 'Акуратно, впевнено', weights: { B: 2, A: 1 } },
@@ -522,7 +569,7 @@
           },
           {
             id: 'q10', text: 'Що для вас зараз важливіше у виборі авто?',
-            image: './assets/images/quiz-text-photo-10.jpg',
+            // image: './assets/images/quiz-text-photo-10.jpg',
             answers: [
               { id: 'informational', label: 'Зрозуміти, що мені підходить' },
               { id: 'consideration', label: 'Порівнюю варіанти' },
@@ -542,7 +589,7 @@
       const answersEl = document.getElementById('quizAnswers');
       const btnNext = document.getElementById('btnNext');
       const btnBack = document.getElementById('btnBack');
-      const questionImageEl = document.getElementById('quizQuestionImage');
+      // const questionImageEl = document.getElementById('quizQuestionImage');
       const resultTitle = document.getElementById('resultTitle');
       const resultImage = document.getElementById('resultImage');
       const resultText = document.getElementById('resultText');
@@ -556,12 +603,12 @@
 
 
         // картинка
-        if (q.image) {
-          questionImageEl.src = q.image;
-          questionImageEl.style.display = 'block';
-        } else {
-          questionImageEl.style.display = 'none';
-        }
+        // if (q.image) {
+        //   questionImageEl.src = q.image;
+        //   questionImageEl.style.display = 'block';
+        // } else {
+        //   questionImageEl.style.display = 'none';
+        // }
 
         answersEl.innerHTML = '';
         btnNext.disabled = true;
