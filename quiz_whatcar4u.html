@@ -207,7 +207,9 @@
       font-size: 16px;
       margin-bottom: 24px;
     }
-
+.result-text{
+  font-size: 16px;
+}
     .result__cta {
       display: flex;
       flex-direction: column;
@@ -355,6 +357,7 @@
 
     <div class="result__text" id="resultText"></div>
     <div class="result__cta">
+      <p class="result-text">Ви можете переглянути схожі перевірені авто на нашій сторінці AutoRia або звернутися до менеджера AutoXata з будь-якими питаннями щодо вибору, доступних варіантів чи процесу купівлі та продажу авто в Миколаєві.</p>
       <button class="result__btn result__btn--primary" id="ctaPrimary">🔍 Перейти в AutoRia</button>
       <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">📞 Отримати консультацію
         менеджера</a>
@@ -478,7 +481,7 @@
       const utm_term = urlParams.get('utm_term') || '';
 
       const ARCHETYPE_MAP = {
-        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання', image: './assets/images/quiz-result-corolla.avif' },
+        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання', image: './assets/images/quiz-result-corolla.png' },
         B: { brand: 'Volkswagen', model: 'Golf', text: 'збалансований автомобіль для сімʼї та міста', image: './assets/images/golf-quiz.jpg' },
         C: { brand: 'BMW', model: '3 Series', text: 'динамічний автомобіль для тих, хто любить драйв', image: './assets/images/bmw_3-series-quiz.webp' },
         D: { brand: 'Subaru', model: 'Forester', text: 'ідеальний для подорожей та активного способу життя', image: './assets/images/subaru-quiz.png' },

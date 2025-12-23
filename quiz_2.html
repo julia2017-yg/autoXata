@@ -1,280 +1,564 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <meta charset="UTF-8" />
+  <title>Чому ваше авто не продається?</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    .quiz {
-      max-width: 520px;
-      margin: 40px auto;
-      font-family: system-ui, sans-serif;
+    * {
+      box-sizing: border-box;
     }
 
-    .quiz-title {
-      font-size: 24px;
+    body {
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      background: #f5f7fa;
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+    }
+
+    .quiz-container {
+      width: 100%;
+      max-width: 520px;
+    }
+
+    .quiz {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    .quiz__progress {
+      font-size: 14px;
+      color: #666;
+      margin-bottom: 12px;
+    }
+
+    .quiz__question {
+      font-size: 20px;
       margin-bottom: 8px;
     }
 
-    .quiz-subtitle {
-      color: #666;
-      margin-bottom: 24px;
-    }
-
-    .form-group {
+    .quiz__helper {
+      font-size: 14px;
+      color: #777;
       margin-bottom: 16px;
     }
 
-    label {
-      display: block;
-      margin-bottom: 6px;
-      font-weight: 500;
-    }
-
-    input {
-      width: 100%;
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-    }
-
-    .quiz-question {
-      margin-bottom: 16px;
-    }
-
-    .quiz-answers {
+    .quiz__answers,
+    .quiz__fields {
       display: flex;
       flex-direction: column;
       gap: 12px;
     }
 
     .quiz__answer {
-      padding: 14px;
+      padding: 14px 16px;
       border-radius: 10px;
       border: 1px solid #ddd;
       background: #fff;
       cursor: pointer;
       text-align: left;
+      transition: all .2s ease;
+      font-size: 16px;
     }
 
-    .quiz__answer.selected {
-      border-color: #1e88e5;
-      background: #e3f2fd;
+    .answer {
+      padding: 14px;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      cursor: pointer;
+      transition: .2s;
     }
 
-    .quiz-nav {
+    .answer:hover {
+      border-color: #3b82f6;
+    }
+
+    .answer.selected {
+      background: #3b82f6;
+      color: #fff;
+      border-color: #3b82f6;
+    }
+
+    input {
+      padding: 12px;
+      border-radius: 8px;
+      border: 1px solid #ccc;
+      font-size: 16px;
+    }
+
+    .quiz__footer {
       display: flex;
       justify-content: space-between;
       margin-top: 24px;
     }
 
-    .btn-primary {
-      padding: 14px 18px;
-      background: #1e88e5;
-      color: #fff;
+    .btn {
+      padding: 12px 18px;
       border-radius: 10px;
       border: none;
+      font-size: 16px;
       cursor: pointer;
     }
 
-    .btn-primary:disabled {
-      opacity: 0.5;
+    .btn.primary {
+      background: #3b82f6;
+      color: #fff;
+    }
+
+    .btn.secondary {
+      background: #e5e7eb;
+    }
+
+    .btn:disabled {
+      opacity: .5;
       cursor: not-allowed;
     }
 
-    .btn-secondary {
-      padding: 14px 18px;
-      background: #eee;
-      border-radius: 10px;
-      border: none;
+    .result {
+      background: #fff;
+      border-radius: 16px;
+      padding: 24px;
+      margin-top: 20px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
+    }
+
+    .result h2 {
+      margin-top: 0;
     }
 
     .hidden {
       display: none;
     }
+
+    .result ul {
+      padding-left: 18px;
+    }
   </style>
 </head>
 <body>
-  <div class="quiz" id="quiz">
 
-    <!-- Экран 0: данные авто -->
-    <div class="quiz-step" id="step-car">
-      <h2 class="quiz-title">Чому ваше авто не продається?</h2>
-      <p class="quiz-subtitle">
-        Ця інформація допоможе зробити рекомендації точнішими
-      </p>
+  <div class="quiz-container">
+    <div class="quiz" id="quiz">
+      <div class="quiz__progress" id="progress"></div>
 
-      <div class="form-group">
-        <label>Марка авто</label>
-        <input type="text" id="carBrand" placeholder="Наприклад: Toyota">
+      <div class="quiz__content">
+        <h2 class="quiz__question" id="question"></h2>
+        <p class="quiz__helper" id="helper"></p>
+
+        <div class="quiz__fields" id="fields"></div>
+        <div class="quiz__answers" id="answers"></div>
       </div>
 
-      <div class="form-group">
-        <label>Модель авто</label>
-        <input type="text" id="carModel" placeholder="Наприклад: Corolla">
-      </div>
-
-      <div class="form-group">
-        <label>Рік випуску</label>
-        <input type="number" id="carYear" placeholder="Наприклад: 2018">
-      </div>
-
-      <button class="btn-primary" id="btnStart">Продовжити</button>
-    </div>
-
-    <!-- Экран вопросов -->
-    <div class="quiz-step hidden" id="step-questions">
-      <div class="quiz-progress" id="quizProgress"></div>
-      <h3 class="quiz-question" id="quizQuestion"></h3>
-
-      <div class="quiz-answers" id="quizAnswers"></div>
-
-      <div class="quiz-nav">
-        <button class="btn-secondary" id="btnBack">Назад</button>
-        <button class="btn-primary" id="btnNext" disabled>Далі</button>
+      <div class="quiz__footer">
+        <button id="backBtn" class="btn secondary">Назад</button>
+        <button id="nextBtn" class="btn primary" disabled>Далі</button>
       </div>
     </div>
 
-    <!-- Экран результата -->
-    <div class="quiz-step hidden" id="step-result">
-      <h2 id="resultTitle"></h2>
-      <p id="resultText"></p>
-
-      <ul id="resultTips"></ul>
-
-      <button class="btn-primary" id="ctaMain"></button>
-    </div>
-
+    <div class="result hidden" id="result"></div>
   </div>
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
+<script>
+/*********************************
+ * CONFIG
+ *********************************/
+const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXX/exec";
 
-      /** =====================
-       * STATE
-       ====================== */
-      const state = {
-        step: 0,
-        car: {
-          brand: '',
-          model: '',
-          year: ''
-        },
-        answers: {},
-        score: { A: 0, B: 0, C: 0 },
-        scenario: null
-      };
+/*********************************
+ * QUIZ
+ *********************************/
+const QUIZ = {
+  questions: [
+    {
+      id: "q0_car",
+      type: "group",
+      required: true,
+      affectsScore: false,
+      text: "Розкажіть трохи про ваше авто",
+      helper_text: "Ця інформація допоможе зробити рекомендації точнішими.",
+      fields: [
+        { id: "q0_brand", placeholder: "Марка авто" },
+        { id: "q0_model", placeholder: "Модель" },
+        { id: "q0_year", placeholder: "Рік випуску" }
+      ]
+    },
 
-      /** =====================
-       * CONFIG (позже заменим JSON)
-       ====================== */
-      const quizConfig = {
-        questions: [] // ⬅️ ты дашь JSON — просто вставим
-      };
+    {
+      id: "q1_expectations",
+      type: "single",
+      affectsScore: true,
+      text: "Як ви очікували, що проходитиме продаж авто?",
+      answers: [
+        { id: "fast_easy", label: "Швидко та без зайвих зусиль", axis_points: { C: 2 } },
+        { id: "manageable", label: "З труднощами, але керовано", axis_points: { A: 1 } },
+        { id: "may_take_time", label: "Розумів(ла), що це може затягнутися", axis_points: { A: 2 } },
+        { id: "unclear", label: "Важко було уявити", axis_points: { B: 1 } }
+      ]
+    },
 
-      /** =====================
-       * ELEMENTS
-       ====================== */
-      const stepCar = document.getElementById('step-car');
-      const stepQuestions = document.getElementById('step-questions');
-      const stepResult = document.getElementById('step-result');
+    {
+      id: "q2_experience",
+      type: "single",
+      affectsScore: true,
+      text: "Що з цього вже траплялось?",
+      answers: [
+        { id: "views", label: "Багато переглядів, але мало конкретики", axis_points: { B: 2 } },
+        { id: "no_intent", label: "Звернення без намірів", axis_points: { B: 1 } },
+        { id: "fail_deals", label: "Домовленості зриваються", axis_points: { C: 2 } },
+        { id: "slow", label: "Повільніше, ніж очікував(ла)", axis_points: { C: 1 } },
+        { id: "unknown", label: "Поки складно сказати", axis_points: {} }
+      ]
+    },
 
-      const quizProgress = document.getElementById('quizProgress');
-      const quizQuestion = document.getElementById('quizQuestion');
-      const quizAnswers = document.getElementById('quizAnswers');
+    {
+      id: "q3_time",
+      type: "single",
+      affectsScore: true,
+      text: "Скільки часу готові приділяти продажу?",
+      answers: [
+        { id: "regular", label: "Регулярно", axis_points: { A: 2 } },
+        { id: "week", label: "Кілька разів на тиждень", axis_points: { A: 1 } },
+        { id: "rare", label: "Час від часу", axis_points: { B: 1 } },
+        { id: "minimal", label: "Мінімум участі", axis_points: { C: 2 } }
+      ]
+    },
 
-      const btnStart = document.getElementById('btnStart');
-      const btnNext = document.getElementById('btnNext');
-      const btnBack = document.getElementById('btnBack');
+    {
+      id: "q4_calls",
+      type: "single",
+      affectsScore: true,
+      text: "Ставлення до дзвінків і повідомлень",
+      answers: [
+        { id: "calm", label: "Спокійно", axis_points: { A: 2 } },
+        { id: "ok", label: "Загалом нормально", axis_points: { A: 1 } },
+        { id: "stress", label: "Напружує", axis_points: { C: 1 } },
+        { id: "avoid", label: "Хочу уникнути", axis_points: { C: 2 } }
+      ]
+    },
 
-      /** =====================
-       * START
-       ====================== */
-      btnStart.onclick = () => {
-        state.car.brand = document.getElementById('carBrand').value.trim();
-        state.car.model = document.getElementById('carModel').value.trim();
-        state.car.year = document.getElementById('carYear').value.trim();
+    {
+      id: "q5_uncertainty",
+      type: "single",
+      affectsScore: true,
+      text: "Що найбільше ускладнює?",
+      answers: [
+        { id: "timeline", label: "Невідомо, скільки це триватиме", axis_points: { B: 2 } },
+        { id: "demand", label: "Важко зрозуміти попит", axis_points: { B: 1 } },
+        { id: "confidence", label: "Немає впевненості", axis_points: { B: 2 } },
+        { id: "none", label: "Не бачу проблем", axis_points: { A: 1 } }
+      ]
+    },
 
-        if (!state.car.brand || !state.car.model || !state.car.year) {
-          alert('Будь ласка, заповніть всі поля');
-          return;
-        }
+    {
+      id: "q6_control",
+      type: "single",
+      affectsScore: true,
+      text: "У процесі важливіше…",
+      answers: [
+        { id: "myself", label: "Робити все самому", axis_points: { A: 2 } },
+        { id: "control", label: "Знати, що під контролем", axis_points: { A: 1 } },
+        { id: "expert", label: "Щоб вів фахівець", axis_points: { B: 2 } },
+        { id: "minimum", label: "Мінімальна участь", axis_points: { C: 2 } }
+      ]
+    },
 
-        stepCar.classList.add('hidden');
-        stepQuestions.classList.remove('hidden');
-        renderQuestion();
-      };
+    {
+      id: "q7_risks",
+      type: "single",
+      affectsScore: true,
+      text: "Найбільш небажане",
+      answers: [
+        { id: "time", label: "Втратити час", axis_points: { B: 1 } },
+        { id: "money", label: "Втратити гроші", axis_points: { B: 2 } },
+        { id: "people", label: "Неприємні ситуації", axis_points: { C: 2 } },
+        { id: "docs", label: "Документи / безпека", axis_points: { B: 2 } }
+      ]
+    },
 
-      /** =====================
-       * RENDER QUESTION
-       ====================== */
-      function renderQuestion() {
-        const q = quizConfig.questions[state.step];
-        if (!q) return;
+    {
+      id: "q8_trust",
+      type: "single",
+      affectsScore: true,
+      text: "У складних процесах ви…",
+      answers: [
+        { id: "self", label: "Розбираюсь сам", axis_points: { A: 2 } },
+        { id: "advice", label: "Шукаю поради", axis_points: { B: 1 } },
+        { id: "listen", label: "Прислухаюсь до фахівців", axis_points: { B: 2 } },
+        { id: "trust", label: "Довіряю професіоналам", axis_points: { B: 2, C: -1 } }
+      ]
+    },
 
-        quizProgress.textContent =
-          `Питання ${state.step + 1} з ${quizConfig.questions.length}`;
+    {
+      id: "q9_emotion",
+      type: "single",
+      affectsScore: true,
+      text: "Продаж авто — це…",
+      answers: [
+        { id: "interesting", label: "Цікавий досвід", axis_points: { A: 1 } },
+        { id: "task", label: "Робоче завдання", axis_points: { A: 1 } },
+        { id: "stress", label: "Стрес", axis_points: { C: 2 } },
+        { id: "close", label: "Хочу швидше завершити", axis_points: { C: 2 } }
+      ]
+    },
 
-        quizQuestion.textContent = q.text;
-        quizAnswers.innerHTML = '';
-        btnNext.disabled = true;
+    {
+      id: "q10_intent",
+      type: "single",
+      affectsScore: false,
+      text: "Який підхід вам ближчий?",
+      answers: [
+        { id: "self", label: "Продати самостійно" },
+        { id: "support", label: "Самостійно, але з підтримкою" },
+        { id: "delegate", label: "Делегувати частину" },
+        { id: "full", label: "Передати фахівцям" }
+      ]
+    }
+  ],
 
-        q.answers.forEach(a => {
-          const btn = document.createElement('button');
-          btn.className = 'quiz__answer';
-          btn.textContent = a.label;
+  scoring: {
+    priority: ["S4", "S3", "S2", "S1"],
+    rules: {
+      S4: s => s.B >= 8 && s.C >= 8,
+      S3: s => s.C >= 8,
+      S2: s => s.B >= 8 && s.C <= 6,
+      S1: s => s.A >= 8 && s.B <= 4 && s.C <= 4
+    }
+  }
+};
 
-          btn.onclick = () => {
-            state.answers[q.id] = a.id;
-            [...quizAnswers.children].forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            btnNext.disabled = false;
-          };
+/*********************************
+ * RESULTS (NEW STRUCTURE)
+ *********************************/
+const RESULTS = {
+  S1: {
+    title: "Самостійний продаж може спрацювати, але не швидко",
+    explanation_template:
+      "Для авто типу {{brand}} {{model}} {{year}} самостійний продаж часто займає більше часу, ніж очікується. Це нормальна ситуація для вторинного ринку.",
+    tips: [
+      "Закладіть реалістичний термін продажу (4–8 тижнів).",
+      "Будьте готові до періодів без активності — це нормально.",
+      "Регулярно оцінюйте, чи рухаєтесь у правильному напрямку."
+    ],
+    soft_transition:
+      "Якщо ви не хочете витрачати на це весь свій час, частину процесу можна делегувати фахівцям.",
+    cta: { primary: { id: "consult", label: "Поспілкуватися з менеджером AutoXata" } }
+  },
 
-          quizAnswers.appendChild(btn);
-        });
+  S2: {
+    title: "Складність не у вашому авто, а в самому процесі",
+    explanation_template:
+      "Навіть ліквідні авто, як {{brand}} {{model}} {{year}}, можуть продаватись повільно без чіткого розуміння ринку та попиту.",
+    tips: [
+      "Не приймайте рішень на емоціях — дайте процесу структуру.",
+      "Спробуйте чітко сформулювати, що саме зараз стримує результат.",
+      "Сторонній погляд часто допомагає знайти оптимальний шлях."
+    ],
+    soft_transition:
+      "Менеджери автоплатформи щодня працюють з такими ситуаціями і знають, як краще вибудувати процес.",
+    cta: { primary: { id: "consult", label: "Отримати консультацію менеджера" } }
+  },
 
-        btnBack.style.visibility = state.step === 0 ? 'hidden' : 'visible';
-      }
+  S3: {
+    title: "Продаж авто не повинен виснажувати",
+    explanation_template:
+      "З ваших відповідей видно, що продаж {{brand}} {{model}} {{year}} забирає більше енергії, ніж ви очікували.",
+    tips: [
+      "Ваш час і спокій теж мають цінність — це важливий ресурс.",
+      "Постійна участь у процесі не завжди виправдана.",
+      "Делегування — це оптимізація, а не втрата контролю."
+    ],
+    soft_transition:
+      "У таких випадках формат продажу з менеджером допомагає зняти рутину та напругу.",
+    cta: { primary: { id: "consult", label: "Передати продаж під супровід AutoXata" } }
+  },
 
-      /** =====================
-       * NAVIGATION
-       ====================== */
-      btnNext.onclick = () => {
-        if (state.step < quizConfig.questions.length - 1) {
-          state.step++;
-          renderQuestion();
-        } else {
-          showResult();
-        }
-      };
+  S4: {
+    title: "Для вас важливі прогнозованість і безпека",
+    explanation_template:
+      "Для авто типу {{brand}} {{model}} {{year}} найбільш комфортним форматом часто стає продаж через платформу з повною підтримкою.",
+    tips: [
+      "Чіткий процес знижує ризики та дає більше впевненості.",
+      "Досвід економить час і ресурси — без зайвих експериментів.",
+      "Краще одразу обрати формат, який вам підходить."
+    ],
+    soft_transition:
+      "Менеджери AutoXata супроводжують продаж на всіх етапах і беруть на себе ключові моменти.",
+    cta: { primary: { id: "consult", label: "Розпочати продаж з менеджером AutoXata" } }
+  }
+};
 
-      btnBack.onclick = () => {
-        if (state.step > 0) {
-          state.step--;
-          renderQuestion();
-        }
-      };
+/*********************************
+ * STATE
+ *********************************/
+let step = 0;
+let answers = {};
+let score = { A: 0, B: 0, C: 0 };
 
-      /** =====================
-       * RESULT (заглушка)
-       ====================== */
-      function showResult() {
-        stepQuestions.classList.add('hidden');
-        stepResult.classList.remove('hidden');
+/*********************************
+ * SCORE
+ *********************************/
+function calculateScore() {
+  score = { A: 0, B: 0, C: 0 };
 
-        document.getElementById('resultTitle').textContent =
-          'Результат буде сформовано';
+  QUIZ.questions.forEach(q => {
+    if (!q.affectsScore) return;
+    const chosen = q.answers.find(a => a.id === answers[q.id]);
+    if (!chosen) return;
 
-        document.getElementById('resultText').textContent =
-          `Для авто ${state.car.brand} ${state.car.model} ${state.car.year}
-       ми підготуємо персональний сценарій.`;
-
-        document.getElementById('ctaMain').textContent =
-          'Поспілкуватися з менеджером AutoXata';
-      }
-
+    Object.entries(chosen.axis_points || {}).forEach(([k, v]) => {
+      score[k] += v;
     });
-  </script>
+  });
+}
+
+function resolveScenario() {
+  for (const s of QUIZ.scoring.priority) {
+    if (QUIZ.scoring.rules[s](score)) return s;
+  }
+  return "S2";
+}
+
+/*********************************
+ * RESULT RENDER
+ *********************************/
+function renderResult(scenario) {
+  const r = RESULTS[scenario];
+
+  const brand = answers.q0_brand || "";
+  const model = answers.q0_model || "";
+  const year = answers.q0_year || "";
+
+  document.getElementById("resultTitle").textContent = r.title;
+
+  let html = `<p>${r.explanation_template}</p>`;
+  html = html
+    .replaceAll("{{brand}}", brand)
+    .replaceAll("{{model}}", model)
+    .replaceAll("{{year}}", year);
+
+  if (r.tips?.length) {
+    html += "<ul>";
+    r.tips.forEach(t => (html += `<li>${t}</li>`));
+    html += "</ul>";
+  }
+
+  if (r.soft_transition) {
+    html += `<p>${r.soft_transition}</p>`;
+  }
+
+  document.getElementById("resultText").innerHTML = html;
+
+  const cta = document.getElementById("ctaPrimary");
+  cta.textContent = r.cta.primary.label;
+
+  document.getElementById("quiz").classList.add("hidden");
+  document.getElementById("result").classList.remove("hidden");
+}
+
+/*********************************
+ * FINISH
+ *********************************/
+function finishQuiz() {
+  calculateScore();
+  const scenario = resolveScenario();
+  renderResult(scenario);
+}
+
+/*********************************
+ * DOM
+ *********************************/
+const qEl = document.getElementById("question");
+const hEl = document.getElementById("helper");
+const fEl = document.getElementById("fields");
+const aEl = document.getElementById("answers");
+const pEl = document.getElementById("progress");
+const nextBtn = document.getElementById("nextBtn");
+const backBtn = document.getElementById("backBtn");
+
+/*********************************
+ * RENDER QUESTION
+ *********************************/
+function render() {
+  const q = QUIZ.questions[step];
+
+  pEl.textContent = `Питання ${step + 1} з ${QUIZ.questions.length}`;
+  qEl.textContent = q.text;
+  hEl.textContent = q.helper_text || "";
+
+  fEl.innerHTML = "";
+  aEl.innerHTML = "";
+  nextBtn.disabled = true;
+
+  if (q.type === "group") {
+    q.fields.forEach(field => {
+      const input = document.createElement("input");
+      input.placeholder = field.placeholder;
+      input.value = answers[field.id] || "";
+      input.className = "quiz__input";
+
+      input.addEventListener("input", () => {
+        answers[field.id] = input.value.trim();
+        nextBtn.disabled = !q.fields.every(f => answers[f.id]);
+      });
+
+      fEl.appendChild(input);
+    });
+  }
+
+  if (q.type === "single") {
+    q.answers.forEach(ans => {
+      const div = document.createElement("div");
+      div.className = "quiz__answer";
+      div.textContent = ans.label;
+
+      if (answers[q.id] === ans.id) {
+        div.classList.add("selected");
+        nextBtn.disabled = false;
+      }
+
+      div.addEventListener("click", () => {
+        answers[q.id] = ans.id;
+        document.querySelectorAll(".quiz__answer").forEach(el => el.classList.remove("selected"));
+        div.classList.add("selected");
+        nextBtn.disabled = false;
+      });
+
+      aEl.appendChild(div);
+    });
+  }
+
+  backBtn.style.display = step === 0 ? "none" : "inline-block";
+}
+
+/*********************************
+ * EVENTS
+ *********************************/
+nextBtn.addEventListener("click", () => {
+  if (step < QUIZ.questions.length - 1) {
+    step++;
+    render();
+  } else {
+    finishQuiz();
+  }
+});
+
+backBtn.addEventListener("click", () => {
+  if (step > 0) {
+    step--;
+    render();
+  }
+});
+
+/*********************************
+ * INIT
+ *********************************/
+render();
+</script>
+
+
 
 </body>
 </html>
