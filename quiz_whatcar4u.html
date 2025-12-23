@@ -358,11 +358,11 @@
     <div class="result__title" id="resultTitle"></div>
 
     <div class="result__text" id="resultText"></div>
-     <p id="similarModels" style="font-size: 16px;"></p>
+    <p id="similarModels" style="font-size: 16px;"></p>
     <div class="result__cta">
-      <p class="result-text">Ви можете переглянути схожі перевірені авто на нашій сторінці AutoRia або звернутися до
-        менеджера AutoXata з будь-якими питаннями щодо вибору, доступних варіантів чи процесу купівлі та продажу авто в
-        Миколаєві.</p>
+      <p class="result-text">Ви можете переглянути перевірені авто на нашій сторінці AutoRia або звернутися до менеджера
+        AutoXata з будь-якими питаннями щодо вибору, доступних варіантів чи процесу купівлі та продажу авто в Миколаєві.
+      </p>
       <button class="result__btn result__btn--primary" id="ctaPrimary">🔍 Перейти в AutoRia</button>
       <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">📞 Отримати консультацію
         менеджера</a>
@@ -895,12 +895,12 @@
         resultImage.alt = `${state.result.brand} ${state.result.model}`;
 
         // Если нужно, выводим похожие модели
-       const similarEl = document.getElementById('similarModels');
-if (similarEl && state.result.similar?.length) {
-  similarEl.textContent = 'Схожі моделі: ' + state.result.similar.join(', ');
-} else {
-  similarEl.textContent = '';
-}
+        const similarEl = document.getElementById('similarModels');
+        if (similarEl && state.result.similar?.length) {
+          similarEl.textContent = 'Схожі моделі: ' + state.result.similar.join(', ');
+        } else {
+          similarEl.textContent = '';
+        }
 
         try {
           await sendPayload(buildPayload('quiz_complete'));
