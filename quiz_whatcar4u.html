@@ -207,9 +207,11 @@
       font-size: 16px;
       margin-bottom: 24px;
     }
-.result-text{
-  font-size: 16px;
-}
+
+    .result-text {
+      font-size: 16px;
+    }
+
     .result__cta {
       display: flex;
       flex-direction: column;
@@ -356,8 +358,11 @@
     <div class="result__title" id="resultTitle"></div>
 
     <div class="result__text" id="resultText"></div>
+     <p id="similarModels" style="font-size: 16px;"></p>
     <div class="result__cta">
-      <p class="result-text">Ви можете переглянути схожі перевірені авто на нашій сторінці AutoRia або звернутися до менеджера AutoXata з будь-якими питаннями щодо вибору, доступних варіантів чи процесу купівлі та продажу авто в Миколаєві.</p>
+      <p class="result-text">Ви можете переглянути схожі перевірені авто на нашій сторінці AutoRia або звернутися до
+        менеджера AutoXata з будь-якими питаннями щодо вибору, доступних варіантів чи процесу купівлі та продажу авто в
+        Миколаєві.</p>
       <button class="result__btn result__btn--primary" id="ctaPrimary">🔍 Перейти в AutoRia</button>
       <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">📞 Отримати консультацію
         менеджера</a>
@@ -481,12 +486,164 @@
       const utm_term = urlParams.get('utm_term') || '';
 
       const ARCHETYPE_MAP = {
-        A: { brand: 'Toyota', model: 'Corolla', text: 'надійний та практичний варіант для щоденного використання', image: './assets/images/quiz-result-corolla.png' },
-        B: { brand: 'Volkswagen', model: 'Golf', text: 'збалансований автомобіль для сімʼї та міста', image: './assets/images/golf-quiz.jpg' },
-        C: { brand: 'BMW', model: '3 Series', text: 'динамічний автомобіль для тих, хто любить драйв', image: './assets/images/bmw_3-series-quiz.webp' },
-        D: { brand: 'Subaru', model: 'Forester', text: 'ідеальний для подорожей та активного способу життя', image: './assets/images/subaru-quiz.png' },
-        E: { brand: 'Skoda', model: 'Octavia', text: 'раціональний вибір з максимумом користі', image: './assets/images/octavia-quiz.jpg' }
+        A: {
+          brand: "Toyota",
+          model: "Corolla",
+          image: "./assets/images/quiz-result-corolla.png",
+          similar: ["Mazda 3", "Honda Civic"],
+          texts: {
+            awareness: {
+              title: "Комфортний міський стиль",
+              text: "Toyota Corolla — спокійні поїздки, комфорт у місті та мінімум турбот.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "Вам підходить бренд Toyota",
+              text: "Toyota Corolla — один з найбільш збалансованих автомобілів для щоденного використання.",
+              cta_primary: "autoria",
+              cta_secondary: "save"
+            },
+            consideration: {
+              title: "Toyota — оптимальний вибір для міста",
+              text: "Corolla поєднує комфорт, просте обслуговування та високу ліквідність на вторинному ринку.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: Toyota Corolla",
+              text: "Ми можемо допомогти підібрати конкретний автомобіль під ваші критерії.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
+        },
+
+        B: {
+          brand: "Subaru",
+          model: "Forester",
+          image: "./assets/images/subaru-quiz.png",
+          similar: ["Honda Accord", "Toyota RAV4", "Mazda CX-5"],
+          texts: {
+            awareness: {
+              title: "Практичний сімейний автомобіль",
+              text: "Subaru Forester — надійний варіант для сім’ї та подорожей.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "Вам підходить бренд Subaru",
+              text: "Forester добре підходить для щоденних поїздок і сімейних потреб.",
+              cta_primary: "autoria"
+            },
+            consideration: {
+              title: "Subaru — надійний вибір для сім’ї",
+              text: "Forester, Accord та RAV4 — сильні варіанти у вашому сегменті.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: Subaru Forester",
+              text: "Допоможемо підібрати конкретний автомобіль для вашої родини.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
+        },
+
+        C: {
+          brand: "BMW",
+          model: "3 Series",
+          image: "./assets/images/bmw_3-series-quiz.webp",
+          similar: ["BMW X2", "Audi A4", "Volkswagen Golf"],
+          texts: {
+            awareness: {
+              title: "Динаміка та стиль",
+              text: "BMW 3 Series — задоволення від керування та виразний стиль.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "Вам підходить бренд BMW",
+              text: "3 Series поєднує динаміку, комфорт та імідж.",
+              cta_primary: "autoria"
+            },
+            consideration: {
+              title: "BMW — вибір для драйву",
+              text: "3 Series, X2 та Audi A4 — варіанти для активного стилю водіння.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: BMW 3 Series",
+              text: "Можемо допомогти підібрати оптимальний варіант у вашому бюджеті.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
+        },
+
+        D: {
+          brand: "Volkswagen",
+          model: "Touareg",
+          image: "./assets/images/vw-touareg-quiz.webp",
+          similar: ["Subaru Outback", "Toyota Highlander", "Ford Escape"],
+          texts: {
+            awareness: {
+              title: "Надійність на роки",
+              text: "Volkswagen Touareg — витривалий автомобіль для щоденних та тривалих поїздок.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "Вам підходить бренд Volkswagen",
+              text: "Touareg створений для тих, хто цінує надійність і запас міцності.",
+              cta_primary: "autoria"
+            },
+            consideration: {
+              title: "Volkswagen — вибір на довго",
+              text: "Touareg, Outback та Highlander — сильні рішення у класі.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: Volkswagen Touareg",
+              text: "Допоможемо знайти оптимальний варіант під ваші задачі.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
+        },
+
+        E: {
+          brand: "Skoda",
+          model: "Fabia",
+          image: "./assets/images/skoda-fabia-quiz.jpg",
+          similar: ["Renault Sandero", "Ford Focus", "Toyota Yaris"],
+          texts: {
+            awareness: {
+              title: "Розумний вибір",
+              text: "Skoda Fabia — практичний та економний автомобіль для міста.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "Вам підходить бренд Skoda",
+              text: "Fabia — оптимальний баланс ціни, надійності та витрат.",
+              cta_primary: "autoria"
+            },
+            consideration: {
+              title: "Skoda — вигідний варіант",
+              text: "Fabia, Sandero та Focus — розумні рішення без переплат.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: Skoda Fabia",
+              text: "Враховуючи ваші відповіді, цей клас авто буде оптимальним.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
+        }
       };
+
+
 
       const quizConfig = {
         questions: [
@@ -616,15 +773,6 @@
         progressEl.textContent = `Питання ${state.step + 1} з ${quizConfig.questions.length}`;
         questionEl.textContent = q.text;
 
-
-        // картинка
-        // if (q.image) {
-        //   questionImageEl.src = q.image;
-        //   questionImageEl.style.display = 'block';
-        // } else {
-        //   questionImageEl.style.display = 'none';
-        // }
-
         answersEl.innerHTML = '';
         btnNext.disabled = true;
 
@@ -660,17 +808,29 @@
         });
 
         const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
-        const top = sorted[0][0];
+        const archetype = sorted[0][0];
 
-        const map = ARCHETYPE_MAP[top];
+        // Определяем intent по q10, по умолчанию informational
+        const intent = state.answers.q10 || "informational";
 
+        // Получаем данные архетипа
+        const archetypeData = ARCHETYPE_MAP[archetype];
+
+        // Выбираем блок текста по intent
+        const textBlock = archetypeData.texts[intent] || archetypeData.texts.informational;
+
+        // Формируем результат
         state.result = {
-          archetype: top,
-          brand: map.brand,
-          model: map.model,
-          description: map.text,
-          image: map.image,
-          intent: state.answers.q10 // intent_segment
+          archetype,
+          intent,
+          brand: archetypeData.brand,
+          model: archetypeData.model,
+          image: archetypeData.image,
+          title: textBlock.title,
+          text: textBlock.text,
+          similar: archetypeData.similar || [],
+          cta_primary: textBlock.cta_primary,
+          cta_secondary: textBlock.cta_secondary
         };
 
 
@@ -726,11 +886,21 @@
 
         calculateResult();
 
-        resultTitle.textContent = `Вам найбільше підходить бренд ${state.result.brand}`;
-        resultText.textContent = `Наприклад, ${state.result.brand} ${state.result.model} — ${state.result.description}.`;
+        // Отображаем результат
+        resultTitle.textContent = state.result.title; // динамический заголовок по intent
+        resultText.textContent = state.result.text;   // динамический текст по intent
+
         const resultImage = document.getElementById('resultImage');
         resultImage.src = state.result.image;
         resultImage.alt = `${state.result.brand} ${state.result.model}`;
+
+        // Если нужно, выводим похожие модели
+       const similarEl = document.getElementById('similarModels');
+if (similarEl && state.result.similar?.length) {
+  similarEl.textContent = 'Схожі моделі: ' + state.result.similar.join(', ');
+} else {
+  similarEl.textContent = '';
+}
 
         try {
           await sendPayload(buildPayload('quiz_complete'));
