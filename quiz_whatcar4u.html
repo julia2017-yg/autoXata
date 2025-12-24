@@ -640,6 +640,37 @@
               cta_secondary: "autoria"
             }
           }
+        },
+        F: {
+          brand: "BMW",
+          model: "5 Series",
+          image: "./assets/images/quiz-bmw5.png",
+          similar: ["Audi A6", "Mercedes-Benz E-Class", "Skoda Octavia RS"],
+          texts: {
+            awareness: {
+              title: "BMW 5 Series — Сила та контроль",
+              text: "Вам важливі запас потужності, впевнене прискорення та відчуття контролю в будь-якій ситуації — авто має “тягнути” і слухатися керма.",
+              cta_primary: "autoria"
+            },
+            informational: {
+              title: "BMW 5 Series — Вам підходить авто з характером",
+              text: "Ваш стиль — активне водіння та впевнені маневри, тому вам підійдуть моделі з потужним мотором, стабільною керованістю та відчуттям “запасу”",
+              cta_primary: "autoria",
+              cta_secondary: "save"
+            },
+            consideration: {
+              title: "BMW 5 Series — Формат для активного водіння",
+              text: "Оптимальним для Вас буде автомобіль, який поєднує динаміку й контроль із комфортом у щоденних поїздках, де емоції зустрічаються з практичністю.",
+              cta_primary: "autoria",
+              cta_secondary: "consult"
+            },
+            decision: {
+              title: "Рекомендовано: BMW 5 Series",
+              text: "З урахуванням ваших відповідей, вам підійде автомобіль із запасом потужності та впевненим характером — для активного водіння, контролю ситуації та динаміки без компромісів.",
+              cta_primary: "consult",
+              cta_secondary: "autoria"
+            }
+          }
         }
       };
 
@@ -648,111 +679,111 @@
       const quizConfig = {
         questions: [
           {
-            id: 'q1', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?',
-            // image: './assets/images/quiz-text-photo-1.avif',
+            id: 'q1_animal', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?',
             answers: [
-              { id: 'cat', label: '🐱 Кіт', weights: { A: 3, C: 1 } },
-              { id: 'dog', label: '🐕 Пес', weights: { B: 3, D: 1 } },
-              { id: 'cheetah', label: '🐆 Гепард', weights: { C: 3, A: 1 } },
-              { id: 'bear', label: '🐻 Ведмідь', weights: { D: 3, B: 1 } },
-              { id: 'fox', label: '🦊 Лис', weights: { E: 3, A: 1 } }
+              { id: 'cat', label: '🐱 Кіт — незалежний, люблю комфорт', weights: { A: 3, C: 1 } },
+              { id: 'dog', label: '🐕 Пес — надійний, практичний, для сім’ї', weights: { B: 3, D: 1 } },
+              { id: 'cheetah', label: '🐆 Гепард — люблю динаміку та стиль', weights: { C: 3, A: 1 } },
+              { id: 'bear', label: '🐻 Ведмідь — сила, надійність, “на роки”', weights: { D: 3, B: 1 } },
+              { id: 'fox', label: '🦊 Лис — розумно, вигідно, без переплат', weights: { E: 3, A: 1 } },
+              { id: 'wolf', label: '🐺 Вовк — контроль, сила, я веду гру', weights: { F: 4, C: 1 } }
+
             ]
           },
           {
-            id: 'q2', text: 'Ваш ідеальний вихідний — це…',
-            // image: './assets/images/quiz-text-photo-2.avif',
+            id: 'q2_weekend', text: 'Ваш ідеальний вихідний — це…',
             answers: [
-              { id: 'city', label: 'Місто + кава', weights: { A: 2 } },
-              { id: 'nature', label: 'Природа / за місто', weights: { D: 2 } },
+              { id: 'city', label: 'Прогулянка містом + кава', weights: { A: 2 } },
+              { id: 'nature', label: 'Поїздка за місто / природа', weights: { D: 2 } },
               { id: 'home', label: 'Дім, затишок', weights: { B: 2 } },
-              { id: 'trip', label: 'Спонтанна подорож', weights: { C: 2 } },
-              { id: 'planned', label: 'Все сплановано', weights: { E: 2 } }
+              { id: 'spontaneous', label: 'Спонтанна подорож', weights: { C: 2 } },
+              { id: 'plan', label: 'Все сплановано і без сюрпризів', weights: { E: 2 } }
             ]
           },
           {
-            id: 'q3', text: 'Авто для вас — це…',
-            // image: './assets/images/quiz-text-photo-3.jpg',
+            id: 'q3_role', text: 'Авто для вас — це…',
             answers: [
               { id: 'transport', label: 'Просто транспорт', weights: { E: 2 } },
-              { id: 'assistant', label: 'Помічник', weights: { B: 2 } },
+              { id: 'assistant', label: 'Помічник у житті', weights: { B: 2 } },
               { id: 'style', label: 'Частина стилю', weights: { C: 2 } },
-              { id: 'simplify', label: 'Спрощує життя', weights: { A: 2 } }
+              { id: 'simplify', label: 'Спосіб спростити життя', weights: { A: 2 } },
+              { id: 'adrenaline', label: 'Азарт і характер — люблю, коли авто “живе”', weights: { F: 2, C: 1 } }
+
             ]
           },
           {
-            id: 'q4', text: 'Коли щось ламається, ви…',
-            // image: './assets/images/quiz-text-photo-4.jpg',
+            id: 'q4_breaks', text: 'Коли щось ламається, ви…',
             answers: [
-              { id: 'want_work', label: 'Хочу, щоб просто працювало', weights: { D: 2 } },
-              { id: 'fix', label: 'Вирішую і забуваю', weights: { E: 2 } },
-              { id: 'tolerate', label: 'Терплю', weights: { B: 1, A: 1 } },
-              { id: 'control', label: 'Контролюю все', weights: { A: 2 } }
+              { id: 'just_work', label: 'Хочу, щоб просто працювало', weights: { D: 2 } },
+              { id: 'fix_forget', label: 'Вирішую і забуваю', weights: { E: 2 } },
+              { id: 'tolerate', label: 'Дратуюсь, але терплю', weights: { B: 1, A: 1 } },
+              { id: 'control', label: 'Люблю все контролювати', weights: { A: 2 } },
+              { id: 'tune', label: 'Доводжу до ідеалу: налаштувати, підсилити, зробити краще', weights: { F: 2, C: 1 } }
             ]
           },
           {
-            id: 'q5', text: 'У дорозі важливіше…',
-            // image: './assets/images/quiz-text-photo-5.jpg',
+            id: 'q5_road', text: 'У дорозі для вас важливіше…',
             answers: [
-              { id: 'quiet', label: 'Тиша і плавність', weights: { A: 2 } },
-              { id: 'safety', label: 'Відчуття безпеки', weights: { B: 2 } },
-              { id: 'control_drive', label: 'Контроль і керування', weights: { C: 2 } },
-              { id: 'reliability', label: 'Надійність', weights: { D: 2 } }
+              { id: 'smooth', label: 'Тиша і плавність', weights: { A: 2 } },
+              { id: 'safe', label: 'Відчуття безпеки', weights: { B: 2 } },
+              { id: 'feel', label: 'Відчуття керування', weights: { C: 2 } },
+              { id: 'endure', label: 'Впевненість, що “витримає все”', weights: { D: 2 } },
+              { id: 'power', label: 'Контроль, прискорення і запас потужності', 'weights': { F: 3, C: 1 } }
+
             ]
           },
           {
-            id: 'q6', text: 'Паркування для вас — це…',
-            // image: './assets/images/quiz-text-photo-6.jpg',
+            id: 'q6_parking', text: 'Паркування для вас — це…',
             answers: [
               { id: 'easy', label: 'Не проблема', weights: { A: 2 } },
-              { id: 'usual', label: 'Звична справа', weights: { E: 2 } },
+              { id: 'normal', label: 'Звична справа', weights: { E: 2 } },
               { id: 'stress', label: 'Стрес', weights: { B: 1, D: 1 } },
-              { id: 'depends', label: 'Залежить від ситуації', weights: { C: 2 } }
+              { id: 'mood', label: 'Залежить від настрою', weights: { C: 2 } },
+              { id: 'precise', label: 'Швидко і точно — люблю контроль у маневрах', weights: { F: 2 } }
             ]
           },
           {
-            id: 'q7', text: 'У багажнику частіше…',
-            // image: './assets/images/quiz-text-photo-7.jpg',
+            id: 'q7_trunk', text: 'У багажнику частіше…',
             answers: [
-              { id: 'nothing', label: 'Майже нічого', weights: { A: 2 } },
-              { id: 'bags', label: 'Покупки', weights: { B: 2 } },
-              { id: 'stuff', label: 'Речі “про всяк випадок”', weights: { D: 2 } },
+              { id: 'empty', label: 'Майже нічого', weights: { A: 2 } },
+              { id: 'bags', label: 'Сумки / покупки', weights: { B: 2 } },
+              { id: 'just_in_case', label: 'Речі “на всякий випадок”', weights: { D: 2 } },
               { id: 'hobby', label: 'Хобі / спорт', weights: { C: 2 } }
             ]
           },
           {
-            id: 'q8', text: 'Коли вибір складний, ви…',
-            // image: './assets/images/quiz-text-photo-8.jpg',
+            id: 'q8_decision', text: 'Коли вибір складний, ви…',
             answers: [
-              { id: 'intuition', label: 'Інтуїтивно', weights: { C: 2 } },
-              { id: 'ask', label: 'Раджусь', weights: { B: 2 } },
-              { id: 'analyze', label: 'Довго аналізую', weights: { E: 2 } },
-              { id: 'simple', label: 'Хочу просте рішення', weights: { A: 2 } }
+              { id: 'intuition', label: 'Покладаюсь на відчуття', weights: { C: 2 } },
+              { id: 'ask', label: 'Раджусь з іншими', weights: { B: 2 } },
+              { id: 'analyze', label: 'Довго зважую', weights: { E: 2 } },
+              { id: 'simple', label: 'Хочу просте рішення', weights: { A: 2 } },
+              { id: 'fast_decision', label: 'Швидко вирішую і беру відповідальність', weights: { F: 2, A: 1 } }
             ]
           },
           {
-            id: 'q9', text: 'Як ви водите?',
-            // image: './assets/images/quiz-text-photo-9.jpg',
+            id: 'q9_drive', text: 'Як ви зазвичай водите?',
             answers: [
-              { id: 'calm', label: 'Спокійно', weights: { A: 2, D: 1 } },
-              { id: 'confident', label: 'Акуратно, впевнено', weights: { B: 2, A: 1 } },
-              { id: 'love_drive', label: 'Люблю відчувати дорогу', weights: { C: 3 } },
-              { id: 'varied', label: 'По-різному', weights: { E: 2 } }
+              { id: 'calm', label: 'Спокійно, без різких маневрів', weights: { A: 2, D: 1 } },
+              { id: 'careful', label: 'Акуратно, але впевнено', weights: { B: 2, A: 1 } },
+              { id: 'feel_road', label: 'Люблю відчувати дорогу', weights: { C: 3 } },
+              { id: 'depends', label: 'По-різному, залежить від ситуації', weights: { E: 2 } },
+              { id: 'aggressive', label: 'Активно: швидко реагую, люблю випереджати', weights: { F: 4, C: 1 } }
             ]
           },
           {
-            id: 'q10', text: 'Що для вас зараз важливіше у виборі авто?',
-            // image: './assets/images/quiz-text-photo-10.jpg',
+            id: 'q10_intent', text: 'Що для вас зараз важливіше у виборі авто?',
             answers: [
-              { id: 'informational', label: 'Зрозуміти, що мені підходить' },
-              { id: 'consideration', label: 'Порівнюю варіанти' },
-              { id: 'decision', label: 'Хочу визначитись' },
+              { id: 'informational', label: 'Хочу краще зрозуміти, що мені підходить' },
+              { id: 'consideration', label: 'Порівнюю різні варіанти' },
+              { id: 'decision', label: 'Хочу вже визначитись' },
               { id: 'awareness', label: 'Просто цікаво' }
             ]
           }
         ]
       };
 
-      const state = { step: 0, answers: {}, score: { A: 0, B: 0, C: 0, D: 0, E: 0 }, result: {} };
+      const state = { step: 0, answers: {}, score: { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 }, result: {} };
 
       const quizEl = document.getElementById('quiz');
       const resultEl = document.getElementById('result');
@@ -793,7 +824,7 @@
       }
 
       function calculateResult() {
-        state.score = { A: 0, B: 0, C: 0, D: 0, E: 0 };
+        state.score = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
 
         quizConfig.questions.forEach(q => {
           const answerId = state.answers[q.id];
