@@ -5,8 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="preload" data-asynced="1" data-optimized="2" as="style" onload="this.onload=null;this.rel='stylesheet'"
     href="./assets/css/95edaa11959961e12eb08c64c5d5eb49.css">
+  <script
+    src="data:text/javascript;base64,IWZ1bmN0aW9uKGEpeyJ1c2Ugc3RyaWN0Ijt2YXIgYj1mdW5jdGlvbihiLGMsZCl7ZnVuY3Rpb24gZShhKXtyZXR1cm4gaC5ib2R5P2EoKTp2b2lkIHNldFRpbWVvdXQoZnVuY3Rpb24oKXtlKGEpfSl9ZnVuY3Rpb24gZigpe2kuYWRkRXZlbnRMaXN0ZW5lciYmaS5yZW1vdmVFdmVudExpc3RlbmVyKCJsb2FkIixmKSxpLm1lZGlhPWR8fCJhbGwifXZhciBnLGg9YS5kb2N1bWVudCxpPWguY3JlYXRlRWxlbWVudCgibGluayIpO2lmKGMpZz1jO2Vsc2V7dmFyIGo9KGguYm9keXx8aC5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaGVhZCIpWzBdKS5jaGlsZE5vZGVzO2c9altqLmxlbmd0aC0xXX12YXIgaz1oLnN0eWxlU2hlZXRzO2kucmVsPSJzdHlsZXNoZWV0IixpLmhyZWY9YixpLm1lZGlhPSJvbmx5IHgiLGUoZnVuY3Rpb24oKXtnLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGksYz9nOmcubmV4dFNpYmxpbmcpfSk7dmFyIGw9ZnVuY3Rpb24oYSl7Zm9yKHZhciBiPWkuaHJlZixjPWsubGVuZ3RoO2MtLTspaWYoa1tjXS5ocmVmPT09YilyZXR1cm4gYSgpO3NldFRpbWVvdXQoZnVuY3Rpb24oKXtsKGEpfSl9O3JldHVybiBpLmFkZEV2ZW50TGlzdGVuZXImJmkuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZiksaS5vbmxvYWRjc3NkZWZpbmVkPWwsbChmKSxpfTsidW5kZWZpbmVkIiE9dHlwZW9mIGV4cG9ydHM/ZXhwb3J0cy5sb2FkQ1NTPWI6YS5sb2FkQ1NTPWJ9KCJ1bmRlZmluZWQiIT10eXBlb2YgZ2xvYmFsP2dsb2JhbDp0aGlzKTshZnVuY3Rpb24oYSl7aWYoYS5sb2FkQ1NTKXt2YXIgYj1sb2FkQ1NTLnJlbHByZWxvYWQ9e307aWYoYi5zdXBwb3J0PWZ1bmN0aW9uKCl7dHJ5e3JldHVybiBhLmRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImxpbmsiKS5yZWxMaXN0LnN1cHBvcnRzKCJwcmVsb2FkIil9Y2F0Y2goYil7cmV0dXJuITF9fSxiLnBvbHk9ZnVuY3Rpb24oKXtmb3IodmFyIGI9YS5kb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgibGluayIpLGM9MDtjPGIubGVuZ3RoO2MrKyl7dmFyIGQ9YltjXTsicHJlbG9hZCI9PT1kLnJlbCYmInN0eWxlIj09PWQuZ2V0QXR0cmlidXRlKCJhcyIpJiYoYS5sb2FkQ1NTKGQuaHJlZixkLGQuZ2V0QXR0cmlidXRlKCJtZWRpYSIpKSxkLnJlbD1udWxsKX19LCFiLnN1cHBvcnQoKSl7Yi5wb2x5KCk7dmFyIGM9YS5zZXRJbnRlcnZhbChiLnBvbHksMzAwKTthLmFkZEV2ZW50TGlzdGVuZXImJmEuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZnVuY3Rpb24oKXtiLnBvbHkoKSxhLmNsZWFySW50ZXJ2YWwoYyl9KSxhLmF0dGFjaEV2ZW50JiZhLmF0dGFjaEV2ZW50KCJvbmxvYWQiLGZ1bmN0aW9uKCl7YS5jbGVhckludGVydmFsKGMpfSl9fX0odGhpcyk7"
+    defer=""></script>
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Квиз: Яке авто вам підходить?</title>
+  <link rel="preload" href="./assets/images/bg.webp" as="image" type="image/webp">
 
   <style>
     * {
@@ -15,51 +19,45 @@
 
     body {
       font-family: Arial, sans-serif;
-      position: relative;
+
       color: #222;
       margin: 0;
       padding: 0;
+
+    }
+
+    .body-link {
+      font-size: 12px;
+      color: #999;
+      text-decoration: none;
+    }
+
+    .quiz-wrapper {
+      position: relative;
       min-height: 100vh;
       display: flex;
       justify-content: center;
-      /* квиз по центру */
+      padding-top: 200px;
       align-items: center;
       background-color: #f9f9f9;
       overflow-x: hidden;
     }
 
-    .body-link {
-      position: fixed;
-      left: 10px;
-      bottom: 8px;
-      font-size: 12px;
-      color: #999;
-      text-decoration: none;
-      z-index: 5;
-      opacity: 0.7;
-    }
-
-    /* Картинка слева */
-    body::before {
+    .quiz-wrapper::before {
       content: "";
       position: absolute;
       left: 140px;
       top: 50%;
       transform: translateY(-50%);
       width: 200px;
-      /* ширина картинки */
       height: 400px;
-      /* высота картинки */
       background-image: url('./assets/images/bg-left-quiz.jpg');
-      /* твоя картинка */
       background-size: contain;
       background-repeat: no-repeat;
       z-index: 0;
-      /* чтобы быть под квизом */
     }
 
-    /* Картинка справа */
-    body::after {
+    .quiz-wrapper::after {
       content: "";
       position: absolute;
       right: 140px;
@@ -90,7 +88,7 @@
       z-index: 1;
       /* чтобы быть выше картинок */
       width: 90%;
-      max-width: 600px;
+      max-width: 500px;
       background: #fff;
       padding: 30px;
       border-radius: 15px;
@@ -198,14 +196,15 @@
     }
 
     .result__title {
-      font-size: 26px;
+      font-size: 30px;
       font-weight: 700;
       margin-bottom: 12px;
+      line-height: 1.25;
     }
 
     .result__text {
       font-size: 16px;
-      margin-bottom: 24px;
+      margin-bottom: 15px;
     }
 
     .result-text {
@@ -247,26 +246,15 @@
 
     @media (max-width: 768px) {
 
-      body::before,
-      body::after {
+      .quiz-wrapper::before,
+      .quiz-wrapper::after {
         display: none;
       }
     }
 
-    /* MOBILE UX */
     @media (max-width: 480px) {
-      body {
-        background: #fff;
-      }
-
-      .quiz {
-        /* margin: 0;
-        min-height: 100vh;
-        border-radius: 0;
-        padding: 20px 16px 24px;
-        box-shadow: none; */
-        /* display: flex; */
-        /* flex-direction: column; */
+      .quiz-wrapper {
+        background-color: #f9f9f9;
       }
 
       .quiz__progress {
@@ -293,9 +281,12 @@
       }
 
       .quiz__footer {
-        /* margin-top: auto; */
         gap: 12px;
         display: flex;
+      }
+
+      .special-link-mob {
+        padding-bottom: 20px;
       }
 
       .quiz__btn {
@@ -308,6 +299,8 @@
         min-height: 100vh;
         border-radius: 0;
         padding: 32px 16px;
+        max-width: 500px;
+        width: 100%;
       }
 
       .result__image {
@@ -335,76 +328,419 @@
         padding: 16px;
       }
     }
+
+    .ltn__utilize-overlay {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      background-color: rgba(0, 0, 0, .5)
+    }
   </style>
 </head>
 <body>
-
-  <!-- QUIZ -->
-  <div class="quiz" id="quiz">
-    <div class="quiz__progress" id="quizProgress">Питання 1 з 10</div>
-
-    <div class="quiz__question" id="quizQuestion"></div>
-
-    <div class="quiz__question-wrap">
-      <div class="quiz__answers" id="quizAnswers"></div>
-      <!-- <img class="quiz__question-image" id="quizQuestionImage" alt=""> -->
+  <header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4">
+    <div class="ltn__header-top-area" style="background-color: #ffffff;">
+      <div class="container" style="padding-right: 15px;">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <div class="ltn__top-bar-menu">
+              <ul>
+                <li class="header-salons-wrapp">
+                  <span><i class="icon-placeholder"></i>вул. Чкалова 51б</span>
+                  <div class="header-salons-list">
+                    <div class="container">
+                      <div class="header-salons-list-inner">
+                        <div class="header-salons-list-item">
+                          <div class="header-salons-list-item-city-title">Миколаїв</div>
+                          <div class="header-salons-list-office-items">
+                            <div class="header-salons-list-office-item">
+                              <div class="header-salons-list-office-item-content">
+                                <div class="header-salons-list-office-item-title"><a
+                                    href="https://maps.app.goo.gl/VoikJJKzSZ1Z5NNg6" target="_blank"
+                                    rel="noopener noreferrer nofollow">Миколаїв, вул. Чкалова 51б (вул. Ігоря Бедзая,
+                                    51б)</a>
+                                </div>
+                                <div class="header-salons-list-office-item-label">Працюємо кожного дня с 9:00 - 20:00
+                                </div>
+                              </div>
+                              <div class="header-salons-list-office-item-phones">
+                                <img src="./assets/images/office-item-phones-icon.svg" alt="Phone icon" class="svg">
+                                <div class="header-salons-list-office-item-phones-list">
+                                  <a href="tel:+380735080000">+380 73 508 0000</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="">
+                  <a href="mailto:autohatamkua@gmail.com" target="_blank" rel="noopener noreferrer nofollow"><i
+                      class="icon-mail" style="top: 2px;"></i> autohatamkua@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center text-md-end">
+            <div class="top-bar-right">
+              <div class="ltn__top-bar-menu">
+                <ul>
+                  <li>
+                    <div class="ltn__social-media">
+                      <ul>
+                        <li class="">
+                          <a href="https://www.instagram.com/autoxata.mk" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Instagram">
+                            <img src="./assets/images/instagram.svg" alt="instagram" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
+                            <img src="./assets/images/facebook-f.svg" alt="facebook" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
+                            <img src="./assets/images/tik_tok.png" alt="TikTok" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
+                            aria-label="Профиль автосалона AutoXata в Telegram">
+                            <img src="./assets/images/telegram-plane.svg" alt="Telegram" class="svg">
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li style="margin-left: 20px;">
+                    <a href="/" class="lang-switch" data-lang="ua"
+                      style="font-size: 16px;color:rgb(238, 37, 61)">Укр</a> |
+                    <a href="/ru/" class="lang-switch" data-lang="ru" style="font-size: 16px;">Рус</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="quiz__footer">
-      <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
-      <button class="quiz__btn quiz__btn--next" id="btnNext" disabled>Далі</button>
+    <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white ltn__logo-right-menu-option"
+      style="background-color: #ffffff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <div class="site-logo-wrap">
+              <div class="site-logo">
+                <a href="./index.html"><img src="./assets/images/logo-2-.webp" alt="Logo" class="logo_img"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col header-menu-column ">
+            <div class="header-menu d-none d-xl-block">
+              <nav>
+                <div class="ltn__main-menu">
+                  <ul id="menu-golovne-menyu" class="menu">
+                    <li><a href="./index.html">Головна</a></li>
+                    <li><a href="https://auto.ria.com/dealers/autoxata/3634/" data-key="catalog">Каталог авто</a></li>
+                    <li>
+                      <a href="./service.html" data-key="services">Послуги</a>
+                      <ul class="sub-menu">
+                        <li><a href="./service.html" data-key="sale">Продаж</a></li>
+                        <li><a href="./service.html" data-key="selection">Підбір</a></li>
+                        <li><a href="./service.html" data-key="exchange">Обмін</a></li>
+                        <li><a href="./service.html" data-key="buyout">Викуп</a></li>
+                        <li><a href="./car-from-usa.html" data-key="usa_car">Авто з США під ключ</a></li>
+                        <li><a href="./service.html" data-key="cooperation">Співпраця</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="./car-from-usa.html" data-key="cars_from_usa">Авто з США</a></li>
+                    <li><a href="./blog.html" data-key="blog">Блог</a></li>
+                    <li><a href="./contacts.html" data-key="contacts">Контакти</a></li>
+                    <li class="special-link"><a class="open-popup" data-key="feedback">Зворотній звʼязок</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="ltn__header-options ltn__header-options-2">
+            <div class="mobile-menu-toggle d-xl-none">
+              <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                <svg viewBox="0 0 800 600">
+                  <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+                    id="top"></path>
+                  <path d="M300,320 L540,320" id="middle"></path>
+                  <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+                    id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="ltn__utilize-mobile-menu-close-btn"><span>×</span></div>
+  <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+    <div class="ltn__utilize-menu-inner ltn__scrollbar">
+
+      <div class="ltn__utilize-menu">
+        <ul id="menu-golovne-menyu-1" class="menu">
+          <li id="menu-item-765" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-765"><a
+              href="./index.html" target="_blank">Головна</a></li>
+          <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-726"><a
+              href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог
+              авто</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128">
+            <a href="./service.html">Послуги</a>
+            <ul class="sub-menu">
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4920"><a
+                  href="./service.html">Продаж</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4921"><a
+                  href="./service.html">Підбір</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4922"><a
+                  href="./service.html">Обмін</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4923"><a
+                  href="./service.html">Викуп</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4924"><a
+                  href="./car-from-usa.html">Авто з США під ключ</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4925"><a
+                  href="./service.html">Співпраця</a></li>
+            </ul>
+          </li>
+          <li
+            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-333">
+            <a href="./car-from-usa.html">Авто з США</a>
+          </li>
+          <li
+            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-123">
+            <a href="./blog.html">Блог</a>
+          </li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a
+              href="./contacts.html">Контакти</a>
+          </li>
+          <li
+            class="special-link feedback-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-133 special-link-mob">
+            <a class="open-popup">Зворотній звʼязок</a>
+          </li>
+        </ul>
+      </div>
+      <div class="ltn__social-media-2">
+        <ul>
+          <li class="">
+            <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow"
+              aria-label="Профиль автосалона AutoXata в Instagram">
+              <img src="./assets/images/instagram.svg" alt="Instagram" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
+              <img src="./assets/images/facebook-f.svg" alt="Facebook" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
+              <img src="./assets/images/tik_tok.png" alt="TikTok" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
+              aria-label="Профиль автосалона AutoXata в Telegram">
+              <img src="./assets/images/telegram-plane.svg" alt="Telegram" class="svg" width="16" height="16">
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
-
-
-
-  <!-- RESULT -->
-  <div class="quiz result" id="result">
-    <div class="result__title" id="resultTitle" style="font-weight: bold;"></div>
-    <p id="similarModels" style="font-size: 16px;color: #666;"></p>
-    <div class="result__text" id="resultText"></div>
-
-
-    <section class="autoxata-info">
-
-      <h2 class="autoxata-info__title" style="font-size: 25px;">
-        Машина мрії — це не випадковість.
-      </h2>
-
-      <p class="autoxata-info__text">
-        Це правильний підбір і досвід. Саме тому багато покупців довіряють цей шлях AutoXata.
-      </p>
-
-      <h2 class="autoxata-info__title" style="font-size: 25px;">
-        Ось де ми можемо реально допомогти:
-      </h2>
-
-      <ul class="autoxata-info__list">
-        <li style="font-size: 17px;">Підбираємо авто під ваш стиль і бюджет, а не «що є на ринку»</li>
-        <li style="font-size: 17px;">Перевіряємо технічний стан і документи</li>
-        <li style="font-size: 17px;">Супроводжуємо весь процес — від вибору до оформлення</li>
-        <li style="font-size: 17px;">Працюємо в Миколаєві та знаємо локальний ринок</li>
-      </ul>
-
-      <h2 class="autoxata-info__title" style="font-size: 25px;">
-        Залиште номер — і ми допоможемо знайти саме ваш варіант
-      </h2>
-
-      <p class="autoxata-info__text autoxata-info__text--secondary" style="font-size: 17px;color: #666;">
-        Коротка розмова. Без зобов’язань. Без нав’язування.
-      </p>
-
-    </section>
-    <div class="result__cta">
-      <button class="result__btn result__btn--primary" id="ctaPrimary">🔍 Перейти в AutoRia</button>
-      <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">📞 Отримати консультацію
-        менеджера</a>
+  <div class="ltn__utilize-overlay"></div>
+  <div class="quiz-wrapper">
+    <div class="quiz" id="quiz">
+      <div class="quiz__progress" id="quizProgress">Питання 1 з 10</div>
+      <div class="quiz__question" id="quizQuestion"></div>
+      <div class="quiz__question-wrap">
+        <div class="quiz__answers" id="quizAnswers"></div>
+      </div>
+      <div class="quiz__footer">
+        <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
+        <button class="quiz__btn quiz__btn--next" id="btnNext" disabled>Далі</button>
+      </div>
     </div>
-    <div class="result__image">
-      <img id="resultImage" style="max-width: 500px;padding-bottom: 20px;padding-top: 10px;display: block;margin: auto;"
-        src="" alt="" />
+    <div class="quiz result" id="result">
+      <div class="result__title" id="resultTitle" style="font-weight: bold;"></div>
+      <p id="similarModels" style="font-size: 14px;color: #666;margin-bottom: 15px;"></p>
+      <div class="result__text" id="resultText"></div>
+      <section class="autoxata-info">
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Машина мрії — це не випадковість.Це правильний підбір і досвід. Саме тому багато покупців довіряють цей шлях
+          AutoXata.
+        </h2>
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Ось де ми можемо реально допомогти:
+        </h2>
+        <ul class="autoxata-info__list">
+          <li style="font-size: 17px;">підбираємо авто під ваш стиль і бюджет, а не «що є на ринку»</li>
+          <li style="font-size: 17px;">перевіряємо технічний стан і документи</li>
+          <li style="font-size: 17px;">супроводжуємо весь процес — від вибору до оформлення</li>
+          <li style="font-size: 17px;">працюємо в Миколаєві та знаємо локальний ринок</li>
+        </ul>
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Залиште номер — і ми допоможемо знайти саме ваш варіант
+        </h2>
+        <p class="autoxata-info__text autoxata-info__text--secondary" style="font-size: 14px;color: #666;">
+          Коротка розмова. Без зобов’язань. Без нав’язування.
+        </p>
+      </section>
+      <div class="result__cta">
+        <button class="result__btn result__btn--primary" id="ctaPrimary">Отримати консультацію</button>
+        <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">Подивитись доступні авто на
+          AutoRia</a>
+      </div>
+      <div class="result__image">
+        <img id="resultImage"
+          style="width:100%;max-width: 500px;padding-bottom: 20px;padding-top: 10px;display: block;margin: auto;" src=""
+          alt="" />
+      </div>
     </div>
   </div>
-  <a href="http://www.freepik.com" class="body-link">Designed by Freepik</a>
+  <footer class="ltn__footer-area ltn__footer-2  ltn__footer-color-2">
+    <div class="footer-top-area  section-bg-1 pt-120 pb-120 pt-mob-80 pb-mob-80 pt-mob-60 pb-mob-60"
+      style="background-color: #e6ecf0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-md-6">
+            <div class="footer-logo">
+              <a href="./index.html">
+                <img src="./assets/images/logo-2-.webp" width="240" height="56" style="max-width: 100%; height: auto;"
+                  alt="Logo" class="logo_img">
+              </a>
+            </div>
+            <div class="footer-text">
+              <p>Автосалон “АвтоХата” у Миколаєві за адресою вул. Чкалова 51б (вул. Ігоря Бедзая, 51б) пропонує своїм
+                клієнтам тільки чесні та перевірені автомобілі, а також вигідні умови з викупу та комісійного продажу.
+                Гарантуємо прозорі, чесні умови співпраці покупцям та продавцям авто.</p>
+            </div>
+            <div class="ltn__social-media mt-15">
+              <ul>
+                <li>
+                  <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/instagram.svg" alt="instagram" class="svg">
+                  </a>
+                </li>
+                <li class="">
+                  <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/facebook-f.svg" alt="facebook" class="svg">
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/tik_tok.png" alt="tik tok" class="svg">
+                  </a>
+                </li>
+                <li>
+                  <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/telegram-plane.svg" alt="telegram" class="svg">
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-tech-pages-menu footer-menu mt-15">
+              <ul id="menu-menyu-tehnichnyh-storinok" class="menu">
+                <li id="menu-item-649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649">
+                  <a href="./term.html" target="_blank">Умови користування сайтом</a>
+                </li>
+                <li id="menu-item-650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-650">
+                  <a href="./policy.html" target="_blank">Політика конфіденційності</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-6">
+            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
+              <h4 class="footer-title">Навігація</h4>
+              <div class="footer-menu">
+                <ul id="menu-menyu-futera-1" class="menu">
+                  <li id="menu-item-633"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-12 current_page_item menu-item-633">
+                    <a href="./index.html" aria-current="page">Головна</a>
+                  </li>
+                  <li id="menu-item-792"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-792"><a
+                      href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог</a></li>
+                  <li id="menu-item-641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-641">
+                    <a href="./blog.html">Блог</a>
+                  </li>
+                  <li id="menu-item-642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-642">
+                    <a href="./service.html">Співробітництво</a>
+                  </li>
+
+                  <li id="menu-item-637" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-637">
+                    <a href="./contacts.html">Контакти</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-6">
+            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
+              <h4 class="footer-title">Послуги</h4>
+              <div class="footer-menu">
+                <ul id="menu-menyu-futera-2" class="menu">
+                  <li id="menu-item-4911"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4911"><a
+                      href="./service.html">Продаж</a></li>
+                  <li id="menu-item-4912"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4912"><a
+                      href="./service.html">Підбір</a></li>
+                  <li id="menu-item-4913"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4913"><a
+                      href="./service.html">Обмін</a></li>
+                  <li id="menu-item-4914"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4914"><a
+                      href="./service.html">Викуп</a></li>
+                  <li id="menu-item-4915"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4915"><a
+                      href="./car-from-usa.html">Авто з США під ключ</a></li>
+                  <li id="menu-item-4916"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4916"><a
+                      href="./service.html">Співпраця</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ltn__copyright-area ltn__copyright-2" style="padding-bottom: 10px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="site-logo-wrap footer-copyright">
+              <div class="get-support ltn__copyright-design clearfix">
+                <div class="get-support-info">
+                  © АвтоХата, 2024-2025. Всі права захищені</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a href="http://www.freepik.com" class="body-link"
+    style="background-color: #e6ecf0;display: block;padding-left: 5px;padding-bottom: 5px;">Designed by Freepik</a>
   <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
     <div class="feedback-popup feedback-popup-consultation">
       <div class="close-popup">×</div>
@@ -883,6 +1219,7 @@
     });
   </script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/menu.js" defer></script>
   <script src="./assets/js/popup.js" defer></script>
   <script src="./assets/js/form.js" defer></script>
   <script src="./assets/js/lang.js" defer></script>
