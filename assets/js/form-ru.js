@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const nameInput = form.querySelector('input[name="your-name"]');
     const phoneInput = form.querySelector('input[name="your-phone"]');
     const purposeSelect = form.querySelector('select[name="purpose"]');
-    const preferredContactSelect = form.querySelector('select[name="preferred-contact"]');// теперь не обязательно // теперь не обязательно
+    const preferredContactSelect = form.querySelector('select[name="preferred-contact"]');
     const checkbox = form.querySelector('input[type="checkbox"]');
     const formAcceptInput = form.querySelector(".form-accept-item-input");
     const submitBtn = form.querySelector(".submit-btn");
