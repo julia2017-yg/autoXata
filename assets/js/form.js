@@ -4,7 +4,8 @@ document.addEventListener("DOMContentLoaded", function () {
   forms.forEach((form) => {
     const nameInput = form.querySelector('input[name="your-name"]');
     const phoneInput = form.querySelector('input[name="your-phone"]');
-    const purposeSelect = form.querySelector('select[name="purpose"]'); // теперь не обязательно
+    const purposeSelect = form.querySelector('select[name="purpose"]'); 
+    const preferredContactSelect = form.querySelector('select[name="preferred-contact"]');// теперь не обязательно
     const checkbox = form.querySelector('input[type="checkbox"]');
     const formAcceptInput = form.querySelector(".form-accept-item-input");
     const submitBtn = form.querySelector(".submit-btn");
@@ -58,7 +59,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       const name = nameInput.value.trim();
       let phone = phoneInput.value.trim();
-      const purpose = purposeSelect?.value || ""; // может быть пустым
+      const purpose = purposeSelect?.value || "";
+      const preferredContact = preferredContactSelect?.value || "";
       const referrer = form.querySelector('input[name="referrer"]')?.value || "";
 
       if (!name || !phone) {
@@ -75,6 +77,7 @@ document.addEventListener("DOMContentLoaded", function () {
         "your-name": name,
         "your-phone": phone,
         purpose: purpose,
+        "preferred-contact": preferredContact,
         referrer: referrer
       };
 
