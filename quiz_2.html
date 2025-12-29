@@ -1,564 +1,140 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8" />
-  <title>Чому ваше авто не продається?</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      margin: 0;
-      font-family: system-ui, sans-serif;
-      background: #f5f7fa;
-      display: flex;
-      justify-content: center;
-      padding: 20px;
-    }
-
-    .quiz-container {
-      width: 100%;
-      max-width: 520px;
-    }
-
-    .quiz {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-    }
-
-    .quiz__progress {
-      font-size: 14px;
-      color: #666;
-      margin-bottom: 12px;
-    }
-
-    .quiz__question {
-      font-size: 20px;
-      margin-bottom: 8px;
-    }
-
-    .quiz__helper {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 16px;
-    }
-
-    .quiz__answers,
-    .quiz__fields {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .quiz__answer {
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: #fff;
-      cursor: pointer;
-      text-align: left;
-      transition: all .2s ease;
-      font-size: 16px;
-    }
-
-    .answer {
-      padding: 14px;
-      border: 1px solid #ddd;
-      border-radius: 10px;
-      cursor: pointer;
-      transition: .2s;
-    }
-
-    .answer:hover {
-      border-color: #3b82f6;
-    }
-
-    .answer.selected {
-      background: #3b82f6;
-      color: #fff;
-      border-color: #3b82f6;
-    }
-
-    input {
-      padding: 12px;
-      border-radius: 8px;
-      border: 1px solid #ccc;
-      font-size: 16px;
-    }
-
-    .quiz__footer {
-      display: flex;
-      justify-content: space-between;
-      margin-top: 24px;
-    }
-
-    .btn {
-      padding: 12px 18px;
-      border-radius: 10px;
-      border: none;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .btn.primary {
-      background: #3b82f6;
-      color: #fff;
-    }
-
-    .btn.secondary {
-      background: #e5e7eb;
-    }
-
-    .btn:disabled {
-      opacity: .5;
-      cursor: not-allowed;
-    }
-
-    .result {
-      background: #fff;
-      border-radius: 16px;
-      padding: 24px;
-      margin-top: 20px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, .08);
-    }
-
-    .result h2 {
-      margin-top: 0;
-    }
-
-    .hidden {
-      display: none;
-    }
-
-    .result ul {
-      padding-left: 18px;
-    }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Квиз: Чому ваше авто не продається?</title>
+<style>
+  body { font-family: Arial, sans-serif; background: #f7f7f7; margin:0; padding:20px;}
+  .quiz { max-width: 600px; margin: auto; background: #fff; padding: 20px; border-radius: 10px; box-shadow:0 0 10px rgba(0,0,0,0.1);}
+  .quiz__question { font-size: 18px; margin-bottom: 15px; }
+  .quiz__answers button { display:block; width:100%; margin:5px 0; padding:10px; font-size:16px; border:none; border-radius:5px; cursor:pointer; background:#e0e0e0; }
+  .quiz__answers button:hover { background:#ccc; }
+  .quiz__progress { margin-bottom:10px; font-size:14px; color:#555; }
+  .quiz__result { display:none; }
+</style>
 </head>
 <body>
 
-  <div class="quiz-container">
-    <div class="quiz" id="quiz">
-      <div class="quiz__progress" id="progress"></div>
+<div class="quiz" id="quiz">
+  <div class="quiz__progress" id="quizProgress">Питання 1 з 10</div>
+  <div class="quiz__question" id="quizQuestion"></div>
+  <div class="quiz__answers" id="quizAnswers"></div>
+  <div class="quiz__result" id="quizResult"></div>
+</div>
 
-      <div class="quiz__content">
-        <h2 class="quiz__question" id="question"></h2>
-        <p class="quiz__helper" id="helper"></p>
-
-        <div class="quiz__fields" id="fields"></div>
-        <div class="quiz__answers" id="answers"></div>
-      </div>
-
-      <div class="quiz__footer">
-        <button id="backBtn" class="btn secondary">Назад</button>
-        <button id="nextBtn" class="btn primary" disabled>Далі</button>
-      </div>
-    </div>
-
-    <div class="result hidden" id="result"></div>
-  </div>
 <script>
-/*********************************
- * CONFIG
- *********************************/
-const APPS_SCRIPT_URL = "https://script.google.com/macros/s/XXXX/exec";
-
-/*********************************
- * QUIZ
- *********************************/
-const QUIZ = {
-  questions: [
-    {
-      id: "q0_car",
-      type: "group",
-      required: true,
-      affectsScore: false,
-      text: "Розкажіть трохи про ваше авто",
-      helper_text: "Ця інформація допоможе зробити рекомендації точнішими.",
-      fields: [
-        { id: "q0_brand", placeholder: "Марка авто" },
-        { id: "q0_model", placeholder: "Модель" },
-        { id: "q0_year", placeholder: "Рік випуску" }
-      ]
-    },
-
-    {
-      id: "q1_expectations",
-      type: "single",
-      affectsScore: true,
-      text: "Як ви очікували, що проходитиме продаж авто?",
-      answers: [
-        { id: "fast_easy", label: "Швидко та без зайвих зусиль", axis_points: { C: 2 } },
-        { id: "manageable", label: "З труднощами, але керовано", axis_points: { A: 1 } },
-        { id: "may_take_time", label: "Розумів(ла), що це може затягнутися", axis_points: { A: 2 } },
-        { id: "unclear", label: "Важко було уявити", axis_points: { B: 1 } }
-      ]
-    },
-
-    {
-      id: "q2_experience",
-      type: "single",
-      affectsScore: true,
-      text: "Що з цього вже траплялось?",
-      answers: [
-        { id: "views", label: "Багато переглядів, але мало конкретики", axis_points: { B: 2 } },
-        { id: "no_intent", label: "Звернення без намірів", axis_points: { B: 1 } },
-        { id: "fail_deals", label: "Домовленості зриваються", axis_points: { C: 2 } },
-        { id: "slow", label: "Повільніше, ніж очікував(ла)", axis_points: { C: 1 } },
-        { id: "unknown", label: "Поки складно сказати", axis_points: {} }
-      ]
-    },
-
-    {
-      id: "q3_time",
-      type: "single",
-      affectsScore: true,
-      text: "Скільки часу готові приділяти продажу?",
-      answers: [
-        { id: "regular", label: "Регулярно", axis_points: { A: 2 } },
-        { id: "week", label: "Кілька разів на тиждень", axis_points: { A: 1 } },
-        { id: "rare", label: "Час від часу", axis_points: { B: 1 } },
-        { id: "minimal", label: "Мінімум участі", axis_points: { C: 2 } }
-      ]
-    },
-
-    {
-      id: "q4_calls",
-      type: "single",
-      affectsScore: true,
-      text: "Ставлення до дзвінків і повідомлень",
-      answers: [
-        { id: "calm", label: "Спокійно", axis_points: { A: 2 } },
-        { id: "ok", label: "Загалом нормально", axis_points: { A: 1 } },
-        { id: "stress", label: "Напружує", axis_points: { C: 1 } },
-        { id: "avoid", label: "Хочу уникнути", axis_points: { C: 2 } }
-      ]
-    },
-
-    {
-      id: "q5_uncertainty",
-      type: "single",
-      affectsScore: true,
-      text: "Що найбільше ускладнює?",
-      answers: [
-        { id: "timeline", label: "Невідомо, скільки це триватиме", axis_points: { B: 2 } },
-        { id: "demand", label: "Важко зрозуміти попит", axis_points: { B: 1 } },
-        { id: "confidence", label: "Немає впевненості", axis_points: { B: 2 } },
-        { id: "none", label: "Не бачу проблем", axis_points: { A: 1 } }
-      ]
-    },
-
-    {
-      id: "q6_control",
-      type: "single",
-      affectsScore: true,
-      text: "У процесі важливіше…",
-      answers: [
-        { id: "myself", label: "Робити все самому", axis_points: { A: 2 } },
-        { id: "control", label: "Знати, що під контролем", axis_points: { A: 1 } },
-        { id: "expert", label: "Щоб вів фахівець", axis_points: { B: 2 } },
-        { id: "minimum", label: "Мінімальна участь", axis_points: { C: 2 } }
-      ]
-    },
-
-    {
-      id: "q7_risks",
-      type: "single",
-      affectsScore: true,
-      text: "Найбільш небажане",
-      answers: [
-        { id: "time", label: "Втратити час", axis_points: { B: 1 } },
-        { id: "money", label: "Втратити гроші", axis_points: { B: 2 } },
-        { id: "people", label: "Неприємні ситуації", axis_points: { C: 2 } },
-        { id: "docs", label: "Документи / безпека", axis_points: { B: 2 } }
-      ]
-    },
-
-    {
-      id: "q8_trust",
-      type: "single",
-      affectsScore: true,
-      text: "У складних процесах ви…",
-      answers: [
-        { id: "self", label: "Розбираюсь сам", axis_points: { A: 2 } },
-        { id: "advice", label: "Шукаю поради", axis_points: { B: 1 } },
-        { id: "listen", label: "Прислухаюсь до фахівців", axis_points: { B: 2 } },
-        { id: "trust", label: "Довіряю професіоналам", axis_points: { B: 2, C: -1 } }
-      ]
-    },
-
-    {
-      id: "q9_emotion",
-      type: "single",
-      affectsScore: true,
-      text: "Продаж авто — це…",
-      answers: [
-        { id: "interesting", label: "Цікавий досвід", axis_points: { A: 1 } },
-        { id: "task", label: "Робоче завдання", axis_points: { A: 1 } },
-        { id: "stress", label: "Стрес", axis_points: { C: 2 } },
-        { id: "close", label: "Хочу швидше завершити", axis_points: { C: 2 } }
-      ]
-    },
-
-    {
-      id: "q10_intent",
-      type: "single",
-      affectsScore: false,
-      text: "Який підхід вам ближчий?",
-      answers: [
-        { id: "self", label: "Продати самостійно" },
-        { id: "support", label: "Самостійно, але з підтримкою" },
-        { id: "delegate", label: "Делегувати частину" },
-        { id: "full", label: "Передати фахівцям" }
-      ]
-    }
-  ],
-
-  scoring: {
-    priority: ["S4", "S3", "S2", "S1"],
-    rules: {
-      S4: s => s.B >= 8 && s.C >= 8,
-      S3: s => s.C >= 8,
-      S2: s => s.B >= 8 && s.C <= 6,
-      S1: s => s.A >= 8 && s.B <= 4 && s.C <= 4
-    }
-  }
+const quizData = {
+  "scenarios": { "S1":"price","S2":"presentation","S3":"trust","S4":"process" },
+  "questions":[
+    {"id":"q1_car","type":"car_input","required":true,"affectsScore":false,"text":"Розкажіть трохи про авто, яке ви хочете продати","fields":[{"id":"make","label":"Марка","type":"text","required":true},{"id":"model","label":"Модель","type":"text","required":true},{"id":"year","label":"Рік випуску","type":"number","required":true,"min":1980,"max":2026}]},
+    {"id":"q2_listed_for","type":"single","required":true,"affectsScore":true,"text":"Як давно ваше авто виставлене на продаж?","answers":[{"id":"lt_2w","label":"Менше 2 тижнів","weights":{"S4":1}},{"id":"2_4w","label":"2–4 тижні","weights":{"S2":1,"S1":1}},{"id":"1_2m","label":"1–2 місяці","weights":{"S1":2,"S2":1}},{"id":"gt_2m","label":"Більше 2 місяців","weights":{"S1":2,"S4":1}}]},
+    {"id":"q3_contacts","type":"single","required":true,"affectsScore":true,"text":"Скільки реальних дзвінків або повідомлень ви отримали?","answers":[{"id":"none","label":"Майже немає","weights":{"S1":3,"S2":1}},{"id":"1_2wk","label":"1–2 на тиждень","weights":{"S1":2,"S2":1}},{"id":"contact_no_result","label":"Дзвонять, але без результату","weights":{"S3":2,"S4":1}},{"id":"many_no_deal","label":"Дзвінків достатньо, але угоди немає","weights":{"S3":2,"S4":2}}]},
+    {"id":"q4_price_set","type":"single","required":true,"affectsScore":true,"text":"Як ви визначали ціну на авто?","answers":[{"id":"like_ads","label":"Подивився(лась) схожі оголошення і поставив(ла) свою","weights":{"S1":2}},{"id":"desired_sum","label":"Орієнтувався(лась) на бажану суму","weights":{"S1":3}},{"id":"with_haggle","label":"З урахуванням торгу","weights":{"S1":2,"S4":1}},{"id":"already_lowered","label":"Вже кілька разів знижував(ла)","weights":{"S1":2,"S2":1}}]},
+    {"id":"q5_photos","type":"single","required":true,"affectsScore":true,"text":"Як би ви оцінили фото в оголошенні?","answers":[{"id":"basic_phone","label":"Звичайні, зроблені на телефон","weights":{"S2":2}},{"id":"ok_no_prep","label":"Фото є, але без підготовки","weights":{"S2":3}},{"id":"honest_full","label":"Намагався(лась) показати все чесно","weights":{"S3":1,"S2":1}},{"id":"not_sure","label":"Не впевнений(а), що фото достатньо хороші","weights":{"S2":3}}]},
+    {"id":"q6_description","type":"single","required":true,"affectsScore":true,"text":"Опис авто — це скоріше…","answers":[{"id":"few_lines","label":"Кілька рядків “по суті”","weights":{"S2":2}},{"id":"detailed_no_structure","label":"Детальний опис, але без структури","weights":{"S2":2,"S3":1}},{"id":"honest_pros_cons","label":"Чесний опис з плюсами і мінусами","weights":{"S3":2}},{"id":"dont_know","label":"Важко сказати, що ще додати","weights":{"S2":2}}]},
+    {"id":"q7_communication","type":"single","required":true,"affectsScore":true,"text":"Як ви зазвичай спілкуєтесь з потенційними покупцями?","answers":[{"id":"when_time","label":"Відповідаю, коли є час","weights":{"S4":3}},{"id":"fast_try","label":"Намагаюся відповідати швидко","weights":{"S4":1}},{"id":"repeat_same","label":"Часто доводиться пояснювати одне й те саме","weights":{"S4":2,"S2":1}},{"id":"people_disappear","label":"Частина людей просто зникає","weights":{"S3":2,"S4":1}}]},
+    {"id":"q8_tech_history_questions","type":"single","required":true,"affectsScore":true,"text":"Чи запитують покупці про технічний стан або історію авто?","answers":[{"id":"often","label":"Так, і часто","weights":{"S3":3}},{"id":"sometimes","label":"Іноді","weights":{"S3":2}},{"id":"rare","label":"Рідко","weights":{"S1":1,"S2":1}},{"id":"i_tell_first","label":"Я сам(а) про це одразу розповідаю","weights":{"S3":1}}]},
+    {"id":"q9_hardest_part","type":"single","required":true,"affectsScore":true,"text":"Що для вас зараз найскладніше у продажу авто?","answers":[{"id":"no_result_reason","label":"Зрозуміти, чому немає результату","weights":{"S1":2,"S2":1}},{"id":"calls_messages","label":"Постійні дзвінки і переписка","weights":{"S4":3}},{"id":"no_trust","label":"Недовіра з боку покупців","weights":{"S3":3}},{"id":"no_time","label":"Немає часу займатись цим процесом","weights":{"S4":3}}]},
+    {"id":"q10_expectation","type":"single","required":true,"affectsScore":false,"text":"Що ви очікуєте від цього тесту?","answers":[{"id":"understand_reason","label":"Хочу зрозуміти, у чому причина"},{"id":"useful_tips","label":"Хочу отримати корисні поради"},{"id":"consider_help","label":"Розглядаю допомогу професіоналів"},{"id":"just_curiosity","label":"Просто цікаво"}]}
+  ]
 };
 
-/*********************************
- * RESULTS (NEW STRUCTURE)
- *********************************/
-const RESULTS = {
-  S1: {
-    title: "Самостійний продаж може спрацювати, але не швидко",
-    explanation_template:
-      "Для авто типу {{brand}} {{model}} {{year}} самостійний продаж часто займає більше часу, ніж очікується. Це нормальна ситуація для вторинного ринку.",
-    tips: [
-      "Закладіть реалістичний термін продажу (4–8 тижнів).",
-      "Будьте готові до періодів без активності — це нормально.",
-      "Регулярно оцінюйте, чи рухаєтесь у правильному напрямку."
-    ],
-    soft_transition:
-      "Якщо ви не хочете витрачати на це весь свій час, частину процесу можна делегувати фахівцям.",
-    cta: { primary: { id: "consult", label: "Поспілкуватися з менеджером AutoXata" } }
-  },
+let currentQuestion = 0;
+let scores = {S1:0, S2:0, S3:0, S4:0};
+let answersSelected = {};
 
-  S2: {
-    title: "Складність не у вашому авто, а в самому процесі",
-    explanation_template:
-      "Навіть ліквідні авто, як {{brand}} {{model}} {{year}}, можуть продаватись повільно без чіткого розуміння ринку та попиту.",
-    tips: [
-      "Не приймайте рішень на емоціях — дайте процесу структуру.",
-      "Спробуйте чітко сформулювати, що саме зараз стримує результат.",
-      "Сторонній погляд часто допомагає знайти оптимальний шлях."
-    ],
-    soft_transition:
-      "Менеджери автоплатформи щодня працюють з такими ситуаціями і знають, як краще вибудувати процес.",
-    cta: { primary: { id: "consult", label: "Отримати консультацію менеджера" } }
-  },
+function renderQuestion() {
+  const q = quizData.questions[currentQuestion];
+  const containerQ = document.getElementById('quizQuestion');
+  const containerA = document.getElementById('quizAnswers');
+  document.getElementById('quizProgress').textContent = `Питання ${currentQuestion+1} з ${quizData.questions.length}`;
 
-  S3: {
-    title: "Продаж авто не повинен виснажувати",
-    explanation_template:
-      "З ваших відповідей видно, що продаж {{brand}} {{model}} {{year}} забирає більше енергії, ніж ви очікували.",
-    tips: [
-      "Ваш час і спокій теж мають цінність — це важливий ресурс.",
-      "Постійна участь у процесі не завжди виправдана.",
-      "Делегування — це оптимізація, а не втрата контролю."
-    ],
-    soft_transition:
-      "У таких випадках формат продажу з менеджером допомагає зняти рутину та напругу.",
-    cta: { primary: { id: "consult", label: "Передати продаж під супровід AutoXata" } }
-  },
+  containerQ.innerHTML = q.text;
+  containerA.innerHTML = '';
 
-  S4: {
-    title: "Для вас важливі прогнозованість і безпека",
-    explanation_template:
-      "Для авто типу {{brand}} {{model}} {{year}} найбільш комфортним форматом часто стає продаж через платформу з повною підтримкою.",
-    tips: [
-      "Чіткий процес знижує ризики та дає більше впевненості.",
-      "Досвід економить час і ресурси — без зайвих експериментів.",
-      "Краще одразу обрати формат, який вам підходить."
-    ],
-    soft_transition:
-      "Менеджери AutoXata супроводжують продаж на всіх етапах і беруть на себе ключові моменти.",
-    cta: { primary: { id: "consult", label: "Розпочати продаж з менеджером AutoXata" } }
-  }
-};
-
-/*********************************
- * STATE
- *********************************/
-let step = 0;
-let answers = {};
-let score = { A: 0, B: 0, C: 0 };
-
-/*********************************
- * SCORE
- *********************************/
-function calculateScore() {
-  score = { A: 0, B: 0, C: 0 };
-
-  QUIZ.questions.forEach(q => {
-    if (!q.affectsScore) return;
-    const chosen = q.answers.find(a => a.id === answers[q.id]);
-    if (!chosen) return;
-
-    Object.entries(chosen.axis_points || {}).forEach(([k, v]) => {
-      score[k] += v;
+  // car_input
+  if (q.type === 'car_input') {
+    q.fields.forEach(f=>{
+      const input = document.createElement('input');
+      input.placeholder = f.label;
+      input.type = f.type==='number'? 'number':'text';
+      input.min = f.min || null;
+      input.max = f.max || null;
+      input.required = f.required;
+      input.style.display='block';
+      input.style.marginBottom='10px';
+      containerA.appendChild(input);
     });
-  });
-}
-
-function resolveScenario() {
-  for (const s of QUIZ.scoring.priority) {
-    if (QUIZ.scoring.rules[s](score)) return s;
-  }
-  return "S2";
-}
-
-/*********************************
- * RESULT RENDER
- *********************************/
-function renderResult(scenario) {
-  const r = RESULTS[scenario];
-
-  const brand = answers.q0_brand || "";
-  const model = answers.q0_model || "";
-  const year = answers.q0_year || "";
-
-  document.getElementById("resultTitle").textContent = r.title;
-
-  let html = `<p>${r.explanation_template}</p>`;
-  html = html
-    .replaceAll("{{brand}}", brand)
-    .replaceAll("{{model}}", model)
-    .replaceAll("{{year}}", year);
-
-  if (r.tips?.length) {
-    html += "<ul>";
-    r.tips.forEach(t => (html += `<li>${t}</li>`));
-    html += "</ul>";
-  }
-
-  if (r.soft_transition) {
-    html += `<p>${r.soft_transition}</p>`;
-  }
-
-  document.getElementById("resultText").innerHTML = html;
-
-  const cta = document.getElementById("ctaPrimary");
-  cta.textContent = r.cta.primary.label;
-
-  document.getElementById("quiz").classList.add("hidden");
-  document.getElementById("result").classList.remove("hidden");
-}
-
-/*********************************
- * FINISH
- *********************************/
-function finishQuiz() {
-  calculateScore();
-  const scenario = resolveScenario();
-  renderResult(scenario);
-}
-
-/*********************************
- * DOM
- *********************************/
-const qEl = document.getElementById("question");
-const hEl = document.getElementById("helper");
-const fEl = document.getElementById("fields");
-const aEl = document.getElementById("answers");
-const pEl = document.getElementById("progress");
-const nextBtn = document.getElementById("nextBtn");
-const backBtn = document.getElementById("backBtn");
-
-/*********************************
- * RENDER QUESTION
- *********************************/
-function render() {
-  const q = QUIZ.questions[step];
-
-  pEl.textContent = `Питання ${step + 1} з ${QUIZ.questions.length}`;
-  qEl.textContent = q.text;
-  hEl.textContent = q.helper_text || "";
-
-  fEl.innerHTML = "";
-  aEl.innerHTML = "";
-  nextBtn.disabled = true;
-
-  if (q.type === "group") {
-    q.fields.forEach(field => {
-      const input = document.createElement("input");
-      input.placeholder = field.placeholder;
-      input.value = answers[field.id] || "";
-      input.className = "quiz__input";
-
-      input.addEventListener("input", () => {
-        answers[field.id] = input.value.trim();
-        nextBtn.disabled = !q.fields.every(f => answers[f.id]);
-      });
-
-      fEl.appendChild(input);
+    const btn = document.createElement('button');
+    btn.textContent = 'Далі';
+    btn.onclick = ()=>{
+      const inputs = containerA.querySelectorAll('input');
+      let valid = true;
+      inputs.forEach((i,fidx)=>{ if(!i.value){ valid=false;} else { answersSelected[q.fields[fidx].id]=i.value;} });
+      if(!valid){ alert('Заповніть всі поля'); return;}
+      nextQuestion();
+    }
+    containerA.appendChild(btn);
+  } else {
+    q.answers.forEach(a=>{
+      const btn = document.createElement('button');
+      btn.textContent = a.label;
+      btn.onclick = ()=>{ selectAnswer(q,a); }
+      containerA.appendChild(btn);
     });
   }
-
-  if (q.type === "single") {
-    q.answers.forEach(ans => {
-      const div = document.createElement("div");
-      div.className = "quiz__answer";
-      div.textContent = ans.label;
-
-      if (answers[q.id] === ans.id) {
-        div.classList.add("selected");
-        nextBtn.disabled = false;
-      }
-
-      div.addEventListener("click", () => {
-        answers[q.id] = ans.id;
-        document.querySelectorAll(".quiz__answer").forEach(el => el.classList.remove("selected"));
-        div.classList.add("selected");
-        nextBtn.disabled = false;
-      });
-
-      aEl.appendChild(div);
-    });
-  }
-
-  backBtn.style.display = step === 0 ? "none" : "inline-block";
 }
 
-/*********************************
- * EVENTS
- *********************************/
-nextBtn.addEventListener("click", () => {
-  if (step < QUIZ.questions.length - 1) {
-    step++;
-    render();
+function selectAnswer(q,a){
+  answersSelected[q.id] = a.id;
+  if(q.affectsScore){
+    for(const s in a.weights){
+      scores[s] += a.weights[s];
+    }
+  }
+  nextQuestion();
+}
+
+function nextQuestion(){
+  currentQuestion++;
+  if(currentQuestion<quizData.questions.length){
+    renderQuestion();
   } else {
     finishQuiz();
   }
-});
+}
 
-backBtn.addEventListener("click", () => {
-  if (step > 0) {
-    step--;
-    render();
+function finishQuiz(){
+  // ищем топ и второй сценарий
+  const sorted = Object.entries(scores).sort((a,b)=>b[1]-a[1]);
+  let topScenario = sorted[0][0];
+  let secondScenario = sorted[1][0];
+
+  // тай-брейк по Q9 если есть равенство
+  const q9 = quizData.questions.find(q=>q.id==='q9_hardest_part');
+  const q9answer = answersSelected['q9_hardest_part'];
+  const q9weights = q9.answers.find(a=>a.id===q9answer).weights;
+  const maxScore = Math.max(...Object.values(scores));
+  const tieScenarios = Object.keys(scores).filter(k=>scores[k]===maxScore);
+  if(tieScenarios.length>1){
+    // берем сценарий из Q9 если есть
+    const q9Sorted = Object.entries(q9weights).sort((a,b)=>b[1]-a[1]);
+    topScenario = q9Sorted[0][0];
   }
-});
 
-/*********************************
- * INIT
- *********************************/
-render();
+  console.log('Результати квиза:');
+  console.log('Вибрані відповіді:', answersSelected);
+  console.log('Бали по сценаріям:', scores);
+  console.log('Top scenario:', topScenario);
+  console.log('Second scenario:', secondScenario);
+
+  const container = document.getElementById('quiz');
+  container.innerHTML = `<div class="quiz__result"><h3>Квіз завершено!</h3><p>Top scenario: ${topScenario}</p><p>Second scenario: ${secondScenario}</p><pre>${JSON.stringify(answersSelected,null,2)}</pre></div>`;
+}
+
+renderQuestion();
 </script>
-
-
 
 </body>
 </html>
