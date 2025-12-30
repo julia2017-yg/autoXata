@@ -965,7 +965,7 @@
         timestamp_iso: new Date().toISOString(),
         referrer: 'seller_quiz_why_car_not_selling', // фиксированная строка
         page_url: location.href,
-        referrer_url: document.referrer || '',
+        referrer_url: getUrlParam('referrer') || document.referrer || '',
 
         utm_source: getUrlParam('utm_source'),
         utm_medium: getUrlParam('utm_medium'),
