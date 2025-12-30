@@ -21,6 +21,75 @@
   <div class="quiz__question" id="quizQuestion"></div>
   <div class="quiz__answers" id="quizAnswers"></div>
   <div class="quiz__result" id="quizResult"></div>
+
+  <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
+    <div class="feedback-popup feedback-popup-consultation">
+      <div class="close-popup">×</div>
+      <div class="feedback-popup-inner">
+        <div class="popup-title">Звʼяжіться з нами</div>
+        <div class="popup-subtitle">Залиште свої дані і ми звʼяжемось з вами найближчим часом</div>
+        <div class="wpcf7 no-js" id="wpcf7-f8-o2">
+          <div class="screen-reader-response">
+            <p role="status" aria-live="polite" aria-atomic="true"></p>
+            <ul></ul>
+          </div>
+          <form class="send-to-sheet wpcf7-form init" aria-label="Контактна форма" novalidate="novalidate">
+            <input type="hidden" name="referrer" value="quiz_whatcar">
+            <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400"
+                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                  aria-invalid="false" placeholder="Ваше імʼя *" value="" type="text" name="your-name"></span><br>
+              <span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" maxlength="400"
+                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                  aria-invalid="false" placeholder="Ваш телефон *" value="" type="text" name="your-phone"></span>
+            </p>
+            <p>
+              <span class="wpcf7-form-control-wrap" data-name="purpose">
+                <select name="purpose" class="wpcf7-form-control wpcf7-select custom-purpose-select custom-select"
+                  aria-label="Я хочу купити або продати авто" required>
+                  <option value="Я хочу купити/продати авто">Я хочу купити/продати авто</option>
+                  <option value="Купити">Купити</option>
+                  <option value="Продати">Продати</option>
+                  <option value="Обидва варіанти">Обидва варіанти</option>
+                </select>
+              </span>
+            </p>
+            <p>
+              <span class="wpcf7-form-control-wrap" data-name="preferred-contact">
+                <select name="preferred-contact" class="wpcf7-form-control wpcf7-select custom-select"
+                  aria-label="Бажаний спосіб зв’язку" required>
+                  <option value="">Бажаний спосіб зв’язку</option>
+                  <option value="Телефон">Телефон</option>
+                  <option value="Viber">Viber</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                </select>
+              </span>
+            </p>
+            <div class="form-accept-wrapp">
+              <div class="form-accept-item-input">
+                <p><i class="fas fa-check fa-fw"></i></p>
+              </div>
+              <p style="margin-top: 2px;"><span class="wpcf7-form-control-wrap acceptance-446"
+                  data-name="acceptance-446"><span class="wpcf7-form-control wpcf7-acceptance optional"><span
+                      class="wpcf7-list-item"><label><input type="checkbox" name="acceptance-446" value="1"
+                          aria-invalid="false"><span class="wpcf7-list-item-label">Я даю згоду на обробку моїх
+                          персональних
+                          даних</span></label></span></span></span><br>
+
+              </p>
+            </div>
+
+            <div class="submit-btn">
+              <p><button type="submit" class="theme-btn-1 btn btn-effect-1" tabindex="0">Відправити</button></p>
+            </div>
+            <p class="contact-phone" style="text-align: center;">
+              Або звертайтесь за номером
+              <a href="tel:+380735080000">+380&nbsp;73&nbsp;508&nbsp;0000</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <script>

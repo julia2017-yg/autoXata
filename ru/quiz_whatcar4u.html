@@ -1,0 +1,1239 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preload" data-asynced="1" data-optimized="2" as="style" onload="this.onload=null;this.rel='stylesheet'"
+    href="./assets/css/95edaa11959961e12eb08c64c5d5eb49.css">
+  <script
+    src="data:text/javascript;base64,IWZ1bmN0aW9uKGEpeyJ1c2Ugc3RyaWN0Ijt2YXIgYj1mdW5jdGlvbihiLGMsZCl7ZnVuY3Rpb24gZShhKXtyZXR1cm4gaC5ib2R5P2EoKTp2b2lkIHNldFRpbWVvdXQoZnVuY3Rpb24oKXtlKGEpfSl9ZnVuY3Rpb24gZigpe2kuYWRkRXZlbnRMaXN0ZW5lciYmaS5yZW1vdmVFdmVudExpc3RlbmVyKCJsb2FkIixmKSxpLm1lZGlhPWR8fCJhbGwifXZhciBnLGg9YS5kb2N1bWVudCxpPWguY3JlYXRlRWxlbWVudCgibGluayIpO2lmKGMpZz1jO2Vsc2V7dmFyIGo9KGguYm9keXx8aC5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaGVhZCIpWzBdKS5jaGlsZE5vZGVzO2c9altqLmxlbmd0aC0xXX12YXIgaz1oLnN0eWxlU2hlZXRzO2kucmVsPSJzdHlsZXNoZWV0IixpLmhyZWY9YixpLm1lZGlhPSJvbmx5IHgiLGUoZnVuY3Rpb24oKXtnLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGksYz9nOmcubmV4dFNpYmxpbmcpfSk7dmFyIGw9ZnVuY3Rpb24oYSl7Zm9yKHZhciBiPWkuaHJlZixjPWsubGVuZ3RoO2MtLTspaWYoa1tjXS5ocmVmPT09YilyZXR1cm4gYSgpO3NldFRpbWVvdXQoZnVuY3Rpb24oKXtsKGEpfSl9O3JldHVybiBpLmFkZEV2ZW50TGlzdGVuZXImJmkuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZiksaS5vbmxvYWRjc3NkZWZpbmVkPWwsbChmKSxpfTsidW5kZWZpbmVkIiE9dHlwZW9mIGV4cG9ydHM/ZXhwb3J0cy5sb2FkQ1NTPWI6YS5sb2FkQ1NTPWJ9KCJ1bmRlZmluZWQiIT10eXBlb2YgZ2xvYmFsP2dsb2JhbDp0aGlzKTshZnVuY3Rpb24oYSl7aWYoYS5sb2FkQ1NTKXt2YXIgYj1sb2FkQ1NTLnJlbHByZWxvYWQ9e307aWYoYi5zdXBwb3J0PWZ1bmN0aW9uKCl7dHJ5e3JldHVybiBhLmRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImxpbmsiKS5yZWxMaXN0LnN1cHBvcnRzKCJwcmVsb2FkIil9Y2F0Y2goYil7cmV0dXJuITF9fSxiLnBvbHk9ZnVuY3Rpb24oKXtmb3IodmFyIGI9YS5kb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgibGluayIpLGM9MDtjPGIubGVuZ3RoO2MrKyl7dmFyIGQ9YltjXTsicHJlbG9hZCI9PT1kLnJlbCYmInN0eWxlIj09PWQuZ2V0QXR0cmlidXRlKCJhcyIpJiYoYS5sb2FkQ1NTKGQuaHJlZixkLGQuZ2V0QXR0cmlidXRlKCJtZWRpYSIpKSxkLnJlbD1udWxsKX19LCFiLnN1cHBvcnQoKSl7Yi5wb2x5KCk7dmFyIGM9YS5zZXRJbnRlcnZhbChiLnBvbHksMzAwKTthLmFkZEV2ZW50TGlzdGVuZXImJmEuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZnVuY3Rpb24oKXtiLnBvbHkoKSxhLmNsZWFySW50ZXJ2YWwoYyl9KSxhLmF0dGFjaEV2ZW50JiZhLmF0dGFjaEV2ZW50KCJvbmxvYWQiLGZ1bmN0aW9uKCl7YS5jbGVhckludGVydmFsKGMpfSl9fX0odGhpcyk7"
+    defer=""></script>
+  <link rel="stylesheet" href="./assets/css/style.css">
+  <title>Квиз: Какое авто вам подходит?</title>
+  <link rel="preload" href="./assets/images/bg.webp" as="image" type="image/webp">
+
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+
+      color: #222;
+      margin: 0;
+      padding: 0;
+
+    }
+
+    .body-link {
+      font-size: 12px;
+      color: #999;
+      text-decoration: none;
+    }
+
+    .quiz-wrapper {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      padding-top: 200px;
+      align-items: center;
+      background-color: #f9f9f9;
+      overflow-x: hidden;
+    }
+
+    .quiz-wrapper::before {
+      content: "";
+      position: absolute;
+      left: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 400px;
+      background-image: url('./assets/images/bg-left-quiz.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .quiz-wrapper::after {
+      content: "";
+      position: absolute;
+      right: 140px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 200px;
+      height: 400px;
+      background-image: url('./assets/images/bg-right-quiz.jpg');
+      background-size: contain;
+      background-repeat: no-repeat;
+      z-index: 0;
+    }
+
+    .quiz {
+      max-width: 900px;
+      width: 100%;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 12px;
+      padding: 24px;
+      background: rgba(255, 255, 255, 0.95);
+      border-radius: 14px;
+      box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+    }
+
+    .quiz {
+      position: relative;
+      z-index: 1;
+      /* чтобы быть выше картинок */
+      width: 90%;
+      max-width: 500px;
+      background: #fff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .quiz__progress {
+      font-size: 14px;
+      color: #777;
+      margin-bottom: 12px;
+    }
+
+    .quiz__question {
+      font-size: 20px;
+      font-weight: 600;
+      margin-bottom: 20px;
+
+    }
+
+    .quiz__question-wrap {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      flex-direction: row;
+      gap: 16px;
+      margin-bottom: 20px;
+      padding-bottom: 20px;
+      border-bottom: 2px solid #ee253d;
+
+    }
+
+    .quiz__question-image {
+      max-width: 370px;
+      width: 100%;
+      height: 250px;
+      border-radius: 12px;
+      object-fit: cover;
+    }
+
+    .quiz__answers {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      max-width: 470px;
+      width: 100%;
+    }
+
+    .quiz__answer {
+      padding: 14px 16px;
+      border-radius: 10px;
+      border: 1px solid #ddd;
+      background: #fff;
+      cursor: pointer;
+      text-align: left;
+      transition: all .2s ease;
+      font-size: 16px;
+    }
+
+    .quiz__answer:hover {
+      border-color: #2c2d43;
+      background: #f0f0f0;
+    }
+
+    .quiz__answer.selected {
+      border-color: #2c2d43;
+      background: #2c2d43;
+      color: #fff;
+    }
+
+    .quiz__footer {
+      margin-top: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .quiz__btn {
+      padding: 12px 18px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-size: 14px;
+    }
+
+    .quiz__btn--next {
+      background: #2c2d43;
+      color: #fff;
+    }
+
+    .quiz__btn--next:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+
+    .quiz__btn--back {
+      background: transparent;
+      background: #2c2d43;
+      color: #fff;
+    }
+
+    /* RESULT */
+    .result {
+      display: none;
+      text-align: left;
+    }
+
+    .result__title {
+      font-size: 30px;
+      font-weight: 700;
+      margin-bottom: 12px;
+      line-height: 1.25;
+    }
+
+    .result__text {
+      font-size: 16px;
+      margin-bottom: 15px;
+    }
+
+    .result-text {
+      font-size: 16px;
+    }
+
+    .result__cta {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .result__btn {
+      padding: 14px;
+      border-radius: 10px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+    }
+
+    .result__btn--primary {
+      border: 2px solid #eee;
+      background: #fff;
+      max-width: 500px;
+      width: 100%;
+      margin: auto;
+      display: block;
+      text-align: center;
+    }
+
+    .result__btn--secondary {
+      background: #2c2d43;
+      color: #fff;
+      max-width: 500px;
+      width: 100%;
+      margin: auto;
+      display: block;
+      text-align: center;
+    }
+
+    @media (max-width: 768px) {
+
+      .quiz-wrapper::before,
+      .quiz-wrapper::after {
+        display: none;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .quiz-wrapper {
+        background-color: #f9f9f9;
+      }
+
+      .quiz__progress {
+        font-size: 13px;
+        margin-bottom: 8px;
+      }
+
+      .quiz__question {
+        font-size: 18px;
+        margin-bottom: 16px;
+      }
+
+      .quiz__question-wrap {
+        flex-direction: column;
+      }
+
+      .quiz__answers {
+        gap: 10px;
+      }
+
+      .quiz__answer {
+        font-size: 15px;
+        padding: 14px 14px;
+      }
+
+      .quiz__footer {
+        gap: 12px;
+        display: flex;
+      }
+
+      .special-link-mob {
+        padding-bottom: 20px;
+      }
+
+      .quiz__btn {
+        flex: 1;
+        padding: 14px 0;
+        font-size: 15px;
+      }
+
+      .result {
+        min-height: 100vh;
+        border-radius: 0;
+        padding: 32px 16px;
+        max-width: 500px;
+        width: 100%;
+      }
+
+      .result__image {
+        text-align: center;
+        margin: 16px 0;
+      }
+
+      .result__image img {
+        max-width: 500px;
+        width: 100%;
+        height: auto;
+        border-radius: 12px;
+      }
+
+      .result__title {
+        font-size: 20px;
+      }
+
+      .result__text {
+        font-size: 15px;
+      }
+
+      .result__btn {
+        font-size: 15px;
+        padding: 16px;
+      }
+    }
+
+    .ltn__utilize-overlay {
+      position: fixed;
+      z-index: 9999;
+      top: 0;
+      right: 0;
+      bottom: 0;
+      left: 0;
+      display: none;
+      background-color: rgba(0, 0, 0, .5)
+    }
+  </style>
+</head>
+<body>
+  <header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4">
+    <div class="ltn__header-top-area" style="background-color: #ffffff;">
+      <div class="container" style="padding-right: 15px;">
+        <div class="row">
+          <div class="col-12 col-md-6 mb-2 mb-md-0">
+            <div class="ltn__top-bar-menu">
+              <ul>
+                <li class="header-salons-wrapp">
+                  <span><i class="icon-placeholder"></i>ул. Чкалова 51б</span>
+                  <div class="header-salons-list">
+                    <div class="container">
+                      <div class="header-salons-list-inner">
+                        <div class="header-salons-list-item">
+                          <div class="header-salons-list-item-city-title">Николаев</div>
+                          <div class="header-salons-list-office-items">
+                            <div class="header-salons-list-office-item">
+                              <div class="header-salons-list-office-item-content">
+                                <div class="header-salons-list-office-item-title"><a
+                                    href="https://maps.app.goo.gl/VoikJJKzSZ1Z5NNg6" target="_blank"
+                                    rel="noopener noreferrer nofollow">Николаев, ул. Чкалова 51б (ул. Игоря Бедзая,
+                                    51б)</a>
+                                </div>
+                                <div class="header-salons-list-office-item-label">Работаем каждый день с 9:00 до 20:00
+                                </div>
+                              </div>
+                              <div class="header-salons-list-office-item-phones">
+                                <img src="./assets/images/office-item-phones-icon.svg" alt="Phone icon" class="svg">
+                                <div class="header-salons-list-office-item-phones-list">
+                                  <a href="tel:+380735080000">+380 73 508 0000</a>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+                <li class="">
+                  <a href="mailto:autohatamkua@gmail.com" target="_blank" rel="noopener noreferrer nofollow"><i
+                      class="icon-mail" style="top: 2px;"></i> autohatamkua@gmail.com</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 text-center text-md-end">
+            <div class="top-bar-right">
+              <div class="ltn__top-bar-menu">
+                <ul>
+                  <li>
+                    <div class="ltn__social-media">
+                      <ul>
+                        <li class="">
+                          <a href="https://www.instagram.com/autoxata.mk" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Instagram">
+                            <img src="./assets/images/instagram.svg" alt="instagram" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
+                            <img src="./assets/images/facebook-f.svg" alt="facebook" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
+                            <img src="./assets/images/tik_tok.png" alt="TikTok" class="svg">
+                          </a>
+                        </li>
+                        <li class="">
+                          <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
+                            aria-label="Профиль автосалона AutoXata в Telegram">
+                            <img src="./assets/images/telegram-plane.svg" alt="Telegram" class="svg">
+                          </a>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+                  <li style="margin-left: 20px;">
+                    <a href="/" class="lang-switch" data-lang="ua"
+                      style="font-size: 16px;color:rgb(238, 37, 61)">Укр</a> |
+                    <a href="/ru/" class="lang-switch" data-lang="ru" style="font-size: 16px;">Рус</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white ltn__logo-right-menu-option"
+      style="background-color: #ffffff;">
+      <div class="container">
+        <div class="row">
+          <div class="col-2">
+            <div class="site-logo-wrap">
+              <div class="site-logo">
+                <a href="./index.html"><img src="./assets/images/logo-2-.webp" alt="Logo" class="logo_img"></a>
+              </div>
+            </div>
+          </div>
+          <div class="col header-menu-column ">
+            <div class="header-menu d-none d-xl-block">
+              <nav>
+                <div class="ltn__main-menu">
+                  <ul id="menu-golovne-menyu" class="menu">
+                    <li><a href="./index.html">Главная</a></li>
+                    <li><a href="https://auto.ria.com/dealers/autoxata/3634/" data-key="catalog">Каталог авто</a></li>
+                    <li>
+                      <a href="./service.html" data-key="services">Услуги</a>
+                      <ul class="sub-menu">
+                        <li><a href="./service.html" data-key="sale">Продажа</a></li>
+                        <li><a href="./service.html" data-key="selection">Подбор</a></li>
+                        <li><a href="./service.html" data-key="exchange">Обмен</a></li>
+                        <li><a href="./service.html" data-key="buyout">Выкуп</a></li>
+                        <li><a href="./car-from-usa.html" data-key="usa_car">Авто из США под ключ</a></li>
+                        <li><a href="./service.html" data-key="cooperation">Сотрудничество</a></li>
+                      </ul>
+                    </li>
+                    <li><a href="./car-from-usa.html" data-key="cars_from_usa">Авто из США</a></li>
+                    <li><a href="./blog.html" data-key="blog">Блог</a></li>
+                    <li><a href="./contacts.html" data-key="contacts">Контакты</a></li>
+                    <li class="special-link"><a class="open-popup" data-key="feedback">Обратная связь</a></li>
+                  </ul>
+                </div>
+              </nav>
+            </div>
+          </div>
+          <div class="ltn__header-options ltn__header-options-2">
+            <div class="mobile-menu-toggle d-xl-none">
+              <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                <svg viewBox="0 0 800 600">
+                  <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+                    id="top"></path>
+                  <path d="M300,320 L540,320" id="middle"></path>
+                  <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+                    id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
+                </svg>
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+  <div class="ltn__utilize-mobile-menu-close-btn"><span>×</span></div>
+  <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
+    <div class="ltn__utilize-menu-inner ltn__scrollbar">
+      <div class="ltn__utilize-menu">
+        <ul id="menu-golovne-menyu-1" class="menu">
+          <li id="menu-item-765" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-765"><a
+              href="./index.html" target="_blank">Главная</a></li>
+          <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-726"><a
+              href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог
+              авто</a></li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128">
+            <a href="./service.html">Услуги</a>
+            <ul class="sub-menu">
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4920"><a
+                  href="./service.html">Продажа</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4921"><a
+                  href="./service.html">Подбор</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4922"><a
+                  href="./service.html">Обмен</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4923"><a
+                  href="./service.html">Выкуп</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4924"><a
+                  href="./car-from-usa.html">Авто из США под ключ</a></li>
+              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4925"><a
+                  href="./service.html">Сотрудничество</a></li>
+            </ul>
+          </li>
+          <li
+            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-333">
+            <a href="./car-from-usa.html">Авто из США</a>
+          </li>
+          <li
+            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-123">
+            <a href="./blog.html">Блог</a>
+          </li>
+          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a
+              href="./contacts.html">Контакты</a>
+          </li>
+          <li
+            class="special-link feedback-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-133 special-link-mob">
+            <a class="open-popup">Обратная связь</a>
+          </li>
+        </ul>
+      </div>
+      <div class="ltn__social-media-2">
+        <ul>
+          <li class="">
+            <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow"
+              aria-label="Профиль автосалона AutoXata в Instagram">
+              <img src="./assets/images/instagram.svg" alt="Instagram" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
+              <img src="./assets/images/facebook-f.svg" alt="Facebook" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
+              <img src="./assets/images/tik_tok.png" alt="TikTok" class="svg" width="16" height="16">
+            </a>
+          </li>
+          <li class="">
+            <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
+              aria-label="Профиль автосалона AutoXata в Telegram">
+              <img src="./assets/images/telegram-plane.svg" alt="Telegram" class="svg" width="16" height="16">
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="ltn__utilize-overlay"></div>
+  <div class="quiz-wrapper">
+    <div class="quiz" id="quiz">
+      <div class="quiz__progress" id="quizProgress">Вопрос 1 из 10</div>
+      <div class="quiz__question" id="quizQuestion"></div>
+      <div class="quiz__question-wrap">
+        <div class="quiz__answers" id="quizAnswers"></div>
+      </div>
+      <div class="quiz__footer">
+        <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
+        <button class="quiz__btn quiz__btn--next" id="btnNext" disabled>Вперед</button>
+      </div>
+    </div>
+    <div class="quiz result" id="result">
+      <div class="result__title" id="resultTitle" style="font-weight: bold;"></div>
+      <p id="similarModels" style="font-size: 14px;color: #666;margin-bottom: 15px;"></p>
+      <div class="result__text" id="resultText"></div>
+      <section class="autoxata-info">
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Машина мечты — это не случайность. Это правильный подбор и опыт. Именно поэтому многие покупатели доверяют
+          этот путь
+          AutoXata.
+        </h2>
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Вот где мы действительно можем помочь:
+        </h2>
+        <ul class="autoxata-info__list">
+          <li style="font-size: 17px;">подбираем авто под ваш стиль и бюджет, а не «что есть на рынке»</li>
+          <li style="font-size: 17px;">проверяем техническое состояние и документы</li>
+          <li style="font-size: 17px;">сопровождаем весь процесс — от выбора до оформления</li>
+          <li style="font-size: 17px;">работаем в Николаеве и знаем локальный рынок</li>
+        </ul>
+        <h2 class="autoxata-info__title" style="font-size: 20px;">
+          Оставьте номер — и мы поможем найти именно ваш вариант
+        </h2>
+        <p class="autoxata-info__text autoxata-info__text--secondary" style="font-size: 14px;color: #666;">
+          Короткий разговор. Без обязательств. Без навязывания.
+        </p>
+      </section>
+      <div class="result__cta">
+        <a class="result__btn result__btn--secondary open-popup" id="ctaSecondary">Получить консультацию</a>
+        <a class="result__btn result__btn--primary" id="ctaPrimary">Посмотреть доступные авто на AutoRia</a>
+      </div>
+      <div class="result__image">
+        <img id="resultImage"
+          style="width:100%;max-width: 500px;padding-bottom: 20px;padding-top: 10px;display: block;margin: auto;" src=""
+          alt="" />
+      </div>
+    </div>
+  </div>
+  <footer class="ltn__footer-area ltn__footer-2  ltn__footer-color-2">
+    <div class="footer-top-area  section-bg-1 pt-120 pb-120 pt-mob-80 pb-mob-80 pt-mob-60 pb-mob-60"
+      style="background-color: #e6ecf0;">
+      <div class="container">
+        <div class="row">
+          <div class="col-xl-4 col-md-6">
+            <div class="footer-logo">
+              <a href="./index.html">
+                <img src="./assets/images/logo-2-.webp" width="240" height="56" style="max-width: 100%; height: auto;"
+                  alt="Logo" class="logo_img">
+              </a>
+            </div>
+            <div class="footer-text">
+              <p>Автосалон "АвтоХата" в Николаеве по адресу ул. Чкалова 51б (ул. Игоря Бедзая, 51б) предлагает своим
+                клиентам только честные и проверенные автомобили, а также выгодные условия по выкупу и комиссионным
+                продажам. Гарантируем прозрачные, честные условия сотрудничества покупателям и продавцам автомобилей.
+              </p>
+            </div>
+            <div class="ltn__social-media mt-15">
+              <ul>
+                <li>
+                  <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/instagram.svg" alt="instagram" class="svg">
+                  </a>
+                </li>
+                <li class="">
+                  <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/facebook-f.svg" alt="facebook" class="svg">
+                  </a>
+                </li>
+                <li>
+                  <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
+                    rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/tik_tok.png" alt="tik tok" class="svg">
+                  </a>
+                </li>
+                <li>
+                  <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow">
+                    <img src="./assets/images/telegram-plane.svg" alt="telegram" class="svg">
+                  </a>
+                </li>
+              </ul>
+            </div>
+            <div class="footer-tech-pages-menu footer-menu mt-15">
+              <ul id="menu-menyu-tehnichnyh-storinok" class="menu">
+                <li id="menu-item-649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649">
+                  <a href="./term.html" target="_blank">Условия использования сайта</a>
+                </li>
+                <li id="menu-item-650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-650">
+                  <a href="./policy.html" target="_blank">Политика конфиденциальности</a>
+                </li>
+
+              </ul>
+            </div>
+          </div>
+          <div class="col-xl-4 col-6">
+            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
+              <h4 class="footer-title">Навигация</h4>
+              <div class="footer-menu">
+                <ul id="menu-menyu-futera-1" class="menu">
+                  <li id="menu-item-633"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-12 current_page_item menu-item-633">
+                    <a href="./index.html" aria-current="page">Главная</a>
+                  </li>
+                  <li id="menu-item-792"
+                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-792"><a
+                      href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог</a></li>
+                  <li id="menu-item-641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-641">
+                    <a href="./blog.html">Блог</a>
+                  </li>
+                  <li id="menu-item-642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-642">
+                    <a href="./service.html">Сотрудничество</a>
+                  </li>
+
+                  <li id="menu-item-637" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-637">
+                    <a href="./contacts.html">Контакты</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-xl-4 col-6">
+            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
+              <h4 class="footer-title">Услуги</h4>
+              <div class="footer-menu">
+                <ul id="menu-menyu-futera-2" class="menu">
+                  <li id="menu-item-4911"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4911"><a
+                      href="./service.html">Продажа</a></li>
+                  <li id="menu-item-4912"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4912"><a
+                      href="./service.html">Подбор</a></li>
+                  <li id="menu-item-4913"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4913"><a
+                      href="./service.html">Обмен</a></li>
+                  <li id="menu-item-4914"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4914"><a
+                      href="./service.html">Выкуп</a></li>
+                  <li id="menu-item-4915"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4915"><a
+                      href="./car-from-usa.html">Авто из США под ключ</a></li>
+                  <li id="menu-item-4916"
+                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4916"><a
+                      href="./service.html">Сотрудничество</a></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="ltn__copyright-area ltn__copyright-2" style="padding-bottom: 10px;">
+      <div class="container">
+        <div class="row">
+          <div class="col-12 d-flex justify-content-center">
+            <div class="site-logo-wrap footer-copyright">
+              <div class="get-support ltn__copyright-design clearfix">
+                <div class="get-support-info">
+                  © АвтоХата, 2024-2025. Все права защищены</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+  <a href="http://www.freepik.com" class="body-link"
+    style="background-color: #e6ecf0;display: block;padding-left: 5px;padding-bottom: 5px;">Designed by Freepik</a>
+  <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
+    <div class="feedback-popup feedback-popup-consultation">
+      <div class="close-popup">×</div>
+      <div class="feedback-popup-inner">
+        <div class="popup-title">Свяжитесь с нами</div>
+        <div class="popup-subtitle">Оставьте свои данные и мы свяжемся с вами в ближайшее время</div>
+        <div class="wpcf7 no-js" id="wpcf7-f8-o2">
+          <div class="screen-reader-response">
+            <p role="status" aria-live="polite" aria-atomic="true"></p>
+            <ul></ul>
+          </div>
+          <form class="send-to-sheet wpcf7-form init" aria-label="Контактна форма" novalidate="novalidate">
+            <input type="hidden" name="referrer" value="quiz_whatcar">
+            <p><span class="wpcf7-form-control-wrap" data-name="your-name"><input size="40" maxlength="400"
+                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                  aria-invalid="false" placeholder="Ваше імʼя *" value="" type="text" name="your-name"></span><br>
+              <span class="wpcf7-form-control-wrap" data-name="your-phone"><input size="40" maxlength="400"
+                  class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                  aria-invalid="false" placeholder="Ваш телефон *" value="" type="text" name="your-phone"></span>
+            </p>
+            <p>
+              <span class="wpcf7-form-control-wrap" data-name="purpose">
+                <select name="purpose" class="wpcf7-form-control wpcf7-select custom-purpose-select custom-select"
+                  aria-label="Я хочу купить или продать авто" required>
+                  <option value="Я хочу купить/продать авто">Я хочу купить/продать авто</option>
+                  <option value="Купить">Купить</option>
+                  <option value="Продать">Продать</option>
+                  <option value="Оба варианта">Оба варианта</option>
+                </select>
+              </span>
+            </p>
+            <p>
+              <span class="wpcf7-form-control-wrap" data-name="preferred-contact">
+                <select name="preferred-contact" class="wpcf7-form-control wpcf7-select custom-select"
+                  aria-label="Предпочтительный способ связи" required>
+                  <option value="">Предпочтительный способ связи</option>
+                  <option value="Телефон">Телефон</option>
+                  <option value="Viber">Viber</option>
+                  <option value="WhatsApp">WhatsApp</option>
+                </select>
+              </span>
+            </p>
+            <div class="form-accept-wrapp">
+              <div class="form-accept-item-input">
+                <p><i class="fas fa-check fa-fw"></i></p>
+              </div>
+              <p style="margin-top: 2px;"><span class="wpcf7-form-control-wrap acceptance-446"
+                  data-name="acceptance-446"><span class="wpcf7-form-control wpcf7-acceptance optional"><span
+                      class="wpcf7-list-item"><label><input type="checkbox" name="acceptance-446" value="1"
+                          aria-invalid="false"><span class="wpcf7-list-item-label">Я согласен на обработку моих
+                          персональных данных</span></label></span></span></span><br>
+
+              </p>
+            </div>
+
+            <div class="submit-btn">
+              <p><button type="submit" class="theme-btn-1 btn btn-effect-1" tabindex="0">Отправить</button></p>
+            </div>
+            <p class="contact-phone" style="text-align: center;">
+              Или обращайтесь по номеру
+              <a href="tel:+380735080000">+380&nbsp;73&nbsp;508&nbsp;0000</a>
+            </p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="popup-fill"></div>
+  <div class="popup-fill2"></div>
+  <div class="popup-fill3"></div>
+  <script>
+    (function () {
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+
+      // Получить текущие UTM
+      const params = new URLSearchParams(window.location.search);
+      const utms = {};
+      utmKeys.forEach(k => {
+        if (params.has(k)) utms[k] = params.get(k);
+      });
+
+      // Сохраняем UTM в localStorage при заходе
+      if (Object.keys(utms).length > 0) {
+        localStorage.setItem('utmParams', JSON.stringify(utms));
+      }
+
+      // Функция для добавления UTM ко всем ссылкам
+      function appendUTMToLinks() {
+        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
+        if (Object.keys(savedUtms).length === 0) return;
+
+        document.querySelectorAll('a[href]').forEach(link => {
+          const href = link.getAttribute('href');
+          if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
+          // работаем только с локальными ссылками
+          if (href.startsWith('/') || href.startsWith(window.location.origin)) {
+            const url = new URL(href, window.location.origin);
+            for (let k in savedUtms) {
+              if (!url.searchParams.has(k)) url.searchParams.set(k, savedUtms[k]);
+            }
+            link.setAttribute('href', url.toString());
+          }
+        });
+      }
+
+      document.addEventListener('DOMContentLoaded', appendUTMToLinks);
+    })();
+  </script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      console.log('🚀 Quiz script loaded');
+
+      const REFERRER = 'buyer quiz which car';
+      const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxs19k8Z2wRcuk4WSvGg3WAY6_ozQu0zeBIBcEvKxFZFo6DTvCZrxlNHGguXECgjH-W/exec';
+      let ctaClicked = false;
+
+      const urlParams = new URLSearchParams(window.location.search);
+      const utm_source = urlParams.get('utm_source') || '';
+      const utm_medium = urlParams.get('utm_medium') || '';
+      const utm_campaign = urlParams.get('utm_campaign') || '';
+      const utm_content = urlParams.get('utm_content') || '';
+      const utm_term = urlParams.get('utm_term') || '';
+
+      const ARCHETYPE_MAP = {
+        A: {
+          brand: "Toyota",
+          model: "Corolla",
+          image: "./assets/images/quiz-result-corolla.png",
+          similar: ["Mazda 3", "Honda Civic"],
+          texts: {
+            title: "Toyota Corolla — это не просто авто. Это комфорт, который ощущается каждый день",
+            text: "Вы цените не просто передвижение, а удобство, предсказуемость и спокойствие в дороге. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        },
+
+        B: {
+          brand: "Subaru",
+          model: "Forester",
+          image: "./assets/images/subaru-quiz.png",
+          similar: ["Honda Accord", "Toyota RAV4", "Mazda CX-5"],
+          texts: {
+            title: "Subaru Forester — это не просто авто. Это уверенность в каждой поездке.",
+            text: "Вы цените не просто передвижение, а пространство, стабильность и чувство безопасности для себя и близких. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        },
+
+        C: {
+          brand: "BMW",
+          model: "3 Series",
+          image: "./assets/images/bmw_3-series-quiz.webp",
+          similar: ["BMW X2", "Audi A4", "Volkswagen Golf"],
+          texts: {
+            title: "BMW 3 Series — это не просто авто. Это ощущение, ради которого садятся за руль.",
+            text: "Вы цените не просто передвижение, а ощущение управления, контроль и эмоции от дороги. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        },
+
+        D: {
+          brand: "Volkswagen",
+          model: "Touareg",
+          image: "./assets/images/vw-touareg-quiz.webp",
+          similar: ["Subaru Outback", "Toyota Highlander", "Ford Escape"],
+          texts: {
+            title: "Volkswagen Touareg — это не просто авто. Это ощущение надежности на годы.",
+            text: "Вы цените не просто передвижение, а уверенность в технике, выносливость и ощущение запаса прочности. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        },
+
+        E: {
+          brand: "Skoda",
+          model: "Fabia",
+          image: "./assets/images/skoda-quiz.jpg",
+          similar: ["Renault Sandero", "Ford Focus", "Toyota Yaris"],
+          texts: {
+            title: "Skoda Fabia — это не просто авто. Это разумное решение без лишних затрат.",
+            text: "Вы цените не просто передвижение, а практичность, простоту и понятное использование без переплат. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        },
+        F: {
+          brand: "BMW",
+          model: "5 Series",
+          image: "./assets/images/quiz-bmw5.png",
+          similar: ["Audi A6", "Mercedes-Benz E-Class", "Skoda Octavia RS"],
+          texts: {
+            title: "BMW 5 Series — это не просто авто. Это контроль, который ощущается с первого движения.",
+            text: "Вы цените не просто передвижение, а запас мощности, уверенное ускорение и контроль ситуации на дороге. Именно поэтому вам подходит этот формат авто.",
+            cta_primary: "autoria",
+            cta_secondary: "consult"
+          }
+        }
+      };
+
+
+
+      const quizConfig = {
+        questions: [
+          {
+            id: 'q1_animal', text: 'Якщо уявити ваш ідеальний автомобіль як тварину — хто це?',
+            answers: [
+              { id: 'cat', label: '🐱 Кіт — незалежний, люблю комфорт', weights: { A: 3, C: 1 } },
+              { id: 'dog', label: '🐕 Пес — надійний, практичний, для сім’ї', weights: { B: 3, D: 1 } },
+              { id: 'cheetah', label: '🐆 Гепард — люблю динаміку та стиль', weights: { C: 3, A: 1 } },
+              { id: 'bear', label: '🐻 Ведмідь — сила, надійність, “на роки”', weights: { D: 3, B: 1 } },
+              { id: 'fox', label: '🦊 Лис — розумно, вигідно, без переплат', weights: { E: 3, A: 1 } },
+              { id: 'wolf', label: '🐺 Вовк — контроль, сила, я веду гру', weights: { F: 4, C: 1 } }
+
+            ]
+          },
+          {
+            id: 'q2_weekend', text: 'Ваш ідеальний вихідний — це…',
+            answers: [
+              { id: 'city', label: 'Прогулянка містом + кава', weights: { A: 2 } },
+              { id: 'nature', label: 'Поїздка за місто / природа', weights: { D: 2 } },
+              { id: 'home', label: 'Дім, затишок', weights: { B: 2 } },
+              { id: 'spontaneous', label: 'Спонтанна подорож', weights: { C: 2 } },
+              { id: 'plan', label: 'Все сплановано і без сюрпризів', weights: { E: 2 } }
+            ]
+          },
+          {
+            id: 'q3_role', text: 'Авто для вас — це…',
+            answers: [
+              { id: 'transport', label: 'Просто транспорт', weights: { E: 2 } },
+              { id: 'assistant', label: 'Помічник у житті', weights: { B: 2 } },
+              { id: 'style', label: 'Частина стилю', weights: { C: 2 } },
+              { id: 'simplify', label: 'Спосіб спростити життя', weights: { A: 2 } },
+              { id: 'adrenaline', label: 'Азарт і характер — люблю, коли авто “живе”', weights: { F: 2, C: 1 } }
+
+            ]
+          },
+          {
+            id: 'q4_breaks', text: 'Коли щось ламається, ви…',
+            answers: [
+              { id: 'just_work', label: 'Хочу, щоб просто працювало', weights: { D: 2 } },
+              { id: 'fix_forget', label: 'Вирішую і забуваю', weights: { E: 2 } },
+              { id: 'tolerate', label: 'Дратуюсь, але терплю', weights: { B: 1, A: 1 } },
+              { id: 'control', label: 'Люблю все контролювати', weights: { A: 2 } },
+              { id: 'tune', label: 'Доводжу до ідеалу: налаштувати, підсилити, зробити краще', weights: { F: 2, C: 1 } }
+            ]
+          },
+          {
+            id: 'q5_road', text: 'У дорозі для вас важливіше…',
+            answers: [
+              { id: 'smooth', label: 'Тиша і плавність', weights: { A: 2 } },
+              { id: 'safe', label: 'Відчуття безпеки', weights: { B: 2 } },
+              { id: 'feel', label: 'Відчуття керування', weights: { C: 2 } },
+              { id: 'endure', label: 'Впевненість, що “витримає все”', weights: { D: 2 } },
+              { id: 'power', label: 'Контроль, прискорення і запас потужності', 'weights': { F: 3, C: 1 } }
+
+            ]
+          },
+          {
+            id: 'q6_parking', text: 'Паркування для вас — це…',
+            answers: [
+              { id: 'easy', label: 'Не проблема', weights: { A: 2 } },
+              { id: 'normal', label: 'Звична справа', weights: { E: 2 } },
+              { id: 'stress', label: 'Стрес', weights: { B: 1, D: 1 } },
+              { id: 'mood', label: 'Залежить від настрою', weights: { C: 2 } },
+              { id: 'precise', label: 'Швидко і точно — люблю контроль у маневрах', weights: { F: 2 } }
+            ]
+          },
+          {
+            id: 'q7_trunk', text: 'У багажнику частіше…',
+            answers: [
+              { id: 'empty', label: 'Майже нічого', weights: { A: 2 } },
+              { id: 'bags', label: 'Сумки / покупки', weights: { B: 2 } },
+              { id: 'just_in_case', label: 'Речі “на всякий випадок”', weights: { D: 2 } },
+              { id: 'hobby', label: 'Хобі / спорт', weights: { C: 2 } }
+            ]
+          },
+          {
+            id: 'q8_decision', text: 'Коли вибір складний, ви…',
+            answers: [
+              { id: 'intuition', label: 'Покладаюсь на відчуття', weights: { C: 2 } },
+              { id: 'ask', label: 'Раджусь з іншими', weights: { B: 2 } },
+              { id: 'analyze', label: 'Довго зважую', weights: { E: 2 } },
+              { id: 'simple', label: 'Хочу просте рішення', weights: { A: 2 } },
+              { id: 'fast_decision', label: 'Швидко вирішую і беру відповідальність', weights: { F: 2, A: 1 } }
+            ]
+          },
+          {
+            id: 'q9_drive', text: 'Як ви зазвичай водите?',
+            answers: [
+              { id: 'calm', label: 'Спокійно, без різких маневрів', weights: { A: 2, D: 1 } },
+              { id: 'careful', label: 'Акуратно, але впевнено', weights: { B: 2, A: 1 } },
+              { id: 'feel_road', label: 'Люблю відчувати дорогу', weights: { C: 3 } },
+              { id: 'depends', label: 'По-різному, залежить від ситуації', weights: { E: 2 } },
+              { id: 'aggressive', label: 'Активно: швидко реагую, люблю випереджати', weights: { F: 4, C: 1 } }
+            ]
+          },
+          {
+            id: 'q10_intent', text: 'Що для вас зараз важливіше у виборі авто?',
+            answers: [
+              { id: 'informational', label: 'Хочу краще зрозуміти, що мені підходить' },
+              { id: 'consideration', label: 'Порівнюю різні варіанти' },
+              { id: 'decision', label: 'Хочу вже визначитись' },
+              { id: 'awareness', label: 'Просто цікаво' }
+            ]
+          }
+        ]
+      };
+
+      const state = { step: 0, answers: {}, score: { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 }, result: {} };
+
+      const quizEl = document.getElementById('quiz');
+      const resultEl = document.getElementById('result');
+      const progressEl = document.getElementById('quizProgress');
+      const questionEl = document.getElementById('quizQuestion');
+      const answersEl = document.getElementById('quizAnswers');
+      const btnNext = document.getElementById('btnNext');
+      const btnBack = document.getElementById('btnBack');
+      // const questionImageEl = document.getElementById('quizQuestionImage');
+      const resultTitle = document.getElementById('resultTitle');
+      const resultImage = document.getElementById('resultImage');
+      const resultText = document.getElementById('resultText');
+      const ctaPrimary = document.getElementById('ctaPrimary');
+      const ctaSecondary = document.getElementById('ctaSecondary');
+
+      function renderQuestion() {
+        const q = quizConfig.questions[state.step];
+        progressEl.textContent = `Питання ${state.step + 1} з ${quizConfig.questions.length}`;
+        questionEl.textContent = q.text;
+
+        answersEl.innerHTML = '';
+        btnNext.disabled = true;
+
+        q.answers.forEach(a => {
+          const btn = document.createElement('button');
+          btn.className = 'quiz__answer';
+          btn.textContent = a.label;
+          btn.onclick = () => {
+            state.answers[q.id] = a.id;
+            [...answersEl.children].forEach(b => b.classList.remove('selected'));
+            btn.classList.add('selected');
+            btnNext.disabled = false;
+          };
+          answersEl.appendChild(btn);
+        });
+
+        btnBack.style.visibility = state.step === 0 ? 'hidden' : 'visible';
+      }
+
+      function calculateResult() {
+        state.score = { A: 0, B: 0, C: 0, D: 0, E: 0, F: 0 };
+
+        quizConfig.questions.forEach(q => {
+          const answerId = state.answers[q.id];
+          if (!answerId) return;
+
+          const ans = q.answers.find(a => a.id === answerId);
+          if (!ans || !ans.weights) return;
+
+          Object.entries(ans.weights).forEach(([archetype, value]) => {
+            state.score[archetype] += value;
+          });
+        });
+
+        const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
+        const archetype = sorted[0][0];
+
+        // Определяем intent по q10, по умолчанию informational
+        const intent = state.answers.q10_intent || "informational";
+
+
+        // Получаем данные архетипа
+        const archetypeData = ARCHETYPE_MAP[archetype];
+
+        // Выбираем блок текста по intent
+        const textBlock = archetypeData.texts;
+
+        // Формируем результат
+        state.result = {
+          archetype,
+          intent,
+          brand: archetypeData.brand,
+          model: archetypeData.model,
+          image: archetypeData.image,
+          title: textBlock.title,
+          text: textBlock.text,
+          similar: archetypeData.similar || [],
+          cta_primary: textBlock.cta_primary,
+          cta_secondary: textBlock.cta_secondary
+        };
+
+
+        console.log('🏁 FINAL RESULT:', {
+          answers: state.answers,
+          score: state.score,
+          result: state.result
+        });
+      }
+
+      function buildPayload(cta = '') {
+        return {
+          timestamp_iso: new Date().toISOString(),
+          referrer: REFERRER,
+          utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+          answers: state.answers,
+          score: state.score,
+          result: state.result,
+          // top2_archetype: state.result.top2_archetype,
+          similar: state.result.similar || [],
+          cta_clicked: cta
+        };
+      }
+
+      async function sendPayload(payload) {
+        await fetch(APPS_SCRIPT_URL, {
+          method: 'POST',
+          mode: 'no-cors',
+          headers: {
+            'Content-Type': 'application/x-www-form-urlencoded'
+          },
+          body: new URLSearchParams({
+            payload: JSON.stringify(payload)
+          })
+        });
+      }
+
+      let isSubmittingFinal = false;
+      btnNext.onclick = async () => {
+        // обычные вопросы
+        if (state.step < quizConfig.questions.length - 1) {
+          state.step++;
+          renderQuestion();
+          return;
+        }
+
+        // ===== q10 (ФИНАЛ) =====
+        if (isSubmittingFinal) return; // ⛔ защита от двойного клика
+        isSubmittingFinal = true;
+
+        btnNext.disabled = true;
+        btnNext.textContent = 'Обробляємо...';
+
+        calculateResult();
+
+        // Отображаем результат
+        resultTitle.textContent = state.result.title; // динамический заголовок по intent
+        resultText.textContent = state.result.text;   // динамический текст по intent
+
+        const resultImage = document.getElementById('resultImage');
+        resultImage.src = state.result.image;
+        resultImage.alt = `${state.result.brand} ${state.result.model}`;
+
+        // Если нужно, выводим похожие модели
+        const similarEl = document.getElementById('similarModels');
+        if (similarEl && state.result.similar?.length) {
+          similarEl.textContent = 'Схожі моделі: ' + state.result.similar.join(', ');
+        } else {
+          similarEl.textContent = '';
+        }
+
+        try {
+          await sendPayload(buildPayload('quiz_complete'));
+        } catch (e) {
+          console.error('Send failed', e);
+          isSubmittingFinal = false;
+          btnNext.disabled = false;
+          btnNext.textContent = 'Далі';
+          return;
+        }
+
+        quizEl.style.display = 'none';
+        resultEl.style.display = 'block';
+      };
+
+
+      btnBack.onclick = () => { if (state.step > 0) { state.step--; renderQuestion(); } };
+      ctaPrimary.onclick = async () => { if (ctaClicked) return; ctaClicked = true; await sendPayload(buildPayload('autoria')); window.location.href = 'https://auto.ria.com/uk/dealers/autoxata/3634/'; };
+      ctaSecondary.onclick = async () => {
+        if (ctaClicked) return; ctaClicked = true; await sendPayload(buildPayload('consult'));
+        document.querySelector('.open-popup')?.click();
+      };
+
+      renderQuestion();
+    });
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="./assets/js/menu.js" defer></script>
+  <script src="./assets/js/popup.js" defer></script>
+  <script src="./assets/js/form.js" defer></script>
+  <script src="./assets/js/lang.js" defer></script>
+
+</body>
+</html>
