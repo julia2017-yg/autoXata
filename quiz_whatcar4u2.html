@@ -86,6 +86,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      flex-direction: column;
       padding-top: 200px;
       align-items: center;
       background-color: #f9f9f9;
@@ -546,6 +547,9 @@
     </div>
   </div>
   <div class="ltn__utilize-overlay"></div>
+    <div>
+    <h1>Чому ваше авто не продається?</h1>
+  </div>
   <div class="quiz-wrapper">
     <div class="quiz" id="quiz">
       <div class="quiz__progress" id="quizProgress">Питання 1 з 10</div>
@@ -561,7 +565,7 @@
       <p id="resultText"></p>
       <ul id="resultTips"></ul>
       <p id="resultTransition"></p>
-      <p id="resultCtaText"></p>
+      <p id="resultCtaText" style="font-weight: bold;"></p>
       <a id="ctaSecondary" class="quiz__btn result__btn--secondary quiz__btn--primary open-popup">
         Зв’язатися з менеджером
       </a>

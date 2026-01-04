@@ -88,6 +88,7 @@
       min-height: 100vh;
       display: flex;
       justify-content: center;
+      flex-direction: column;
       padding-top: 200px;
       align-items: center;
       background-color: #f9f9f9;
@@ -278,7 +279,8 @@
 
     .result__btn--primary {
       border: 2px solid #eee;
-      background: #fff;
+      background: #2c2d43;
+      color: #fff;
       max-width: 500px;
       width: 100%;
       margin: auto;
@@ -287,8 +289,8 @@
     }
 
     .result__btn--secondary {
-      background: #2c2d43;
-      color: #fff;
+      background: #f97316;
+      color: #222;
       max-width: 500px;
       width: 100%;
       margin: auto;
@@ -615,7 +617,11 @@
     </div>
   </div>
   <div class="ltn__utilize-overlay"></div>
+
   <div class="quiz-wrapper">
+    <div>
+      <h1>Яке авто вам підходить?</h1>
+    </div>
     <div class="quiz" id="quiz">
       <div class="quiz__progress" id="quizProgress">Питання 1 з 10</div>
       <div class="quiz__question" id="quizQuestion"></div>
