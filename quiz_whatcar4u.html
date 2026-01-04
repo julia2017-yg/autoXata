@@ -11,6 +11,53 @@
   <link rel="stylesheet" href="./assets/css/style.css">
   <title>Квиз: Яке авто вам підходить?</title>
   <link rel="preload" href="./assets/images/bg.webp" as="image" type="image/webp">
+ <link rel="preload" href="../assets/images/bg.webp" as="image" type="image/webp">
+  <link rel="alternate" hreflang="ru" href="https://autoxata.mk.ua/ru/quiz_whatcar4u.html">
+  <link rel="alternate" hreflang="uk" href="https://autoxata.mk.ua/quiz_whatcar4u.html">
+  <link rel="alternate" hreflang="x-default" href="https://autoxata.mk.ua/quiz_whatcar4u.html">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="robots" content="noindex, follow">
+  <meta name="description"
+  content="Пройдіть безкоштовний автоквіз від АвтоХата та дізнайтесь, яке авто підійде саме вам. Підбір автомобіля з пробігом у Миколаєві.">
+<link rel="canonical" href="https://autoxata.mk.ua/quiz_whatcar4u.html">
+<meta property="og:locale" content="uk_UA">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Квіз: яке авто вам підходить? | АвтоХата">
+<meta property="og:description"
+  content="Пройдіть безкоштовний автоквіз і отримайте рекомендацію авто з пробігом від АвтоХата у Миколаєві.">
+<meta property="og:url" content="https://autoxata.mk.ua/quiz_whatcar4u.html">
+<meta property="og:site_name" content="АвтоХата">
+<!-- Open Graph -->
+<meta property="og:image" content="https://autoxata.mk.ua/assets/images/og-preview.jpg">
+<meta property="og:image:secure_url" content="https://autoxata.mk.ua/assets/images/og-preview.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="АвтоХата — автосалон у Миколаєві">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "AutoDealer",
+  "name": "АвтоХата",
+  "url": "https://autoxata.mk.ua/quiz_whatcar4u.html",
+  "image": "https://autoxata.mk.ua/assets/images/logo-2-.webp",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "вул. Чкалова 51б (вул. Ігоря Бедзая, 51б)",
+    "addressLocality": "Миколаїв",
+    "addressCountry": "UA"
+  },
+  "telephone": "+380735080000",
+  "email": "autohatamkua@gmail.com",
+  "openingHours": [
+    "Mo-Su 09:00-20:00"
+  ],
+  "inLanguage": "uk",
+  "sameAs": [
+    "https://www.facebook.com/profile.php?id=61576512672320",
+    "https://www.instagram.com/autoxata.mk"
+  ]
+}
+</script>
 
   <style>
     * {
@@ -869,7 +916,7 @@
         A: {
           brand: "Toyota",
           model: "Corolla",
-          image: "./assets/images/quiz-result-corolla.png",
+          image: "./assets/images/quiz-result-corolla.webp",
           similar: ["Mazda 3", "Honda Civic"],
           texts: {
             title: "Toyota Corolla — це не просто авто. Це комфорт, який відчувається щодня",
@@ -882,7 +929,7 @@
         B: {
           brand: "Subaru",
           model: "Forester",
-          image: "./assets/images/subaru-quiz.png",
+          image: "./assets/images/subaru-quiz.webp",
           similar: ["Honda Accord", "Toyota RAV4", "Mazda CX-5"],
           texts: {
             title: "Subaru Forester — це не просто авто. Це впевненість у кожній поїздці.",
@@ -921,7 +968,7 @@
         E: {
           brand: "Skoda",
           model: "Fabia",
-          image: "./assets/images/skoda-quiz.jpg",
+          image: "./assets/images/skoda-fabia-quiz.jpg",
           similar: ["Renault Sandero", "Ford Focus", "Toyota Yaris"],
           texts: {
             title: "Skoda Fabia — це не просто авто. Це розумне рішення без зайвих витрат.",
@@ -933,7 +980,7 @@
         F: {
           brand: "BMW",
           model: "5 Series",
-          image: "./assets/images/quiz-bmw5.png",
+          image: "./assets/images/quiz-bmw5.webp",
           similar: ["Audi A6", "Mercedes-Benz E-Class", "Skoda Octavia RS"],
           texts: {
             title: "BMW 5 Series — це не просто авто. Це контроль, який відчувається з першого руху.",
@@ -1152,7 +1199,7 @@
           score: state.score,
           result: state.result,
           // top2_archetype: state.result.top2_archetype,
-         similar: state.result.similar || [],
+          similar: state.result.similar || [],
           cta_clicked: cta
         };
       }
