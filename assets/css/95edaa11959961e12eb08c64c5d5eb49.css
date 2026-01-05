@@ -22568,7 +22568,7 @@ a[class*=lightcase-icon-].lightcase-icon-pause,a[class*=lightcase-icon-].lightca
     font-display: swap;
     font-family: 'Circe';
     font-display: swap;
-    src: url(../fonts/circe.ttf);
+    src: url(../fonts/circe.woff2);
     font-weight: 400
 }
 
