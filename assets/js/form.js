@@ -9,6 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const checkbox = form.querySelector('input[type="checkbox"]');
     const formAcceptInput = form.querySelector(".form-accept-item-input");
     const submitBtn = form.querySelector(".submit-btn");
+    const commentInput = form.querySelector('textarea[name="comment"]');
 
     const statusMessage = document.createElement("p");
     statusMessage.style.marginTop = "10px";
@@ -62,6 +63,7 @@ document.addEventListener("DOMContentLoaded", function () {
       const purpose = purposeSelect?.value || "";
        const preferredContact = preferredContactSelect?.value || "";
       const referrer = form.querySelector('input[name="referrer"]')?.value || "";
+      const comment = commentInput?.value.trim() || "";
 
       if (!name || !phone) {
         statusMessage.textContent = "Будь ласка, заповніть ім'я та номер телефону.";
@@ -78,7 +80,8 @@ document.addEventListener("DOMContentLoaded", function () {
         "your-phone": phone,
         purpose: purpose,
         "preferred-contact": preferredContact,
-        referrer: referrer
+        referrer: referrer,
+        comment: comment
       };
 
       submitBtn.disabled = true;
