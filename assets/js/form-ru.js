@@ -56,9 +56,10 @@ document.addEventListener("DOMContentLoaded", function () {
 
     form.addEventListener("submit", function (e) {
       e.preventDefault();
-      statusMessage.textContent = "";
       if (submitBtn.disabled) return; // если уже заблокирована — выходим
       submitBtn.disabled = true;
+      statusMessage.textContent = "";
+
       const name = nameInput.value.trim();
       let phone = phoneInput.value.trim();
       const purpose = purposeSelect?.value || ""; // может быть пустым
