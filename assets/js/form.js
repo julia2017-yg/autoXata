@@ -57,21 +57,24 @@ document.addEventListener("DOMContentLoaded", function () {
     form.addEventListener("submit", function (e) {
       e.preventDefault();
       statusMessage.textContent = "";
-
+      if (submitBtn.disabled) return; // если уже заблокирована — выходим
+      submitBtn.disabled = true;
       const name = nameInput.value.trim();
       let phone = phoneInput.value.trim();
       const purpose = purposeSelect?.value || "";
-       const preferredContact = preferredContactSelect?.value || "";
+      const preferredContact = preferredContactSelect?.value || "";
       const referrer = form.querySelector('input[name="referrer"]')?.value || "";
-      const comment = commentInput?.value.trim() || "";
+      const comment = commentInput?.value || '';
 
       if (!name || !phone) {
         statusMessage.textContent = "Будь ласка, заповніть ім'я та номер телефону.";
+        submitBtn.disabled = false; // разблокируем, чтобы исправить
         return;
       }
 
       if (phone.length !== 12) {
         statusMessage.textContent = "Введіть коректний номер телефону з 380 на початку.";
+        submitBtn.disabled = false;
         return;
       }
 
