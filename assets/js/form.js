@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
     const preferredContactSelect = form.querySelector('select[name="preferred-contact"]');
     const checkbox = form.querySelector('input[type="checkbox"]');
     const formAcceptInput = form.querySelector(".form-accept-item-input");
-    const submitBtn = form.querySelector(".submit-btn");
+    const submitBtn = form.querySelector("button[type='submit']");
     const commentInput = form.querySelector('textarea[name="comment"]');
 
     const statusMessage = document.createElement("p");
@@ -66,6 +66,8 @@ document.addEventListener("DOMContentLoaded", function () {
       const preferredContact = preferredContactSelect?.value || "";
       const referrer = form.querySelector('input[name="referrer"]')?.value || "";
       const comment = commentInput?.value || '';
+      console.log('Submitting comment:', comment); // прове
+      console.log('Submitting data:', { name, phone, purpose, preferredContact, referrer, comment });
 
       if (!name || !phone) {
         statusMessage.textContent = "Будь ласка, заповніть ім'я та номер телефону.";
