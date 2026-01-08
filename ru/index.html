@@ -2,7 +2,7 @@
 <html class="no-js" lang="ru-UA">
 <head>
   <meta charset="utf-8">
-  <link rel="preload" href="../assets/images/bg.webp" as="image" type="image/webp">
+  <link rel="preload" as="image" href="../assets/images/bg.webp" fetchpriority="high">
   <style id="litespeed-ccss">
     ol,
     ul {
@@ -2701,6 +2701,23 @@
     .ltn__feature-item-5 {
       height: 430px;
     }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero {
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
   </style>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>
@@ -2736,7 +2753,7 @@
   <meta name="twitter:description"
     content="Покупка и продажа проверенных автомобилей с пробегом в Николаеве с сопровождением менеджера.">
   <meta name="twitter:image" content="https://autoxata.mk.ua/assets/images/og-preview.jpg">
- 	<script type="application/ld+json">
+  <script type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "AutoDealer",
@@ -3022,11 +3039,11 @@
     <h1 hidden="">Автоплощадка проверенных автомобилей с пробегом в Николаеве</h1>
     <section class="hero-section">
       <div class="doaction">
-        <picture>
+        <picture class="hero-bg">
           <source media="(max-width: 480px)" srcset="../assets/images/bg-small.webp" type="image/webp">
-          <img src="../assets/images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080"
-            decoding="async" fetchpriority="high"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+          <source srcset="../assets/images/bg.webp" type="image/webp">
+          <img src="../assets/images/bg.webp" alt="Продаж авто в Миколаєві — AutoXata" width="1920" height="1080"
+            loading="eager" fetchpriority="high" decoding="async">
         </picture>
         <div class="doaction__content">
           <div class="action">

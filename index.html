@@ -2,7 +2,7 @@
 <html class="no-js" lang="uk-UA">
 <head>
   <meta charset="utf-8">
-  <link rel="preload" href="./assets/images/bg.webp" as="image" type="image/webp">
+  <link rel="preload" as="image" href="./assets/images/bg.webp" fetchpriority="high">
   <style id="litespeed-ccss">
     ol,
     ul {
@@ -2697,6 +2697,23 @@
     .no-scroll {
       overflow: hidden;
     }
+
+    .hero-bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .hero {
+      position: relative;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
   </style>
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <title>АвтоХата Миколаїв — автоплощадка авто з пробігом</title>
@@ -2710,8 +2727,9 @@
   <link rel="canonical" href="https://autoxata.mk.ua/">
   <meta property="og:locale" content="uk_UA">
   <meta property="og:type" content="website">
- <meta property="og:title" content="АвтоХата Миколаїв — автоплощадка авто з пробігом">
-<meta property="og:description" content="Купівля та продаж перевірених авто з пробігом у Миколаєві з супроводом менеджера.">
+  <meta property="og:title" content="АвтоХата Миколаїв — автоплощадка авто з пробігом">
+  <meta property="og:description"
+    content="Купівля та продаж перевірених авто з пробігом у Миколаєві з супроводом менеджера.">
   <meta property="og:url" content="https://autoxata.mk.ua/">
   <meta property="og:site_name" content="АвтоХата">
   <!-- Open Graph -->
@@ -3002,12 +3020,13 @@
     <h1 hidden="">Автоплощадка перевірених авто з пробігом у Миколаєві</h1>
     <section class="hero-section">
       <div class="doaction">
-        <picture>
+        <picture class="hero-bg">
           <source media="(max-width: 480px)" srcset="./assets/images/bg-small.webp" type="image/webp">
-          <img src="./assets/images/bg.webp" alt="Фон с выбором автомобилей" width="1920" height="1080" decoding="async"
-            fetchpriority="high"
-            style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:-1;">
+          <source srcset="./assets/images/bg.webp" type="image/webp">
+          <img src="./assets/images/bg.webp" alt="Продаж авто в Миколаєві — AutoXata" width="1920" height="1080"
+            loading="eager" fetchpriority="high" decoding="async">
         </picture>
+
         <div class="doaction__content">
           <div class="action">
             <h2 class="action_title">Купити авто</h2>
