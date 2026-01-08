@@ -22576,7 +22576,7 @@ a[class*=lightcase-icon-].lightcase-icon-pause,a[class*=lightcase-icon-].lightca
     font-display: swap;
     font-family: 'Circe';
     font-display: swap;
-    src: url("../fonts/circe.woff2") format("woff2");
+    src: url("../fonts/circe-bold.woff2") format("woff2");
     font-weight: 500
 }
 
@@ -22584,7 +22584,7 @@ a[class*=lightcase-icon-].lightcase-icon-pause,a[class*=lightcase-icon-].lightca
     font-display: swap;
     font-family: 'Circe';
     font-display: swap;
-    src: url("../fonts/circe.woff2") format("woff2");
+    src: url("../fonts/circe-bold.woff2") format("woff2");
     font-weight: 600
 }
 
@@ -22592,7 +22592,7 @@ a[class*=lightcase-icon-].lightcase-icon-pause,a[class*=lightcase-icon-].lightca
     font-display: swap;
     font-family: 'Circe';
     font-display: swap;
-    src: url("../fonts/circe.woff2") format("woff2");
+    src: url("../fonts/circe-bold.woff2") format("woff2");
     font-weight: 700
 }
 
