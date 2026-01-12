@@ -39834,3 +39834,8 @@ html.disable-scroll,html.disable-scroll2,html.disable-scroll3,html.disable-scrol
         text-align: left
     }
 }
+button[type="submit"] {
+    display: block;
+    margin: auto;
+}
+
