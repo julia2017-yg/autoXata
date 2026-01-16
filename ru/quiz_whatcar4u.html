@@ -928,7 +928,105 @@
       const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbxs19k8Z2wRcuk4WSvGg3WAY6_ozQu0zeBIBcEvKxFZFo6DTvCZrxlNHGguXECgjH-W/exec';
       let ctaClicked = false;
 
+        /* ==========================
+     1. Lead ID
+  ========================== */
+
+      function generateLeadId() {
+        return 'lead_' + crypto.randomUUID().slice(0, 12);
+      }
       const urlParams = new URLSearchParams(window.location.search);
+      const urlLeadId = urlParams.get('leadId');
+
+      let leadId =
+        urlLeadId ||
+        localStorage.getItem('leadId');
+
+      if (!leadId) {
+        leadId = generateLeadId();
+      }
+
+      localStorage.setItem('leadId', leadId);
+
+
+      console.log('🆔 Lead ID:', leadId);
+
+      /* ==========================
+         2. Получаем текущие UTM (если есть)
+      ========================== */
+
+      // const params = new URLSearchParams(window.location.search);
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      const utms = {};
+
+      utmKeys.forEach(k => {
+        if (urlParams.has(k)) utms[k] = urlParams.get(k);
+      });
+
+      /* ==========================
+         3. Универсальное добавление leadId + UTM
+         ✔ file://
+         ✔ https://
+         ✔ любые href
+      ========================== */
+
+      function enrichLinks() {
+        const base = window.location.href;
+
+        document.querySelectorAll('a[href]').forEach(link => {
+          const rawHref = link.getAttribute('href');
+
+          if (
+            !rawHref ||
+            rawHref.startsWith('#') ||
+            rawHref.startsWith('mailto:') ||
+            rawHref.startsWith('tel:') ||
+            rawHref.startsWith('javascript:')
+          ) return;
+
+          let url;
+          try {
+            url = new URL(rawHref, base);
+          } catch {
+            console.warn('⚠️ Bad href:', rawHref);
+            return;
+          }
+
+          // leadId
+          if (!url.searchParams.has('leadId')) {
+            url.searchParams.set('leadId', leadId);
+          }
+
+          // UTM
+          Object.entries(utms).forEach(([k, v]) => {
+            if (v && !url.searchParams.has(k)) {
+              url.searchParams.set(k, v);
+            }
+          });
+
+          link.href = url.toString();
+        });
+      }
+
+      enrichLinks();
+
+      /* ==========================
+         4. Lead ID в формы
+      ========================== */
+
+      document.querySelectorAll('form').forEach(form => {
+        let input = form.querySelector('input[name="leadId"]');
+        if (!input) {
+          input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'leadId';
+          form.appendChild(input);
+        }
+        input.value = leadId;
+      });
+
+
+      // const urlParams = new URLSearchParams(window.location.search);
       const utm_source = urlParams.get('utm_source') || '';
       const utm_medium = urlParams.get('utm_medium') || '';
       const utm_campaign = urlParams.get('utm_campaign') || '';
@@ -1212,6 +1310,7 @@
       function buildPayload(cta = '') {
         return {
           timestamp_iso: new Date().toISOString(),
+          leadId,
           referrer: REFERRER,
           utm_source, utm_medium, utm_campaign, utm_content, utm_term,
           answers: state.answers,

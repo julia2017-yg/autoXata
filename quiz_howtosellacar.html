@@ -816,6 +816,103 @@
   </script>
 
   <script>
+      /* ==========================
+     1. Lead ID
+  ========================== */
+
+      function generateLeadId() {
+        return 'lead_' + crypto.randomUUID().slice(0, 12);
+      }
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLeadId = urlParams.get('leadId');
+
+      let leadId =
+        urlLeadId ||
+        localStorage.getItem('leadId');
+
+      if (!leadId) {
+        leadId = generateLeadId();
+      }
+
+      localStorage.setItem('leadId', leadId);
+
+
+      console.log('🆔 Lead ID:', leadId);
+
+      /* ==========================
+         2. Получаем текущие UTM (если есть)
+      ========================== */
+
+      // const params = new URLSearchParams(window.location.search);
+      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
+      const utms = {};
+
+      utmKeys.forEach(k => {
+        if (urlParams.has(k)) utms[k] = urlParams.get(k);
+      });
+
+      /* ==========================
+         3. Универсальное добавление leadId + UTM
+         ✔ file://
+         ✔ https://
+         ✔ любые href
+      ========================== */
+
+      function enrichLinks() {
+        const base = window.location.href;
+
+        document.querySelectorAll('a[href]').forEach(link => {
+          const rawHref = link.getAttribute('href');
+
+          if (
+            !rawHref ||
+            rawHref.startsWith('#') ||
+            rawHref.startsWith('mailto:') ||
+            rawHref.startsWith('tel:') ||
+            rawHref.startsWith('javascript:')
+          ) return;
+
+          let url;
+          try {
+            url = new URL(rawHref, base);
+          } catch {
+            console.warn('⚠️ Bad href:', rawHref);
+            return;
+          }
+
+          // leadId
+          if (!url.searchParams.has('leadId')) {
+            url.searchParams.set('leadId', leadId);
+          }
+
+          // UTM
+          Object.entries(utms).forEach(([k, v]) => {
+            if (v && !url.searchParams.has(k)) {
+              url.searchParams.set(k, v);
+            }
+          });
+
+          link.href = url.toString();
+        });
+      }
+
+      enrichLinks();
+
+      /* ==========================
+         4. Lead ID в формы
+      ========================== */
+
+      document.querySelectorAll('form').forEach(form => {
+        let input = form.querySelector('input[name="leadId"]');
+        if (!input) {
+          input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'leadId';
+          form.appendChild(input);
+        }
+        input.value = leadId;
+      });
+
     // ==== Вставь сюда твои данные ====
     const quizData = {
       "scenarios": { "S1": "price", "S2": "presentation", "S3": "trust", "S4": "process" },
@@ -1021,8 +1118,8 @@
         timestamp_iso: new Date().toISOString(),
         referrer: 'seller_quiz_why_car_not_selling', // фиксированная строка
         page_url: location.href,
+        leadId,
         referrer_url: getUrlParam('referrer') || document.referrer || '',
-
         utm_source: getUrlParam('utm_source'),
         utm_medium: getUrlParam('utm_medium'),
         utm_campaign: getUrlParam('utm_campaign'),
