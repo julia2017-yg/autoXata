@@ -1,369 +1,449 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="preload" data-asynced="1" data-optimized="2" as="style" onload="this.onload=null;this.rel='stylesheet'"
-    href="../assets/css/95edaa11959961e12eb08c64c5d5eb49.css">
-  <script
-    src="data:text/javascript;base64,IWZ1bmN0aW9uKGEpeyJ1c2Ugc3RyaWN0Ijt2YXIgYj1mdW5jdGlvbihiLGMsZCl7ZnVuY3Rpb24gZShhKXtyZXR1cm4gaC5ib2R5P2EoKTp2b2lkIHNldFRpbWVvdXQoZnVuY3Rpb24oKXtlKGEpfSl9ZnVuY3Rpb24gZigpe2kuYWRkRXZlbnRMaXN0ZW5lciYmaS5yZW1vdmVFdmVudExpc3RlbmVyKCJsb2FkIixmKSxpLm1lZGlhPWR8fCJhbGwifXZhciBnLGg9YS5kb2N1bWVudCxpPWguY3JlYXRlRWxlbWVudCgibGluayIpO2lmKGMpZz1jO2Vsc2V7dmFyIGo9KGguYm9keXx8aC5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaGVhZCIpWzBdKS5jaGlsZE5vZGVzO2c9altqLmxlbmd0aC0xXX12YXIgaz1oLnN0eWxlU2hlZXRzO2kucmVsPSJzdHlsZXNoZWV0IixpLmhyZWY9YixpLm1lZGlhPSJvbmx5IHgiLGUoZnVuY3Rpb24oKXtnLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGksYz9nOmcubmV4dFNpYmxpbmcpfSk7dmFyIGw9ZnVuY3Rpb24oYSl7Zm9yKHZhciBiPWkuaHJlZixjPWsubGVuZ3RoO2MtLTspaWYoa1tjXS5ocmVmPT09YilyZXR1cm4gYSgpO3NldFRpbWVvdXQoZnVuY3Rpb24oKXtsKGEpfSl9O3JldHVybiBpLmFkZEV2ZW50TGlzdGVuZXImJmkuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZiksaS5vbmxvYWRjc3NkZWZpbmVkPWwsbChmKSxpfTsidW5kZWZpbmVkIiE9dHlwZW9mIGV4cG9ydHM/ZXhwb3J0cy5sb2FkQ1NTPWI6YS5sb2FkQ1NTPWJ9KCJ1bmRlZmluZWQiIT10eXBlb2YgZ2xvYmFsP2dsb2JhbDp0aGlzKTshZnVuY3Rpb24oYSl7aWYoYS5sb2FkQ1NTKXt2YXIgYj1sb2FkQ1NTLnJlbHByZWxvYWQ9e307aWYoYi5zdXBwb3J0PWZ1bmN0aW9uKCl7dHJ5e3JldHVybiBhLmRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImxpbmsiKS5yZWxMaXN0LnN1cHBvcnRzKCJwcmVsb2FkIil9Y2F0Y2goYil7cmV0dXJuITF9fSxiLnBvbHk9ZnVuY3Rpb24oKXtmb3IodmFyIGI9YS5kb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgibGluayIpLGM9MDtjPGIubGVuZ3RoO2MrKyl7dmFyIGQ9YltjXTsicHJlbG9hZCI9PT1kLnJlbCYmInN0eWxlIj09PWQuZ2V0QXR0cmlidXRlKCJhcyIpJiYoYS5sb2FkQ1NTKGQuaHJlZixkLGQuZ2V0QXR0cmlidXRlKCJtZWRpYSIpKSxkLnJlbD1udWxsKX19LCFiLnN1cHBvcnQoKSl7Yi5wb2x5KCk7dmFyIGM9YS5zZXRJbnRlcnZhbChiLnBvbHksMzAwKTthLmFkZEV2ZW50TGlzdGVuZXImJmEuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZnVuY3Rpb24oKXtiLnBvbHkoKSxhLmNsZWFySW50ZXJ2YWwoYyl9KSxhLmF0dGFjaEV2ZW50JiZhLmF0dGFjaEV2ZW50KCJvbmxvYWQiLGZ1bmN0aW9uKCl7YS5jbGVhckludGVydmFsKGMpfSl9fX0odGhpcyk7"
-    defer=""></script>
-  <link rel="stylesheet" href="../assets/css/style.css">
-  <title>Квиз: Почему ваш автомобиль не продаётся?</title>
-  <link rel="alternate" hreflang="ru" href="https://autoxata.mk.ua/ru/quiz_howtosellacar.html">
-  <link rel="alternate" hreflang="uk" href="https://autoxata.mk.ua/quiz_howtosellacar.html">
-  <link rel="alternate" hreflang="x-default" href="https://autoxata.mk.ua/quiz_howtosellacar.html">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="robots" content="noindex, follow">
-  <meta name="description"
-    content="Пройдите бесплатный автоквиз от АвтоХата и узнайте, какое авто с пробегом лучше всего подойдёт именно вам. Подбор авто в Николаеве.">
-  <link rel="canonical" href="https://autoxata.mk.ua/quiz_howtosellacar.html">
-  <meta property="og:locale" content="uk_UA">
-  <meta property="og:type" content="website">
-  <meta property="og:title" content="Квиз: Почему ваш автомобиль не продаётся? | АвтоХата">
-  <meta property="og:description"
-    content="Пройдите бесплатный квиз и узнайте, почему ваше авто не продаётся: цена, подача, доверие покупателей или процесс продажи. Рекомендации от АвтоХата.">
-  <meta property="og:url" content="https://autoxata.mk.ua/quiz_howtosellacar.html">
-  <meta property="og:site_name" content="АвтоХата">
-  <!-- Open Graph -->
-  <meta property="og:image" content="https://autoxata.mk.ua/assets/images/og-preview.jpg">
-  <meta property="og:image:secure_url" content="https://autoxata.mk.ua/assets/images/og-preview.jpg">
-  <meta property="og:image:width" content="1200">
-  <meta property="og:image:height" content="630">
-  <meta property="og:image:alt" content="АвтоХата — автосалон в Николаеве">
-  <link rel="icon" type="image/png" sizes="16x16" href="../assets/images/favicon-16x16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../assets/images/favicon-32x32.png">
-  <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico">
-  <link rel="apple-touch-icon" sizes="180x180" href="../assets/images/apple-touch-icon.png">
-  <script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "AutoDealer",
-  "name": "АвтоХата",
-  "url": "https://autoxata.mk.ua/quiz_howtosellacar.html",
-  "image": "https://autoxata.mk.ua/assets/images/logo-2-.webp",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "ул. Чкалова 51б (ул. Игоря Бедзая, 51б)",
-    "addressLocality": "Николаев",
-    "addressCountry": "UA"
-  },
-  "telephone": "+380735080000",
-  "email": "autohatamkua@gmail.com",
-  "openingHours": [
-    "Mo-Su 09:00-20:00"
-  ],
-  "inLanguage": "ru",
-  "sameAs": [
-    "https://www.facebook.com/profile.php?id=61576512672320",
-    "https://www.instagram.com/autoxata.mk"
-  ]
-}
-</script>
-  <style>
-    * {
-      box-sizing: border-box;
-    }
-
-    body {
-      font-family: Arial, sans-serif;
-      color: #222;
-      margin: 0;
-      padding: 0;
-      background: #f9f9f9;
-    }
-
-    .quiz-wrapper {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      padding-top: 200px;
-      align-items: center;
-      background-color: #f9f9f9;
-      overflow-x: hidden;
-      padding-bottom: 50px;
-    }
-
-    .quiz-wrapper {
-      position: relative;
-      min-height: 100vh;
-      display: flex;
-      justify-content: center;
-      flex-direction: column;
-      padding-top: 200px;
-      align-items: center;
-      background-color: #f9f9f9;
-      overflow-x: hidden;
-    }
-
-    .quiz-wrapper::before {
-      content: "";
-      position: absolute;
-      left: 140px;
-      top: 60%;
-      transform: translateY(-50%);
-      width: 200px;
-      height: 400px;
-      background-image: url('../assets/images/bg-left-quiz.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 0;
-    }
-
-    .quiz-wrapper::after {
-      content: "";
-      position: absolute;
-      right: 140px;
-      top: 60%;
-      transform: translateY(-50%);
-      width: 200px;
-      height: 400px;
-      background-image: url('../assets/images/bg-right-quiz.jpg');
-      background-size: contain;
-      background-repeat: no-repeat;
-      z-index: 0;
-    }
-
-    .body-link {
-      font-size: 12px;
-      color: #999;
-      text-decoration: none;
-    }
-
-    .quiz {
-      position: relative;
-      z-index: 1;
-      max-width: 500px;
-      width: 90%;
-      background: #fff;
-      padding: 30px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-      margin: 40px auto;
-    }
-
-    .quiz__progress {
-      font-size: 14px;
-      color: #777;
-      margin-bottom: 12px;
-    }
-
-    .quiz__question {
-      font-size: 20px;
-      font-weight: 600;
-      margin-bottom: 20px;
-    }
-
-    .quiz__answers {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .quiz__answer,
-    .quiz__answers input {
-      padding: 14px 16px;
-      border-radius: 10px;
-      border: 1px solid #ddd;
-      background: #fff;
-      cursor: pointer;
-      transition: all .2s ease;
-      font-size: 16px;
-      text-align: left;
-    }
-
-    .quiz__answer:hover {
-      border-color: #2c2d43;
-      background: #f0f0f0;
-    }
-
-    .quiz__answer.selected {
-      border-color: #2c2d43;
-      background: #2c2d43;
-      color: #fff;
-    }
-
-    .quiz__footer {
-      margin-top: 24px;
-      display: flex;
-      justify-content: space-between;
-    }
-
-    .quiz__btn {
-      padding: 12px 18px;
-      border-radius: 8px;
-      border: none;
-      cursor: pointer;
-      font-size: 14px;
-    }
-
-    .quiz__btn--next {
-      background: #2c2d43;
-      color: #fff;
-    }
-
-    .quiz__btn--next:disabled {
-      background: #ccc;
-      cursor: not-allowed;
-    }
-
-    .quiz__btn--back {
-      background: #2c2d43;
-      color: #fff;
-    }
-
-    .result {
-      display: block;
-      text-align: left;
-      max-width: 500px;
-      width: 90%;
-      background: #fff;
-      padding: 30px;
-      margin-top: 20px;
-      border-radius: 15px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    }
-
-    .result__title {
-      font-size: 30px;
-      font-weight: 700;
-      margin-bottom: 12px;
-      line-height: 1.25;
-    }
-
-    .result__text {
-      font-size: 16px;
-      margin-bottom: 15px;
-    }
-
-    .result__cta {
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
-    }
-
-    .result__btn--secondary {
-      background: #2c2d43;
-      color: #fff;
-      max-width: 500px;
-      width: 100%;
-      margin: auto;
-      display: block;
-      text-align: center;
-      padding: 14px;
-      border: none;
-      border-radius: 10px;
-      font-size: 16px;
-      cursor: pointer;
-    }
-
-    .feedback-popup textarea {
-      border: 2px solid rgb(228, 236, 242) !important;
-      resize: none !important;
-    }
-
-    @media (max-width: 768px) {
-
-      .quiz-wrapper::before,
-      .quiz-wrapper::after {
-        display: none;
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="preload"
+      data-asynced="1"
+      data-optimized="2"
+      as="style"
+      onload="
+        this.onload = null;
+        this.rel = 'stylesheet';
+      "
+      href="../assets/css/95edaa11959961e12eb08c64c5d5eb49.css"
+    />
+    <script
+      src="data:text/javascript;base64,IWZ1bmN0aW9uKGEpeyJ1c2Ugc3RyaWN0Ijt2YXIgYj1mdW5jdGlvbihiLGMsZCl7ZnVuY3Rpb24gZShhKXtyZXR1cm4gaC5ib2R5P2EoKTp2b2lkIHNldFRpbWVvdXQoZnVuY3Rpb24oKXtlKGEpfSl9ZnVuY3Rpb24gZigpe2kuYWRkRXZlbnRMaXN0ZW5lciYmaS5yZW1vdmVFdmVudExpc3RlbmVyKCJsb2FkIixmKSxpLm1lZGlhPWR8fCJhbGwifXZhciBnLGg9YS5kb2N1bWVudCxpPWguY3JlYXRlRWxlbWVudCgibGluayIpO2lmKGMpZz1jO2Vsc2V7dmFyIGo9KGguYm9keXx8aC5nZXRFbGVtZW50c0J5VGFnTmFtZSgiaGVhZCIpWzBdKS5jaGlsZE5vZGVzO2c9altqLmxlbmd0aC0xXX12YXIgaz1oLnN0eWxlU2hlZXRzO2kucmVsPSJzdHlsZXNoZWV0IixpLmhyZWY9YixpLm1lZGlhPSJvbmx5IHgiLGUoZnVuY3Rpb24oKXtnLnBhcmVudE5vZGUuaW5zZXJ0QmVmb3JlKGksYz9nOmcubmV4dFNpYmxpbmcpfSk7dmFyIGw9ZnVuY3Rpb24oYSl7Zm9yKHZhciBiPWkuaHJlZixjPWsubGVuZ3RoO2MtLTspaWYoa1tjXS5ocmVmPT09YilyZXR1cm4gYSgpO3NldFRpbWVvdXQoZnVuY3Rpb24oKXtsKGEpfSl9O3JldHVybiBpLmFkZEV2ZW50TGlzdGVuZXImJmkuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZiksaS5vbmxvYWRjc3NkZWZpbmVkPWwsbChmKSxpfTsidW5kZWZpbmVkIiE9dHlwZW9mIGV4cG9ydHM/ZXhwb3J0cy5sb2FkQ1NTPWI6YS5sb2FkQ1NTPWJ9KCJ1bmRlZmluZWQiIT10eXBlb2YgZ2xvYmFsP2dsb2JhbDp0aGlzKTshZnVuY3Rpb24oYSl7aWYoYS5sb2FkQ1NTKXt2YXIgYj1sb2FkQ1NTLnJlbHByZWxvYWQ9e307aWYoYi5zdXBwb3J0PWZ1bmN0aW9uKCl7dHJ5e3JldHVybiBhLmRvY3VtZW50LmNyZWF0ZUVsZW1lbnQoImxpbmsiKS5yZWxMaXN0LnN1cHBvcnRzKCJwcmVsb2FkIil9Y2F0Y2goYil7cmV0dXJuITF9fSxiLnBvbHk9ZnVuY3Rpb24oKXtmb3IodmFyIGI9YS5kb2N1bWVudC5nZXRFbGVtZW50c0J5VGFnTmFtZSgibGluayIpLGM9MDtjPGIubGVuZ3RoO2MrKyl7dmFyIGQ9YltjXTsicHJlbG9hZCI9PT1kLnJlbCYmInN0eWxlIj09PWQuZ2V0QXR0cmlidXRlKCJhcyIpJiYoYS5sb2FkQ1NTKGQuaHJlZixkLGQuZ2V0QXR0cmlidXRlKCJtZWRpYSIpKSxkLnJlbD1udWxsKX19LCFiLnN1cHBvcnQoKSl7Yi5wb2x5KCk7dmFyIGM9YS5zZXRJbnRlcnZhbChiLnBvbHksMzAwKTthLmFkZEV2ZW50TGlzdGVuZXImJmEuYWRkRXZlbnRMaXN0ZW5lcigibG9hZCIsZnVuY3Rpb24oKXtiLnBvbHkoKSxhLmNsZWFySW50ZXJ2YWwoYyl9KSxhLmF0dGFjaEV2ZW50JiZhLmF0dGFjaEV2ZW50KCJvbmxvYWQiLGZ1bmN0aW9uKCl7YS5jbGVhckludGVydmFsKGMpfSl9fX0odGhpcyk7"
+      defer=""
+    ></script>
+    <link rel="stylesheet" href="../assets/css/style.css" />
+    <title>Квиз: Почему ваш автомобиль не продаётся?</title>
+    <link
+      rel="alternate"
+      hreflang="ru"
+      href="https://autoxata.mk.ua/ru/quiz_howtosellacar.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="uk"
+      href="https://autoxata.mk.ua/quiz_howtosellacar.html"
+    />
+    <link
+      rel="alternate"
+      hreflang="x-default"
+      href="https://autoxata.mk.ua/quiz_howtosellacar.html"
+    />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <meta name="robots" content="noindex, follow" />
+    <meta
+      name="description"
+      content="Пройдите бесплатный автоквиз от АвтоХата и узнайте, какое авто с пробегом лучше всего подойдёт именно вам. Подбор авто в Николаеве."
+    />
+    <link
+      rel="canonical"
+      href="https://autoxata.mk.ua/quiz_howtosellacar.html"
+    />
+    <meta property="og:locale" content="uk_UA" />
+    <meta property="og:type" content="website" />
+    <meta
+      property="og:title"
+      content="Квиз: Почему ваш автомобиль не продаётся? | АвтоХата"
+    />
+    <meta
+      property="og:description"
+      content="Пройдите бесплатный квиз и узнайте, почему ваше авто не продаётся: цена, подача, доверие покупателей или процесс продажи. Рекомендации от АвтоХата."
+    />
+    <meta
+      property="og:url"
+      content="https://autoxata.mk.ua/quiz_howtosellacar.html"
+    />
+    <meta property="og:site_name" content="АвтоХата" />
+    <!-- Open Graph -->
+    <meta
+      property="og:image"
+      content="https://autoxata.mk.ua/assets/images/og-preview.jpg"
+    />
+    <meta
+      property="og:image:secure_url"
+      content="https://autoxata.mk.ua/assets/images/og-preview.jpg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="АвтоХата — автосалон в Николаеве" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="16x16"
+      href="../assets/images/favicon-16x16.png"
+    />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="../assets/images/favicon-32x32.png"
+    />
+    <link rel="icon" type="image/x-icon" href="../assets/images/favicon.ico" />
+    <link
+      rel="apple-touch-icon"
+      sizes="180x180"
+      href="../assets/images/apple-touch-icon.png"
+    />
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "AutoDealer",
+        "name": "АвтоХата",
+        "url": "https://autoxata.mk.ua/quiz_howtosellacar.html",
+        "image": "https://autoxata.mk.ua/assets/images/logo-2-.webp",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "ул. Чкалова 51б (ул. Игоря Бедзая, 51б)",
+          "addressLocality": "Николаев",
+          "addressCountry": "UA"
+        },
+        "telephone": "+380735080000",
+        "email": "autohatamkua@gmail.com",
+        "openingHours": ["Mo-Su 09:00-20:00"],
+        "inLanguage": "ru",
+        "sameAs": [
+          "https://www.facebook.com/profile.php?id=61576512672320",
+          "https://www.instagram.com/autoxata.mk"
+        ]
       }
-    }
+    </script>
+    <style>
+      * {
+        box-sizing: border-box;
+      }
 
-    @media (max-width:480px) {
+      body {
+        font-family: Arial, sans-serif;
+        color: #222;
+        margin: 0;
+        padding: 0;
+        background: #f9f9f9;
+      }
+
+      .quiz-wrapper {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        padding-top: 200px;
+        align-items: center;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+        padding-bottom: 50px;
+      }
+
+      .quiz-wrapper {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+        padding-top: 200px;
+        align-items: center;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+      }
+
+      .quiz-wrapper::before {
+        content: "";
+        position: absolute;
+        left: 140px;
+        top: 60%;
+        transform: translateY(-50%);
+        width: 200px;
+        height: 400px;
+        background-image: url("../assets/images/bg-left-quiz.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+
+      .quiz-wrapper::after {
+        content: "";
+        position: absolute;
+        right: 140px;
+        top: 60%;
+        transform: translateY(-50%);
+        width: 200px;
+        height: 400px;
+        background-image: url("../assets/images/bg-right-quiz.jpg");
+        background-size: contain;
+        background-repeat: no-repeat;
+        z-index: 0;
+      }
+
+      .body-link {
+        font-size: 12px;
+        color: #999;
+        text-decoration: none;
+      }
+
       .quiz {
-        padding: 20px;
+        position: relative;
+        z-index: 1;
+        max-width: 500px;
+        width: 90%;
+        background: #fff;
+        padding: 30px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        margin: 40px auto;
+      }
+
+      .quiz__progress {
+        font-size: 14px;
+        color: #777;
+        margin-bottom: 12px;
       }
 
       .quiz__question {
-        font-size: 18px;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 20px;
       }
 
       .quiz__answers {
-        gap: 10px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
       }
 
-      .quiz__answer {
-        font-size: 15px;
-        padding: 12px;
+      .quiz__answer,
+      .quiz__answers input {
+        padding: 14px 16px;
+        border-radius: 10px;
+        border: 1px solid #ddd;
+        background: #fff;
+        cursor: pointer;
+        transition: all 0.2s ease;
+        font-size: 16px;
+        text-align: left;
+      }
+
+      .quiz__answer:hover {
+        border-color: #2c2d43;
+        background: #f0f0f0;
+      }
+
+      .quiz__answer.selected {
+        border-color: #2c2d43;
+        background: #2c2d43;
+        color: #fff;
+      }
+
+      .quiz__footer {
+        margin-top: 24px;
+        display: flex;
+        justify-content: space-between;
       }
 
       .quiz__btn {
-        flex: 1;
-        padding: 12px 0;
-        font-size: 15px;
+        padding: 12px 18px;
+        border-radius: 8px;
+        border: none;
+        cursor: pointer;
+        font-size: 14px;
+      }
+
+      .quiz__btn--next {
+        background: #2c2d43;
+        color: #fff;
+      }
+
+      .quiz__btn--next:disabled {
+        background: #ccc;
+        cursor: not-allowed;
       }
 
       .quiz__btn--back {
-        margin-right: 5px;
+        background: #2c2d43;
+        color: #fff;
+      }
+
+      .result {
+        display: block;
+        text-align: left;
+        max-width: 500px;
+        width: 90%;
+        background: #fff;
+        padding: 30px;
+        margin-top: 20px;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
       }
 
       .result__title {
-        font-size: 20px;
+        font-size: 30px;
+        font-weight: 700;
+        margin-bottom: 12px;
+        line-height: 1.25;
       }
 
       .result__text {
-        font-size: 15px;
+        font-size: 16px;
+        margin-bottom: 15px;
+      }
+
+      .result__cta {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
       }
 
       .result__btn--secondary {
-        font-size: 15px;
-        padding: 12px;
+        background: #2c2d43;
+        color: #fff;
+        max-width: 500px;
+        width: 100%;
+        margin: auto;
+        display: block;
+        text-align: center;
+        padding: 14px;
+        border: none;
+        border-radius: 10px;
+        font-size: 16px;
+        cursor: pointer;
       }
 
-      .special-link-mob {
-        padding-bottom: 20px;
+      .feedback-popup textarea {
+        border: 2px solid rgb(228, 236, 242) !important;
+        resize: none !important;
       }
 
-      .ltn__utilize-overlay {
-        position: fixed;
-        z-index: 9999;
-        top: 0;
-        right: 0;
-        bottom: 0;
-        left: 0;
-        display: none;
-        background-color: rgba(0, 0, 0, .5)
+      @media (max-width: 768px) {
+        .quiz-wrapper::before,
+        .quiz-wrapper::after {
+          display: none;
+        }
       }
-    }
 
-    .wpcf7-form .form-accept-wrapp .form-accept-item-input i {
-      top: 0 !important;
-      ;
-    }
-  </style>
-</head>
-<body>
-  <header class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4">
-    <div class="ltn__header-top-area" style="background-color: #ffffff;">
-      <div class="container" style="padding-right: 15px;">
-        <div class="row">
-          <div class="col-12 col-md-6 mb-2 mb-md-0">
-            <div class="ltn__top-bar-menu">
-              <ul>
-                <li class="header-salons-wrapp">
-                  <span><i class="icon-placeholder"></i>ул. Чкалова 51б</span>
-                  <div class="header-salons-list">
-                    <div class="container">
-                      <div class="header-salons-list-inner">
-                        <div class="header-salons-list-item">
-                          <div class="header-salons-list-item-city-title">Николаев</div>
-                          <div class="header-salons-list-office-items">
-                            <div class="header-salons-list-office-item">
-                              <div class="header-salons-list-office-item-content">
-                                <div class="header-salons-list-office-item-title"><a
-                                    href="https://maps.app.goo.gl/VoikJJKzSZ1Z5NNg6" target="_blank"
-                                    rel="noopener noreferrer nofollow">Николаев, ул. Чкалова 51б (ул. Игоря Бедзая,
-                                    51б)</a>
+      @media (max-width: 480px) {
+        .quiz {
+          padding: 20px;
+        }
+
+        .quiz__question {
+          font-size: 18px;
+        }
+
+        .quiz__answers {
+          gap: 10px;
+        }
+
+        .quiz__answer {
+          font-size: 15px;
+          padding: 12px;
+        }
+
+        .quiz__btn {
+          flex: 1;
+          padding: 12px 0;
+          font-size: 15px;
+        }
+
+        .quiz__btn--back {
+          margin-right: 5px;
+        }
+
+        .result__title {
+          font-size: 20px;
+        }
+
+        .result__text {
+          font-size: 15px;
+        }
+
+        .result__btn--secondary {
+          font-size: 15px;
+          padding: 12px;
+        }
+
+        .special-link-mob {
+          padding-bottom: 20px;
+        }
+
+        .ltn__utilize-overlay {
+          position: fixed;
+          z-index: 9999;
+          top: 0;
+          right: 0;
+          bottom: 0;
+          left: 0;
+          display: none;
+          background-color: rgba(0, 0, 0, 0.5);
+        }
+      }
+
+      .wpcf7-form .form-accept-wrapp .form-accept-item-input i {
+        top: 0 !important;
+      }
+    </style>
+  </head>
+  <body>
+    <header
+      class="ltn__header-area ltn__header-5 ltn__header-transparent gradient-color-4"
+    >
+      <div class="ltn__header-top-area" style="background-color: #ffffff">
+        <div class="container" style="padding-right: 15px">
+          <div class="row">
+            <div class="col-12 col-md-6 mb-2 mb-md-0">
+              <div class="ltn__top-bar-menu">
+                <ul>
+                  <li class="header-salons-wrapp">
+                    <span><i class="icon-placeholder"></i>ул. Чкалова 51б</span>
+                    <div class="header-salons-list">
+                      <div class="container">
+                        <div class="header-salons-list-inner">
+                          <div class="header-salons-list-item">
+                            <div class="header-salons-list-item-city-title">
+                              Николаев
+                            </div>
+                            <div class="header-salons-list-office-items">
+                              <div class="header-salons-list-office-item">
+                                <div
+                                  class="header-salons-list-office-item-content"
+                                >
+                                  <div
+                                    class="header-salons-list-office-item-title"
+                                  >
+                                    <a
+                                      href="https://maps.app.goo.gl/VoikJJKzSZ1Z5NNg6"
+                                      target="_blank"
+                                      rel="noopener noreferrer nofollow"
+                                      >Николаев, ул. Чкалова 51б (ул. Игоря
+                                      Бедзая, 51б)</a
+                                    >
+                                  </div>
+                                  <div
+                                    class="header-salons-list-office-item-label"
+                                  >
+                                    Работаем каждый день с 9:00 до 20:00
+                                  </div>
                                 </div>
-                                <div class="header-salons-list-office-item-label">Работаем каждый день с 9:00 до 20:00
-                                </div>
-                              </div>
-                              <div class="header-salons-list-office-item-phones">
-                                <img src="../assets/images/office-item-phones-icon.svg" alt="Phone icon" class="svg">
-                                <div class="header-salons-list-office-item-phones-list">
-                                  <a href="tel:+380735080000">+380 73 508 0000</a>
+                                <div
+                                  class="header-salons-list-office-item-phones"
+                                >
+                                  <img
+                                    src="../assets/images/office-item-phones-icon.svg"
+                                    alt="Phone icon"
+                                    class="svg"
+                                  />
+                                  <div
+                                    class="header-salons-list-office-item-phones-list"
+                                  >
+                                    <a href="tel:+380735080000"
+                                      >+380 73 508 0000</a
+                                    >
+                                  </div>
                                 </div>
                               </div>
                             </div>
@@ -371,868 +451,1529 @@
                         </div>
                       </div>
                     </div>
-                  </div>
-                </li>
-                <li class="">
-                  <a href="mailto:autohatamkua@gmail.com" target="_blank" rel="noopener noreferrer nofollow"><i
-                      class="icon-mail" style="top: 2px;"></i> autohatamkua@gmail.com</a>
-                </li>
-              </ul>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 text-center text-md-end">
-            <div class="top-bar-right">
-              <div class="ltn__top-bar-menu">
-                <ul>
-                  <li>
-                    <div class="ltn__social-media">
-                      <ul>
-                        <li class="">
-                          <a href="https://www.instagram.com/autoxata.mk" target="_blank"
-                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Instagram">
-                            <img src="../assets/images/instagram.svg" alt="instagram" class="svg">
-                          </a>
-                        </li>
-                        <li class="">
-                          <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
-                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
-                            <img src="../assets/images/facebook-f.svg" alt="facebook" class="svg">
-                          </a>
-                        </li>
-                        <li class="">
-                          <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
-                            rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
-                            <img src="../assets/images/tik_tok.png" alt="TikTok" class="svg">
-                          </a>
-                        </li>
-                        <li class="">
-                          <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
-                            aria-label="Профиль автосалона AutoXata в Telegram">
-                            <img src="../assets/images/telegram-plane.svg" alt="Telegram" class="svg">
-                          </a>
-                        </li>
-                      </ul>
-                    </div>
                   </li>
-                  <li style="margin-left: 20px;">
-                    <a href="/" class="lang-switch" data-lang="ua" style="font-size: 16px;">Укр</a> |
-                    <a href="/ru/" class="lang-switch" data-lang="ru"
-                      style="font-size: 16px;color:rgb(238, 37, 61)">Рус</a>
+                  <li class="">
+                    <a
+                      href="mailto:autohatamkua@gmail.com"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                      ><i class="icon-mail" style="top: 2px"></i>
+                      autohatamkua@gmail.com</a
+                    >
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white ltn__logo-right-menu-option"
-      style="background-color: #ffffff;">
-      <div class="container">
-        <div class="row">
-          <div class="col-2">
-            <div class="site-logo-wrap">
-              <div class="site-logo">
-                <a href="./index.html"><img src="../assets/images/logo-2-.webp" alt="Logo" class="logo_img"></a>
-              </div>
-            </div>
-          </div>
-          <div class="col header-menu-column ">
-            <div class="header-menu d-none d-xl-block">
-              <nav>
-                <div class="ltn__main-menu">
-                  <ul id="menu-golovne-menyu" class="menu">
-                    <li><a href="./index.html">Главная</a></li>
-                    <li><a href="https://auto.ria.com/dealers/autoxata/3634/" data-key="catalog">Каталог авто</a></li>
+            <div class="col-12 col-md-6 text-center text-md-end">
+              <div class="top-bar-right">
+                <div class="ltn__top-bar-menu">
+                  <ul>
                     <li>
-                      <a href="https://autoxata.mk.ua/ru/service.html" data-key="services">Услуги</a>
-                      <ul class="sub-menu">
-                        <li><a href="https://autoxata.mk.ua/ru/service.html" data-key="sale">Продажа</a></li>
-                        <li><a href="https://autoxata.mk.ua/ru/service.html" data-key="selection">Подбор</a></li>
-                        <li><a href="https://autoxata.mk.ua/ru/service.html" data-key="exchange">Обмен</a></li>
-                        <li><a href="https://autoxata.mk.ua/ru/service.html" data-key="buyout">Выкуп</a></li>
-                        <li><a href="https://autoxata.mk.ua/ru/car-from-usa.html" data-key="usa_car">Авто из США под
-                            ключ</a></li>
-                        <li><a href="https://autoxata.mk.ua/ru/service.html" data-key="cooperation">Сотрудничество</a>
-                        </li>
-                      </ul>
+                      <div class="ltn__social-media">
+                        <ul>
+                          <li class="">
+                            <a
+                              href="https://www.instagram.com/autoxata.mk"
+                              target="_blank"
+                              rel="noopener noreferrer nofollow"
+                              aria-label="Профиль автосалона AutoXata в Instagram"
+                            >
+                              <img
+                                src="../assets/images/instagram.svg"
+                                alt="instagram"
+                                class="svg"
+                              />
+                            </a>
+                          </li>
+                          <li class="">
+                            <a
+                              href="https://www.facebook.com/profile.php?id=61576512672320"
+                              target="_blank"
+                              rel="noopener noreferrer nofollow"
+                              aria-label="Профиль автосалона AutoXata в Facebook"
+                            >
+                              <img
+                                src="../assets/images/facebook-f.svg"
+                                alt="facebook"
+                                class="svg"
+                              />
+                            </a>
+                          </li>
+                          <li class="">
+                            <a
+                              href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1"
+                              target="_blank"
+                              rel="noopener noreferrer nofollow"
+                              aria-label="Профиль автосалона AutoXata в TikTok"
+                            >
+                              <img
+                                src="../assets/images/tik_tok.png"
+                                alt="TikTok"
+                                class="svg"
+                              />
+                            </a>
+                          </li>
+                          <li class="">
+                            <a
+                              href="https://t.me/AutoXata_mk"
+                              target="_blank"
+                              rel="noopener noreferrer nofollow"
+                              aria-label="Профиль автосалона AutoXata в Telegram"
+                            >
+                              <img
+                                src="../assets/images/telegram-plane.svg"
+                                alt="Telegram"
+                                class="svg"
+                              />
+                            </a>
+                          </li>
+                        </ul>
+                      </div>
                     </li>
-                    <li><a href="https://autoxata.mk.ua/ru/car-from-usa.html" data-key="cars_from_usa">Авто из США</a>
+                    <li style="margin-left: 20px">
+                      <a
+                        href="/"
+                        class="lang-switch"
+                        data-lang="ua"
+                        style="font-size: 16px"
+                        >Укр</a
+                      >
+                      |
+                      <a
+                        href="/ru/"
+                        class="lang-switch"
+                        data-lang="ru"
+                        style="font-size: 16px; color: rgb(238, 37, 61)"
+                        >Рус</a
+                      >
                     </li>
-                    <li><a href="https://autoxata.mk.ua/ru/blog.html" data-key="blog">Блог</a></li>
-                    <li><a href="https://autoxata.mk.ua/ru/contacts.html" data-key="contacts">Контакты</a></li>
-                    <li class="special-link"><a class="open-popup" data-key="feedback">Обратная связь</a></li>
                   </ul>
                 </div>
-              </nav>
-            </div>
-          </div>
-          <div class="ltn__header-options ltn__header-options-2">
-            <div class="mobile-menu-toggle d-xl-none">
-              <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
-                <svg viewBox="0 0 800 600">
-                  <path d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
-                    id="top"></path>
-                  <path d="M300,320 L540,320" id="middle"></path>
-                  <path d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
-                    id="bottom" transform="translate(480, 320) scale(1, -1) translate(-480, -318) "></path>
-                </svg>
-              </a>
+              </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </header>
-  <div class="ltn__utilize-mobile-menu-close-btn"><span>×</span></div>
-  <div id="ltn__utilize-mobile-menu" class="ltn__utilize ltn__utilize-mobile-menu">
-    <div class="ltn__utilize-menu-inner ltn__scrollbar">
-      <div class="ltn__utilize-menu">
-        <ul id="menu-golovne-menyu-1" class="menu">
-          <li id="menu-item-765" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-765"><a
-              href="./index.html" target="_blank">Главная</a></li>
-          <li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-726"><a
-              href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог
-              авто</a></li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128">
-            <a href="https://autoxata.mk.ua/ru/service.html">Услуги</a>
-            <ul class="sub-menu">
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4920"><a
-                  href="https://autoxata.mk.ua/ru/service.html">Продажа</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4921"><a
-                  href="https://autoxata.mk.ua/ru/service.html">Подбор</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4922"><a
-                  href="https://autoxata.mk.ua/ru/service.html">Обмен</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4923"><a
-                  href="https://autoxata.mk.ua/ru/service.html">Выкуп</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4924"><a
-                  href="https://autoxata.mk.ua/ru/car-from-usa.html">Авто из США под ключ</a></li>
-              <li class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4925"><a
-                  href="https://autoxata.mk.ua/ru/service.html">Сотрудничество</a></li>
-            </ul>
-          </li>
-          <li
-            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-333">
-            <a href="https://autoxata.mk.ua/ru/car-from-usa.html">Авто из США</a>
-          </li>
-          <li
-            class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-123">
-            <a href="https://autoxata.mk.ua/ru/blog.html">Блог</a>
-          </li>
-          <li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"><a
-              href="https://autoxata.mk.ua/ru/contacts.html">Контакты</a>
-          </li>
-          <li
-            class="special-link feedback-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-133 special-link-mob">
-            <a class="open-popup">Обратная связь</a>
-          </li>
-        </ul>
-      </div>
-      <div class="ltn__social-media-2">
-        <ul>
-          <li class="">
-            <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow"
-              aria-label="Профиль автосалона AutoXata в Instagram">
-              <img src="../assets/images/instagram.svg" alt="Instagram" class="svg" width="16" height="16">
-            </a>
-          </li>
-          <li class="">
-            <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
-              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в Facebook">
-              <img src="../assets/images/facebook-f.svg" alt="Facebook" class="svg" width="16" height="16">
-            </a>
-          </li>
-          <li class="">
-            <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
-              rel="noopener noreferrer nofollow" aria-label="Профиль автосалона AutoXata в TikTok">
-              <img src="../assets/images/tik_tok.png" alt="TikTok" class="svg" width="16" height="16">
-            </a>
-          </li>
-          <li class="">
-            <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow"
-              aria-label="Профиль автосалона AutoXata в Telegram">
-              <img src="../assets/images/telegram-plane.svg" alt="Telegram" class="svg" width="16" height="16">
-            </a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </div>
-  <div class="ltn__utilize-overlay"></div>
-  <div class="quiz-wrapper">
-    <div>
-      <h1 style="font-size: 31px;text-align: center;">Почему ваш автомобиль не продаётся?</h1>
-    </div>
-    <div class="quiz" id="quiz">
-      <div class="quiz__progress" id="quizProgress">Вопрос 1 из 10</div>
-      <div class="quiz__question" id="quizQuestion"></div>
-      <div class="quiz__answers" id="quizAnswers"></div>
-      <div class="quiz__footer">
-        <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
-        <button class="quiz__btn quiz__btn--next" id="btnNext" disabled>Вперед</button>
-      </div>
-    </div>
-    <div id="result" class="result" style="display:none">
-      <h2 id="resultTitle"></h2>
-      <p id="resultText"></p>
-      <ul id="resultTips"></ul>
-      <p id="resultTransition"></p>
-      <p id="resultCtaText" style="font-weight: bold;"></p>
-      <a id="ctaSecondary" class="quiz__btn result__btn--secondary quiz__btn--primary open-popup">
-        Связаться с менеджером
-      </a>
-    </div>
-  </div>
-  <footer class="ltn__footer-area ltn__footer-2  ltn__footer-color-2">
-    <div class="footer-top-area  section-bg-1 pt-120 pb-120 pt-mob-80 pb-mob-80 pt-mob-60 pb-mob-60"
-      style="background-color: #e6ecf0;">
-      <div class="container">
-        <div class="row">
-          <div class="col-xl-4 col-md-6">
-            <div class="footer-logo">
-              <a href="./index.html">
-                <img src="../assets/images/logo-2-.webp" width="240" height="56" style="max-width: 100%; height: auto;"
-                  alt="Logo" class="logo_img">
-              </a>
+      <div
+        class="ltn__header-middle-area ltn__header-sticky ltn__sticky-bg-white ltn__logo-right-menu-option"
+        style="background-color: #ffffff"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-2">
+              <div class="site-logo-wrap">
+                <div class="site-logo">
+                  <a href="./index.html"
+                    ><img
+                      src="../assets/images/logo-2-.webp"
+                      alt="Logo"
+                      class="logo_img"
+                  /></a>
+                </div>
+              </div>
             </div>
-            <div class="footer-text">
-              <p>Автосалон "АвтоХата" в Николаеве по адресу ул. Чкалова 51б (ул. Игоря Бедзая, 51б) предлагает своим
-                клиентам только честные и проверенные автомобили, а также выгодные условия по выкупу и комиссионным
-                продажам. Гарантируем прозрачные, честные условия сотрудничества покупателям и продавцам автомобилей.
-              </p>
+            <div class="col header-menu-column">
+              <div class="header-menu d-none d-xl-block">
+                <nav>
+                  <div class="ltn__main-menu">
+                    <ul id="menu-golovne-menyu" class="menu">
+                      <li><a href="./index.html">Главная</a></li>
+                      <li>
+                        <a
+                          href="https://auto.ria.com/dealers/autoxata/3634/"
+                          data-key="catalog"
+                          >Каталог авто</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://autoxata.mk.ua/ru/service.html"
+                          data-key="services"
+                          >Услуги</a
+                        >
+                        <ul class="sub-menu">
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/service.html"
+                              data-key="sale"
+                              >Продажа</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/service.html"
+                              data-key="selection"
+                              >Подбор</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/service.html"
+                              data-key="exchange"
+                              >Обмен</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/service.html"
+                              data-key="buyout"
+                              >Выкуп</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/car-from-usa.html"
+                              data-key="usa_car"
+                              >Авто из США под ключ</a
+                            >
+                          </li>
+                          <li>
+                            <a
+                              href="https://autoxata.mk.ua/ru/service.html"
+                              data-key="cooperation"
+                              >Сотрудничество</a
+                            >
+                          </li>
+                        </ul>
+                      </li>
+                      <li>
+                        <a
+                          href="https://autoxata.mk.ua/ru/car-from-usa.html"
+                          data-key="cars_from_usa"
+                          >Авто из США</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://autoxata.mk.ua/ru/blog.html"
+                          data-key="blog"
+                          >Блог</a
+                        >
+                      </li>
+                      <li>
+                        <a
+                          href="https://autoxata.mk.ua/ru/contacts.html"
+                          data-key="contacts"
+                          >Контакты</a
+                        >
+                      </li>
+                      <li class="special-link">
+                        <a class="open-popup" data-key="feedback"
+                          >Обратная связь</a
+                        >
+                      </li>
+                    </ul>
+                  </div>
+                </nav>
+              </div>
             </div>
-            <div class="ltn__social-media mt-15">
-              <ul>
-                <li>
-                  <a href="https://www.instagram.com/autoxata.mk" target="_blank" rel="noopener noreferrer nofollow">
-                    <img src="../assets/images/instagram.svg" alt="instagram" class="svg">
-                  </a>
-                </li>
-                <li class="">
-                  <a href="https://www.facebook.com/profile.php?id=61576512672320" target="_blank"
-                    rel="noopener noreferrer nofollow">
-                    <img src="../assets/images/facebook-f.svg" alt="facebook" class="svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1" target="_blank"
-                    rel="noopener noreferrer nofollow">
-                    <img src="../assets/images/tik_tok.png" alt="tik tok" class="svg">
-                  </a>
-                </li>
-                <li>
-                  <a href="https://t.me/AutoXata_mk" target="_blank" rel="noopener noreferrer nofollow">
-                    <img src="../assets/images/telegram-plane.svg" alt="telegram" class="svg">
-                  </a>
-                </li>
-              </ul>
-            </div>
-            <div class="footer-tech-pages-menu footer-menu mt-15">
-              <ul id="menu-menyu-tehnichnyh-storinok" class="menu">
-                <li id="menu-item-649" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649">
-                  <a href="https://autoxata.mk.ua/ru/term.html" target="_blank">Условия использования сайта</a>
-                </li>
-                <li id="menu-item-650" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-650">
-                  <a href="https://autoxata.mk.ua/ru/policy.html" target="_blank">Политика конфиденциальности</a>
-                </li>
-
-              </ul>
+            <div class="ltn__header-options ltn__header-options-2">
+              <div class="mobile-menu-toggle d-xl-none">
+                <a href="#ltn__utilize-mobile-menu" class="ltn__utilize-toggle">
+                  <svg viewBox="0 0 800 600">
+                    <path
+                      d="M300,220 C300,220 520,220 540,220 C740,220 640,540 520,420 C440,340 300,200 300,200"
+                      id="top"
+                    ></path>
+                    <path d="M300,320 L540,320" id="middle"></path>
+                    <path
+                      d="M300,210 C300,210 520,210 540,210 C740,210 640,530 520,410 C440,330 300,190 300,190"
+                      id="bottom"
+                      transform="translate(480, 320) scale(1, -1) translate(-480, -318) "
+                    ></path>
+                  </svg>
+                </a>
+              </div>
             </div>
           </div>
-          <div class="col-xl-4 col-6">
-            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
-              <h4 class="footer-title">Навигация</h4>
-              <div class="footer-menu">
-                <ul id="menu-menyu-futera-1" class="menu">
-                  <li id="menu-item-633"
-                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-12 current_page_item menu-item-633">
-                    <a href="./index.html" aria-current="page">Главная</a>
+        </div>
+      </div>
+    </header>
+    <div class="ltn__utilize-mobile-menu-close-btn"><span>×</span></div>
+    <div
+      id="ltn__utilize-mobile-menu"
+      class="ltn__utilize ltn__utilize-mobile-menu"
+    >
+      <div class="ltn__utilize-menu-inner ltn__scrollbar">
+        <div class="ltn__utilize-menu">
+          <ul id="menu-golovne-menyu-1" class="menu">
+            <li
+              id="menu-item-765"
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-765"
+            >
+              <a href="./index.html" target="_blank">Главная</a>
+            </li>
+            <li
+              class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-726"
+            >
+              <a
+                href="https://auto.ria.com/uk/dealers/autoxata/3634/"
+                target="_blank"
+                >Каталог авто</a
+              >
+            </li>
+            <li
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-128"
+            >
+              <a href="https://autoxata.mk.ua/ru/service.html">Услуги</a>
+              <ul class="sub-menu">
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4920"
+                >
+                  <a href="https://autoxata.mk.ua/ru/service.html">Продажа</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4921"
+                >
+                  <a href="https://autoxata.mk.ua/ru/service.html">Подбор</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4922"
+                >
+                  <a href="https://autoxata.mk.ua/ru/service.html">Обмен</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4923"
+                >
+                  <a href="https://autoxata.mk.ua/ru/service.html">Выкуп</a>
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4924"
+                >
+                  <a href="https://autoxata.mk.ua/ru/car-from-usa.html"
+                    >Авто из США под ключ</a
+                  >
+                </li>
+                <li
+                  class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4925"
+                >
+                  <a href="https://autoxata.mk.ua/ru/service.html"
+                    >Сотрудничество</a
+                  >
+                </li>
+              </ul>
+            </li>
+            <li
+              class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-333"
+            >
+              <a href="https://autoxata.mk.ua/ru/car-from-usa.html"
+                >Авто из США</a
+              >
+            </li>
+            <li
+              class="menu-blog menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-123"
+            >
+              <a href="https://autoxata.mk.ua/ru/blog.html">Блог</a>
+            </li>
+            <li
+              class="menu-item menu-item-type-post_type menu-item-object-page menu-item-130"
+            >
+              <a href="https://autoxata.mk.ua/ru/contacts.html">Контакты</a>
+            </li>
+            <li
+              class="special-link feedback-btn menu-item menu-item-type-custom menu-item-object-custom menu-item-133 special-link-mob"
+            >
+              <a class="open-popup">Обратная связь</a>
+            </li>
+          </ul>
+        </div>
+        <div class="ltn__social-media-2">
+          <ul>
+            <li class="">
+              <a
+                href="https://www.instagram.com/autoxata.mk"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Профиль автосалона AutoXata в Instagram"
+              >
+                <img
+                  src="../assets/images/instagram.svg"
+                  alt="Instagram"
+                  class="svg"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </li>
+            <li class="">
+              <a
+                href="https://www.facebook.com/profile.php?id=61576512672320"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Профиль автосалона AutoXata в Facebook"
+              >
+                <img
+                  src="../assets/images/facebook-f.svg"
+                  alt="Facebook"
+                  class="svg"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </li>
+            <li class="">
+              <a
+                href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Профиль автосалона AutoXata в TikTok"
+              >
+                <img
+                  src="../assets/images/tik_tok.png"
+                  alt="TikTok"
+                  class="svg"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </li>
+            <li class="">
+              <a
+                href="https://t.me/AutoXata_mk"
+                target="_blank"
+                rel="noopener noreferrer nofollow"
+                aria-label="Профиль автосалона AutoXata в Telegram"
+              >
+                <img
+                  src="../assets/images/telegram-plane.svg"
+                  alt="Telegram"
+                  class="svg"
+                  width="16"
+                  height="16"
+                />
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <div class="ltn__utilize-overlay"></div>
+    <div class="quiz-wrapper">
+      <div>
+        <h1 style="font-size: 31px; text-align: center">
+          Почему ваш автомобиль не продаётся?
+        </h1>
+      </div>
+      <div class="quiz" id="quiz">
+        <div class="quiz__progress" id="quizProgress">Вопрос 1 из 10</div>
+        <div class="quiz__question" id="quizQuestion"></div>
+        <div class="quiz__answers" id="quizAnswers"></div>
+        <div class="quiz__footer">
+          <button class="quiz__btn quiz__btn--back" id="btnBack">Назад</button>
+          <button class="quiz__btn quiz__btn--next" id="btnNext" disabled>
+            Вперед
+          </button>
+        </div>
+      </div>
+      <div id="result" class="result" style="display: none">
+        <h2 id="resultTitle"></h2>
+        <p id="resultText"></p>
+        <ul id="resultTips"></ul>
+        <p id="resultTransition"></p>
+        <p id="resultCtaText" style="font-weight: bold"></p>
+        <a
+          id="ctaSecondary"
+          class="quiz__btn result__btn--secondary quiz__btn--primary open-popup"
+        >
+          Связаться с менеджером
+        </a>
+      </div>
+    </div>
+    <footer class="ltn__footer-area ltn__footer-2 ltn__footer-color-2">
+      <div
+        class="footer-top-area section-bg-1 pt-120 pb-120 pt-mob-80 pb-mob-80 pt-mob-60 pb-mob-60"
+        style="background-color: #e6ecf0"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-xl-4 col-md-6">
+              <div class="footer-logo">
+                <a href="./index.html">
+                  <img
+                    src="../assets/images/logo-2-.webp"
+                    width="240"
+                    height="56"
+                    style="max-width: 100%; height: auto"
+                    alt="Logo"
+                    class="logo_img"
+                  />
+                </a>
+              </div>
+              <div class="footer-text">
+                <p>
+                  Автосалон "АвтоХата" в Николаеве по адресу ул. Чкалова 51б
+                  (ул. Игоря Бедзая, 51б) предлагает своим клиентам только
+                  честные и проверенные автомобили, а также выгодные условия по
+                  выкупу и комиссионным продажам. Гарантируем прозрачные,
+                  честные условия сотрудничества покупателям и продавцам
+                  автомобилей.
+                </p>
+              </div>
+              <div class="ltn__social-media mt-15">
+                <ul>
+                  <li>
+                    <a
+                      href="https://www.instagram.com/autoxata.mk"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                    >
+                      <img
+                        src="../assets/images/instagram.svg"
+                        alt="instagram"
+                        class="svg"
+                      />
+                    </a>
                   </li>
-                  <li id="menu-item-792"
-                    class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-792"><a
-                      href="https://auto.ria.com/uk/dealers/autoxata/3634/" target="_blank">Каталог</a></li>
-                  <li id="menu-item-641" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-641">
-                    <a href="https://autoxata.mk.ua/ru/blog.html">Блог</a>
+                  <li class="">
+                    <a
+                      href="https://www.facebook.com/profile.php?id=61576512672320"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                    >
+                      <img
+                        src="../assets/images/facebook-f.svg"
+                        alt="facebook"
+                        class="svg"
+                      />
+                    </a>
                   </li>
-                  <li id="menu-item-642" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-642">
-                    <a href="https://autoxata.mk.ua/ru/service.html">Сотрудничество</a>
+                  <li>
+                    <a
+                      href="https://www.tiktok.com/@autoxata7?_t=ZM-8ytWs5VvMAw&_r=1"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                    >
+                      <img
+                        src="../assets/images/tik_tok.png"
+                        alt="tik tok"
+                        class="svg"
+                      />
+                    </a>
                   </li>
-
-                  <li id="menu-item-637" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-637">
-                    <a href="https://autoxata.mk.ua/ru/contacts.html">Контакты</a>
+                  <li>
+                    <a
+                      href="https://t.me/AutoXata_mk"
+                      target="_blank"
+                      rel="noopener noreferrer nofollow"
+                    >
+                      <img
+                        src="../assets/images/telegram-plane.svg"
+                        alt="telegram"
+                        class="svg"
+                      />
+                    </a>
+                  </li>
+                </ul>
+              </div>
+              <div class="footer-tech-pages-menu footer-menu mt-15">
+                <ul id="menu-menyu-tehnichnyh-storinok" class="menu">
+                  <li
+                    id="menu-item-649"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-649"
+                  >
+                    <a
+                      href="https://autoxata.mk.ua/ru/term.html"
+                      target="_blank"
+                      >Условия использования сайта</a
+                    >
+                  </li>
+                  <li
+                    id="menu-item-650"
+                    class="menu-item menu-item-type-post_type menu-item-object-page menu-item-650"
+                  >
+                    <a
+                      href="https://autoxata.mk.ua/ru/policy.html"
+                      target="_blank"
+                      >Политика конфиденциальности</a
+                    >
                   </li>
                 </ul>
               </div>
             </div>
-          </div>
-          <div class="col-xl-4 col-6">
-            <div class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix">
-              <h4 class="footer-title">Услуги</h4>
-              <div class="footer-menu">
-                <ul id="menu-menyu-futera-2" class="menu">
-                  <li id="menu-item-4911"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4911"><a
-                      href="https://autoxata.mk.ua/ru/service.html">Продажа</a></li>
-                  <li id="menu-item-4912"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4912"><a
-                      href="https://autoxata.mk.ua/ru/service.html">Подбор</a></li>
-                  <li id="menu-item-4913"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4913"><a
-                      href="https://autoxata.mk.ua/ru/service.html">Обмен</a></li>
-                  <li id="menu-item-4914"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4914"><a
-                      href="https://autoxata.mk.ua/ru/service.html">Выкуп</a></li>
-                  <li id="menu-item-4915"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4915"><a
-                      href="https://autoxata.mk.ua/ru/car-from-usa.html">Авто из США под ключ</a></li>
-                  <li id="menu-item-4916"
-                    class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4916"><a
-                      href="https://autoxata.mk.ua/ru/service.html">Сотрудничество</a></li>
-                </ul>
+            <div class="col-xl-4 col-6">
+              <div
+                class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix"
+              >
+                <h3 class="footer-title">Навигация</h3>
+                <div class="footer-menu">
+                  <ul id="menu-menyu-futera-1" class="menu">
+                    <li
+                      id="menu-item-633"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home page_item page-item-12 current_page_item menu-item-633"
+                    >
+                      <a href="./index.html" aria-current="page">Главная</a>
+                    </li>
+                    <li
+                      id="menu-item-792"
+                      class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-792"
+                    >
+                      <a
+                        href="https://auto.ria.com/uk/dealers/autoxata/3634/"
+                        target="_blank"
+                        >Каталог</a
+                      >
+                    </li>
+                    <li
+                      id="menu-item-641"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-641"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/blog.html">Блог</a>
+                    </li>
+                    <li
+                      id="menu-item-642"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-642"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html"
+                        >Сотрудничество</a
+                      >
+                    </li>
+
+                    <li
+                      id="menu-item-637"
+                      class="menu-item menu-item-type-post_type menu-item-object-page menu-item-637"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/contacts.html"
+                        >Контакты</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+            <div class="col-xl-4 col-6">
+              <div
+                class="footer-widget footer-menu-widget footer-menu-widget-2-column clearfix"
+              >
+                <h3 class="footer-title">Услуги</h3>
+                <div class="footer-menu">
+                  <ul id="menu-menyu-futera-2" class="menu">
+                    <li
+                      id="menu-item-4911"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4911"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html"
+                        >Продажа</a
+                      >
+                    </li>
+                    <li
+                      id="menu-item-4912"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4912"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html"
+                        >Подбор</a
+                      >
+                    </li>
+                    <li
+                      id="menu-item-4913"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4913"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html">Обмен</a>
+                    </li>
+                    <li
+                      id="menu-item-4914"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4914"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html">Выкуп</a>
+                    </li>
+                    <li
+                      id="menu-item-4915"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4915"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/car-from-usa.html"
+                        >Авто из США под ключ</a
+                      >
+                    </li>
+                    <li
+                      id="menu-item-4916"
+                      class="menu-item menu-item-type-post_type menu-item-object-services menu-item-4916"
+                    >
+                      <a href="https://autoxata.mk.ua/ru/service.html"
+                        >Сотрудничество</a
+                      >
+                    </li>
+                  </ul>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-    <div class="ltn__copyright-area ltn__copyright-2" style="padding-bottom: 10px;">
-      <div class="container">
-        <div class="row">
-          <div class="col-12 d-flex justify-content-center">
-            <div class="site-logo-wrap footer-copyright">
-              <div class="get-support ltn__copyright-design clearfix">
-                <div class="get-support-info">
-                  © АвтоХата, 2024-2025. Все права защищены</div>
+      <div
+        class="ltn__copyright-area ltn__copyright-2"
+        style="padding-bottom: 10px"
+      >
+        <div class="container">
+          <div class="row">
+            <div class="col-12 d-flex justify-content-center">
+              <div class="site-logo-wrap footer-copyright">
+                <div class="get-support ltn__copyright-design clearfix">
+                  <div class="get-support-info">
+                    © АвтоХата, 2024-2025. Все права защищены
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-  </footer>
-  <a href="http://www.freepik.com" class="body-link"
-    style="background-color: #e6ecf0;display: block;padding-left: 5px;padding-bottom: 5px;">Designed by Freepik</a>
-  <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
-    <div class="feedback-popup feedback-popup-consultation">
-      <div class="close-popup">×</div>
-      <div class="feedback-popup-inner">
-        <div class="popup-title">Свяжитесь с нами</div>
-        <div class="popup-subtitle">Оставьте свои данные и мы свяжемся с вами в ближайшее время</div>
-        <div class="wpcf7 no-js" id="wpcf7-f8-o2">
-          <div class="screen-reader-response">
-            <p role="status" aria-live="polite" aria-atomic="true"></p>
-            <ul></ul>
+    </footer>
+    <a
+      href="http://www.freepik.com"
+      class="body-link"
+      style="
+        background-color: #e6ecf0;
+        display: block;
+        padding-left: 5px;
+        padding-bottom: 5px;
+      "
+      >Designed by Freepik</a
+    >
+    <div class="feedback-popup-wrapp feedback-popup-wrapp-consultation">
+      <div class="feedback-popup feedback-popup-consultation">
+        <div class="close-popup">×</div>
+        <div class="feedback-popup-inner">
+          <div class="popup-title">Свяжитесь с нами</div>
+          <div class="popup-subtitle">
+            Оставьте свои данные и мы свяжемся с вами в ближайшее время
           </div>
-          <form class="send-to-sheet wpcf7-form init" aria-label="Контактная форма" novalidate>
-            <input type="hidden" name="referrer" value="seller_quiz_why_car_not_selling">
-            <p>
-              <span class="wpcf7-form-control-wrap" data-name="your-name">
-                <input class="wpcf7-form-control wpcf7-text" placeholder="Ваше имя" type="text" name="your-name">
-              </span><br>
-              <span class="wpcf7-form-control-wrap" data-name="your-phone">
-                <input class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
-                  placeholder="Ваш телефон *" type="text" name="your-phone">
-              </span>
-            </p>
-            <p>
-              <span class="wpcf7-form-control-wrap" data-name="preferred-contact">
-                <select name="preferred-contact" class="wpcf7-form-control wpcf7-select custom-select" required>
-                  <option value="">Предпочтительный способ связи</option>
-                  <option value="phone">Телефон</option>
-                  <option value="viber">Viber</option>
-                  <option value="whatsapp">WhatsApp</option>
-                </select>
-              </span>
-            </p>
-            <p>
-              <span class="wpcf7-form-control-wrap" data-name="comment">
-                <textarea class="wpcf7-form-control wpcf7-textarea" rows="3" placeholder="Комментарий (необязательно)"
-                  name="comment"></textarea>
-              </span>
-            </p>
-            <div class="form-accept-wrapp">
-              <div class="form-accept-item-input">
-                <p><i class="fas fa-check fa-fw"></i></p>
-              </div>
-              <p style="margin-bottom: 14px;font-size: 16px;"><span class="wpcf7-form-control-wrap acceptance-446"
-                  data-name="acceptance-446"><span class="wpcf7-form-control wpcf7-acceptance optional"><span
-                      class="wpcf7-list-item"><label><input type="checkbox" name="acceptance-446" value="1"
-                          aria-invalid="false"><span class="wpcf7-list-item-label">Я согласен на обработку моих
-                          персональных данных</span></label></span></span></span><br>
+          <div class="wpcf7 no-js" id="wpcf7-f8-o2">
+            <div class="screen-reader-response">
+              <p role="status" aria-live="polite" aria-atomic="true"></p>
+              <ul></ul>
+            </div>
+            <form
+              class="send-to-sheet wpcf7-form init"
+              aria-label="Контактная форма"
+              novalidate
+            >
+              <input
+                type="hidden"
+                name="referrer"
+                value="seller_quiz_why_car_not_selling"
+              />
+              <p>
+                <span class="wpcf7-form-control-wrap" data-name="your-name">
+                  <input
+                    class="wpcf7-form-control wpcf7-text"
+                    placeholder="Ваше имя"
+                    type="text"
+                    name="your-name"
+                  /> </span
+                ><br />
+                <span class="wpcf7-form-control-wrap" data-name="your-phone">
+                  <input
+                    class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required"
+                    aria-required="true"
+                    placeholder="Ваш телефон *"
+                    type="text"
+                    name="your-phone"
+                  />
+                </span>
               </p>
-            </div>
-            <div class="submit-btn">
-              <button type="submit" class="theme-btn-1 btn btn-effect-1">
-                Связаться с менеджером
-              </button>
-            </div>
-            <p class="contact-phone" style="text-align:center">
-              Или обращайтесь по номеру
-              <a href="tel:+380735080000">+380&nbsp;73&nbsp;508&nbsp;0000</a>
-            </p>
-          </form>
-
+              <p>
+                <span
+                  class="wpcf7-form-control-wrap"
+                  data-name="preferred-contact"
+                >
+                  <select
+                    name="preferred-contact"
+                    class="wpcf7-form-control wpcf7-select custom-select"
+                    required
+                  >
+                    <option value="">Предпочтительный способ связи</option>
+                    <option value="phone">Телефон</option>
+                    <option value="viber">Viber</option>
+                    <option value="whatsapp">WhatsApp</option>
+                  </select>
+                </span>
+              </p>
+              <p>
+                <span class="wpcf7-form-control-wrap" data-name="comment">
+                  <textarea
+                    class="wpcf7-form-control wpcf7-textarea"
+                    rows="3"
+                    placeholder="Комментарий (необязательно)"
+                    name="comment"
+                  ></textarea>
+                </span>
+              </p>
+              <div class="form-accept-wrapp">
+                <div class="form-accept-item-input">
+                  <p><i class="fas fa-check fa-fw"></i></p>
+                </div>
+                <p style="margin-bottom: 14px; font-size: 16px">
+                  <span
+                    class="wpcf7-form-control-wrap acceptance-446"
+                    data-name="acceptance-446"
+                    ><span class="wpcf7-form-control wpcf7-acceptance optional"
+                      ><span class="wpcf7-list-item"
+                        ><label
+                          ><input
+                            type="checkbox"
+                            name="acceptance-446"
+                            value="1"
+                            aria-invalid="false"
+                          /><span class="wpcf7-list-item-label"
+                            >Я согласен на обработку моих персональных
+                            данных</span
+                          ></label
+                        ></span
+                      ></span
+                    ></span
+                  ><br />
+                </p>
+              </div>
+              <div class="submit-btn">
+                <button type="submit" class="theme-btn-1 btn btn-effect-1">
+                  Связаться с менеджером
+                </button>
+              </div>
+              <p class="contact-phone" style="text-align: center">
+                Или обращайтесь по номеру
+                <a href="tel:+380735080000">+380&nbsp;73&nbsp;508&nbsp;0000</a>
+              </p>
+            </form>
+          </div>
         </div>
       </div>
     </div>
-  </div>
-  <div class="popup-fill"></div>
-  <div class="popup-fill2"></div>
-  <div class="popup-fill3"></div>
-  <script>
-    (function () {
-      const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+    <div class="popup-fill"></div>
+    <div class="popup-fill2"></div>
+    <div class="popup-fill3"></div>
+    <script>
+      (function () {
+        const utmKeys = [
+          "utm_source",
+          "utm_medium",
+          "utm_campaign",
+          "utm_term",
+          "utm_content",
+        ];
 
-      // Получить текущие UTM
-      const params = new URLSearchParams(window.location.search);
-      const utms = {};
-      utmKeys.forEach(k => {
-        if (params.has(k)) utms[k] = params.get(k);
-      });
-
-      // Сохраняем UTM в localStorage при заходе
-      if (Object.keys(utms).length > 0) {
-        localStorage.setItem('utmParams', JSON.stringify(utms));
-      }
-
-      // Функция для добавления UTM ко всем ссылкам
-      function appendUTMToLinks() {
-        const savedUtms = JSON.parse(localStorage.getItem('utmParams') || '{}');
-        if (Object.keys(savedUtms).length === 0) return;
-
-        document.querySelectorAll('a[href]').forEach(link => {
-          const href = link.getAttribute('href');
-          if (!href || href.startsWith('#') || href.startsWith('mailto:') || href.startsWith('tel:')) return;
-          // работаем только с локальными ссылками
-          if (href.startsWith('/') || href.startsWith(window.location.origin)) {
-            const url = new URL(href, window.location.origin);
-            for (let k in savedUtms) {
-              if (!url.searchParams.has(k)) url.searchParams.set(k, savedUtms[k]);
-            }
-            link.setAttribute('href', url.toString());
-          }
+        // Получить текущие UTM
+        const params = new URLSearchParams(window.location.search);
+        const utms = {};
+        utmKeys.forEach((k) => {
+          if (params.has(k)) utms[k] = params.get(k);
         });
-      }
 
-      document.addEventListener('DOMContentLoaded', appendUTMToLinks);
-    })();
-  </script>
+        // Сохраняем UTM в localStorage при заходе
+        if (Object.keys(utms).length > 0) {
+          localStorage.setItem("utmParams", JSON.stringify(utms));
+        }
 
-  <script>
-    /* ==========================
+        // Функция для добавления UTM ко всем ссылкам
+        function appendUTMToLinks() {
+          const savedUtms = JSON.parse(
+            localStorage.getItem("utmParams") || "{}",
+          );
+          if (Object.keys(savedUtms).length === 0) return;
+
+          document.querySelectorAll("a[href]").forEach((link) => {
+            const href = link.getAttribute("href");
+            if (
+              !href ||
+              href.startsWith("#") ||
+              href.startsWith("mailto:") ||
+              href.startsWith("tel:")
+            )
+              return;
+            // работаем только с локальными ссылками
+            if (
+              href.startsWith("/") ||
+              href.startsWith(window.location.origin)
+            ) {
+              const url = new URL(href, window.location.origin);
+              for (let k in savedUtms) {
+                if (!url.searchParams.has(k))
+                  url.searchParams.set(k, savedUtms[k]);
+              }
+              link.setAttribute("href", url.toString());
+            }
+          });
+        }
+
+        document.addEventListener("DOMContentLoaded", appendUTMToLinks);
+      })();
+    </script>
+
+    <script>
+      /* ==========================
    Lead ID
 ========================== */
 
-    function generateLeadId() {
-      return 'lead_' + crypto.randomUUID().slice(0, 12);
-    }
-    const urlParams = new URLSearchParams(window.location.search);
-    const urlLeadId = urlParams.get('leadId');
+      function generateLeadId() {
+        return "lead_" + crypto.randomUUID().slice(0, 12);
+      }
+      const urlParams = new URLSearchParams(window.location.search);
+      const urlLeadId = urlParams.get("leadId");
 
-    let leadId =
-      urlLeadId ||
-      localStorage.getItem('leadId');
+      let leadId = urlLeadId || localStorage.getItem("leadId");
 
-    if (!leadId) {
-      leadId = generateLeadId();
-    }
+      if (!leadId) {
+        leadId = generateLeadId();
+      }
 
-    localStorage.setItem('leadId', leadId);
+      localStorage.setItem("leadId", leadId);
 
+      console.log("🆔 Lead ID:", leadId);
 
-    console.log('🆔 Lead ID:', leadId);
-
-    /* ==========================
+      /* ==========================
        Получаем текущие UTM (если есть)
     ========================== */
 
-    const utmKeys = ['utm_source', 'utm_medium', 'utm_campaign', 'utm_content', 'utm_term'];
-    const utms = {};
+      const utmKeys = [
+        "utm_source",
+        "utm_medium",
+        "utm_campaign",
+        "utm_content",
+        "utm_term",
+      ];
+      const utms = {};
 
-    utmKeys.forEach(k => {
-      if (urlParams.has(k)) utms[k] = urlParams.get(k);
-    });
-
-    function enrichLinks() {
-      const base = window.location.href;
-
-      document.querySelectorAll('a[href]').forEach(link => {
-        const rawHref = link.getAttribute('href');
-
-        if (
-          !rawHref ||
-          rawHref.startsWith('#') ||
-          rawHref.startsWith('mailto:') ||
-          rawHref.startsWith('tel:') ||
-          rawHref.startsWith('javascript:')
-        ) return;
-
-        let url;
-        try {
-          url = new URL(rawHref, base);
-        } catch {
-          console.warn('⚠️ Bad href:', rawHref);
-          return;
-        }
-
-        // leadId
-        if (!url.searchParams.has('leadId')) {
-          url.searchParams.set('leadId', leadId);
-        }
-
-        // UTM
-        Object.entries(utms).forEach(([k, v]) => {
-          if (v && !url.searchParams.has(k)) {
-            url.searchParams.set(k, v);
-          }
-        });
-
-        link.href = url.toString();
+      utmKeys.forEach((k) => {
+        if (urlParams.has(k)) utms[k] = urlParams.get(k);
       });
-    }
 
-    enrichLinks();
+      function enrichLinks() {
+        const base = window.location.href;
 
-    /* ==========================
+        document.querySelectorAll("a[href]").forEach((link) => {
+          const rawHref = link.getAttribute("href");
+
+          if (
+            !rawHref ||
+            rawHref.startsWith("#") ||
+            rawHref.startsWith("mailto:") ||
+            rawHref.startsWith("tel:") ||
+            rawHref.startsWith("javascript:")
+          )
+            return;
+
+          let url;
+          try {
+            url = new URL(rawHref, base);
+          } catch {
+            console.warn("⚠️ Bad href:", rawHref);
+            return;
+          }
+
+          // leadId
+          if (!url.searchParams.has("leadId")) {
+            url.searchParams.set("leadId", leadId);
+          }
+
+          // UTM
+          Object.entries(utms).forEach(([k, v]) => {
+            if (v && !url.searchParams.has(k)) {
+              url.searchParams.set(k, v);
+            }
+          });
+
+          link.href = url.toString();
+        });
+      }
+
+      enrichLinks();
+
+      /* ==========================
        Lead ID в формы
     ========================== */
 
-    document.querySelectorAll('form').forEach(form => {
-      let input = form.querySelector('input[name="leadId"]');
-      if (!input) {
-        input = document.createElement('input');
-        input.type = 'hidden';
-        input.name = 'leadId';
-        form.appendChild(input);
-      }
-      input.value = leadId;
-    });
-
-
-    const quizData = {
-      "scenarios": { "S1": "price", "S2": "presentation", "S3": "trust", "S4": "process" },
-      "questions": [
-        { "id": "q1_car", "type": "car_input", "required": true, "affectsScore": false, "text": "Расскажите немного об автомобиле, который вы хотите продать", "fields": [{ "id": "make", "label": "Марка", "type": "text", "required": true }, { "id": "model", "label": "Модель", "type": "text", "required": true }, { "id": "year", "label": "Год выпуска", "type": "number", "required": true, "min": 1980, "max": 2026 }] },
-        { "id": "q2_listed_for", "type": "single", "required": true, "affectsScore": true, "text": "Как давно ваш автомобиль выставлен на продажу?", "answers": [{ "id": "lt_2w", "label": "Меньше 2 недель", "weights": { "S4": 1 } }, { "id": "2_4w", "label": "2–4 недели", "weights": { "S2": 1, "S1": 1 } }, { "id": "1_2m", "label": "1–2 месяца", "weights": { "S1": 2, "S2": 1 } }, { "id": "gt_2m", "label": "Больше 2 месяцев", "weights": { "S1": 2, "S4": 1 } }] },
-        { "id": "q3_contacts", "type": "single", "required": true, "affectsScore": true, "text": "Сколько реальных звонков или сообщений вы получили?", "answers": [{ "id": "none", "label": "Почти нет", "weights": { "S1": 3, "S2": 1 } }, { "id": "1_2wk", "label": "1–2 в неделю", "weights": { "S1": 2, "S2": 1 } }, { "id": "contact_no_result", "label": "Звонят, но без результата", "weights": { "S3": 2, "S4": 1 } }, { "id": "many_no_deal", "label": "Звонков достаточно, но сделки нет", "weights": { "S3": 2, "S4": 2 } }] },
-        { "id": "q4_price_set", "type": "single", "required": true, "affectsScore": true, "text": "Как вы определяли цену на автомобиль?", "answers": [{ "id": "like_ads", "label": "Посмотрел(а) похожие объявления и поставил(а) свою", "weights": { "S1": 2 } }, { "id": "desired_sum", "label": "Ориентировался(лась) на желаемую сумму", "weights": { "S1": 3 } }, { "id": "with_haggle", "label": "С учётом торга", "weights": { "S1": 2, "S4": 1 } }, { "id": "already_lowered", "label": "Уже несколько раз снижал(а)", "weights": { "S1": 2, "S2": 1 } }] },
-        { "id": "q5_photos", "type": "single", "required": true, "affectsScore": true, "text": "Как бы вы оценили фотографии в объявлении?", "answers": [{ "id": "basic_phone", "label": "Обычные, сделанные на телефон", "weights": { "S2": 2 } }, { "id": "ok_no_prep", "label": "Фото есть, но без подготовки", "weights": { "S2": 3 } }, { "id": "honest_full", "label": "Старался(лась) показать всё честно", "weights": { "S3": 1, "S2": 1 } }, { "id": "not_sure", "label": "Не уверен(а), что фото достаточно хорошие", "weights": { "S2": 3 } }] },
-        { "id": "q6_description", "type": "single", "required": true, "affectsScore": true, "text": "Описание автомобиля — это скорее…", "answers": [{ "id": "few_lines", "label": "Несколько строк «по сути»", "weights": { "S2": 2 } }, { "id": "detailed_no_structure", "label": "Подробное описание, но без структуры", "weights": { "S2": 2, "S3": 1 } }, { "id": "honest_pros_cons", "label": "Честное описание с плюсами и минусами", "weights": { "S3": 2 } }, { "id": "dont_know", "label": "Трудно сказать, что ещё добавить", "weights": { "S2": 2 } }] },
-        { "id": "q7_communication", "type": "single", "required": true, "affectsScore": true, "text": "Как вы обычно общаетесь с потенциальными покупателями?", "answers": [{ "id": "when_time", "label": "Отвечаю, когда есть время", "weights": { "S4": 3 } }, { "id": "fast_try", "label": "Стараюсь отвечать быстро", "weights": { "S4": 1 } }, { "id": "repeat_same", "label": "Часто приходится объяснять одно и то же", "weights": { "S4": 2, "S2": 1 } }, { "id": "people_disappear", "label": "Часть людей просто пропадает", "weights": { "S3": 2, "S4": 1 } }] },
-        { "id": "q8_tech_history_questions", "type": "single", "required": true, "affectsScore": true, "text": "Спрашивают ли покупатели о техническом состоянии или истории автомобиля?", "answers": [{ "id": "often", "label": "Да, и часто", "weights": { "S3": 3 } }, { "id": "sometimes", "label": "Иногда", "weights": { "S3": 2 } }, { "id": "rare", "label": "Редко", "weights": { "S1": 1, "S2": 1 } }, { "id": "i_tell_first", "label": "Я сам(а) сразу об этом рассказываю", "weights": { "S3": 1 } }] },
-        { "id": "q9_hardest_part", "type": "single", "required": true, "affectsScore": true, "text": "Что для вас сейчас самое сложное в продаже автомобиля?", "answers": [{ "id": "no_result_reason", "label": "Понять, почему нет результата", "weights": { "S1": 2, "S2": 1 } }, { "id": "calls_messages", "label": "Постоянные звонки и переписка", "weights": { "S4": 3 } }, { "id": "no_trust", "label": "Недоверие со стороны покупателей", "weights": { "S3": 3 } }, { "id": "no_time", "label": "Нет времени заниматься этим процессом", "weights": { "S4": 3 } }] },
-        { "id": "q10_expectation", "type": "single", "required": true, "affectsScore": false, "text": "Чего вы ожидаете от этого теста?", "answers": [{ "id": "understand_reason", "label": "Хочу понять, в чём причина" }, { "id": "useful_tips", "label": "Хочу получить полезные советы" }, { "id": "consider_help", "label": "Рассматриваю помощь профессионалов" }, { "id": "just_curiosity", "label": "Просто интересно" }] }
-      ]
-    };
-    const quizResultsJSON = {
-      "quiz_results": {
-        "S1": {
-          "scenario": "price",
-          "title": "Цена — первое, что останавливает покупателя ещё до звонка. Даже хороший автомобиль могут не купить из-за неудачно выбранной цены.",
-          "description": "Даже разница в 5–10% от рыночной цены может полностью остановить интерес. Покупатели сравнивают десятки похожих автомобилей и просто не видят причины обращаться именно к вам.",
-          "tips": [
-            "Сравнивайте реальные сделки, а не только объявления с желаемыми ценами.",
-            "Определяйте ценовой коридор, а не одну фиксированную сумму.",
-            "Объясняйте логику цены: состояние, обслуживание, комплектация.",
-            "Выбирайте понятный формат торга — например, после осмотра."
-          ],
-          "transition": "На практике правильная цена — это не интуиция, а постоянная работа с рынком и спросом. Именно этим ежедневно занимаются менеджеры AutoXata, анализируя, по каким ценам автомобили действительно продаются.",
-          "cta_text": "Узнайте, как выставить цену так, чтобы автомобиль начали смотреть и покупать уже сегодня. Консультация с менеджерами AutoXata бесплатна.",
-          "cta_button": "Связаться с менеджером"
-        },
-        "S2": {
-          "scenario": "presentation",
-          "title": "Автомобиль может быть хорошим, но объявление этого не показывает.",
-          "description": "Покупатель сначала покупает доверие, и только потом приезжает смотреть автомобиль. Если фото и описание не дают ощущения прозрачности, он выбирает другое объявление.",
-          "tips": [
-            "Делайте фото при дневном свете: кузов, салон, багажник, приборную панель, шины.",
-            "Начинайте описание с конкретики, а не общих фраз.",
-            "Честно указывайте нюансы — это повышает доверие.",
-            "Структурируйте текст: состояние, история, что делалось, что важно знать."
-          ],
-          "transition": "Эффективная подача — это не красивые слова, а опыт реального общения с покупателями. В AutoXata мы знаем, какие формулировки работают, а какие отпугивают ещё до звонка.",
-          "cta_text": "Получите профессиональный совет, как подать автомобиль так, чтобы он вызывал доверие с первого взгляда. Консультация с менеджерами AutoXata бесплатна.",
-          "cta_button": "Связаться с менеджером"
-        },
-        "S3": {
-          "scenario": "trust",
-          "title": "Когда есть сомнения по состоянию или истории, покупатель просто не приезжает.",
-          "description": "Даже мелкие вопросы по состоянию, истории или документам могут остановить продажу. Покупатель боится риска и выбирает автомобиль, где всё понятно с первого контакта.",
-          "tips": [
-            "Подготовьте историю обслуживания, чеки и информацию о ремонтах.",
-            "Сразу проговаривайте нюансы — это уменьшает исчезновения после звонков.",
-            "По возможности сделайте базовую диагностику перед показами."
-          ],
-          "transition": "Прозрачность — ключ к продаже. Менеджеры AutoXata помогают показать реальное состояние автомобиля без подозрений, отвечают на типовые вопросы и отсеивают нецелевых покупателей.",
-          "cta_text": "Менеджеры AutoXata помогут подготовить автомобиль к продаже без лишних рисков. Получите бесплатную консультацию уже сегодня.",
-          "cta_button": "Связаться с менеджером"
-        },
-        "S4": {
-          "scenario": "process",
-          "title": "Продажа автомобиля — это не только объявление, а постоянный процесс.",
-          "description": "Звонки, переписка, показы и договорённости требуют времени и внимания. Если процесс проседает, даже хороший автомобиль может не дойти до сделки.",
-          "tips": [
-            "Отвечайте на обращения максимально быстро.",
-            "Имейте чёткий сценарий звонка и показа.",
-            "Фильтруйте нецелевые обращения."
-          ],
-          "transition": "В AutoXata этот процесс уже налажен: менеджеры берут на себя коммуникацию, показы и переговоры, а вы получаете результат без постоянного вовлечения.",
-          "cta_text": "AutoXata может взять на себя весь процесс продажи — от первого звонка до сделки. Передайте процесс продажи менеджерам AutoXata и начните эффективную продажу вашего автомобиля уже сегодня.",
-          "cta_button": "Связаться с менеджером"
+      document.querySelectorAll("form").forEach((form) => {
+        let input = form.querySelector('input[name="leadId"]');
+        if (!input) {
+          input = document.createElement("input");
+          input.type = "hidden";
+          input.name = "leadId";
+          form.appendChild(input);
         }
+        input.value = leadId;
+      });
+
+      const quizData = {
+        scenarios: {
+          S1: "price",
+          S2: "presentation",
+          S3: "trust",
+          S4: "process",
+        },
+        questions: [
+          {
+            id: "q1_car",
+            type: "car_input",
+            required: true,
+            affectsScore: false,
+            text: "Расскажите немного об автомобиле, который вы хотите продать",
+            fields: [
+              { id: "make", label: "Марка", type: "text", required: true },
+              { id: "model", label: "Модель", type: "text", required: true },
+              {
+                id: "year",
+                label: "Год выпуска",
+                type: "number",
+                required: true,
+                min: 1980,
+                max: 2026,
+              },
+            ],
+          },
+          {
+            id: "q2_listed_for",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Как давно ваш автомобиль выставлен на продажу?",
+            answers: [
+              { id: "lt_2w", label: "Меньше 2 недель", weights: { S4: 1 } },
+              { id: "2_4w", label: "2–4 недели", weights: { S2: 1, S1: 1 } },
+              { id: "1_2m", label: "1–2 месяца", weights: { S1: 2, S2: 1 } },
+              {
+                id: "gt_2m",
+                label: "Больше 2 месяцев",
+                weights: { S1: 2, S4: 1 },
+              },
+            ],
+          },
+          {
+            id: "q3_contacts",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Сколько реальных звонков или сообщений вы получили?",
+            answers: [
+              { id: "none", label: "Почти нет", weights: { S1: 3, S2: 1 } },
+              { id: "1_2wk", label: "1–2 в неделю", weights: { S1: 2, S2: 1 } },
+              {
+                id: "contact_no_result",
+                label: "Звонят, но без результата",
+                weights: { S3: 2, S4: 1 },
+              },
+              {
+                id: "many_no_deal",
+                label: "Звонков достаточно, но сделки нет",
+                weights: { S3: 2, S4: 2 },
+              },
+            ],
+          },
+          {
+            id: "q4_price_set",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Как вы определяли цену на автомобиль?",
+            answers: [
+              {
+                id: "like_ads",
+                label: "Посмотрел(а) похожие объявления и поставил(а) свою",
+                weights: { S1: 2 },
+              },
+              {
+                id: "desired_sum",
+                label: "Ориентировался(лась) на желаемую сумму",
+                weights: { S1: 3 },
+              },
+              {
+                id: "with_haggle",
+                label: "С учётом торга",
+                weights: { S1: 2, S4: 1 },
+              },
+              {
+                id: "already_lowered",
+                label: "Уже несколько раз снижал(а)",
+                weights: { S1: 2, S2: 1 },
+              },
+            ],
+          },
+          {
+            id: "q5_photos",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Как бы вы оценили фотографии в объявлении?",
+            answers: [
+              {
+                id: "basic_phone",
+                label: "Обычные, сделанные на телефон",
+                weights: { S2: 2 },
+              },
+              {
+                id: "ok_no_prep",
+                label: "Фото есть, но без подготовки",
+                weights: { S2: 3 },
+              },
+              {
+                id: "honest_full",
+                label: "Старался(лась) показать всё честно",
+                weights: { S3: 1, S2: 1 },
+              },
+              {
+                id: "not_sure",
+                label: "Не уверен(а), что фото достаточно хорошие",
+                weights: { S2: 3 },
+              },
+            ],
+          },
+          {
+            id: "q6_description",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Описание автомобиля — это скорее…",
+            answers: [
+              {
+                id: "few_lines",
+                label: "Несколько строк «по сути»",
+                weights: { S2: 2 },
+              },
+              {
+                id: "detailed_no_structure",
+                label: "Подробное описание, но без структуры",
+                weights: { S2: 2, S3: 1 },
+              },
+              {
+                id: "honest_pros_cons",
+                label: "Честное описание с плюсами и минусами",
+                weights: { S3: 2 },
+              },
+              {
+                id: "dont_know",
+                label: "Трудно сказать, что ещё добавить",
+                weights: { S2: 2 },
+              },
+            ],
+          },
+          {
+            id: "q7_communication",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Как вы обычно общаетесь с потенциальными покупателями?",
+            answers: [
+              {
+                id: "when_time",
+                label: "Отвечаю, когда есть время",
+                weights: { S4: 3 },
+              },
+              {
+                id: "fast_try",
+                label: "Стараюсь отвечать быстро",
+                weights: { S4: 1 },
+              },
+              {
+                id: "repeat_same",
+                label: "Часто приходится объяснять одно и то же",
+                weights: { S4: 2, S2: 1 },
+              },
+              {
+                id: "people_disappear",
+                label: "Часть людей просто пропадает",
+                weights: { S3: 2, S4: 1 },
+              },
+            ],
+          },
+          {
+            id: "q8_tech_history_questions",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Спрашивают ли покупатели о техническом состоянии или истории автомобиля?",
+            answers: [
+              { id: "often", label: "Да, и часто", weights: { S3: 3 } },
+              { id: "sometimes", label: "Иногда", weights: { S3: 2 } },
+              { id: "rare", label: "Редко", weights: { S1: 1, S2: 1 } },
+              {
+                id: "i_tell_first",
+                label: "Я сам(а) сразу об этом рассказываю",
+                weights: { S3: 1 },
+              },
+            ],
+          },
+          {
+            id: "q9_hardest_part",
+            type: "single",
+            required: true,
+            affectsScore: true,
+            text: "Что для вас сейчас самое сложное в продаже автомобиля?",
+            answers: [
+              {
+                id: "no_result_reason",
+                label: "Понять, почему нет результата",
+                weights: { S1: 2, S2: 1 },
+              },
+              {
+                id: "calls_messages",
+                label: "Постоянные звонки и переписка",
+                weights: { S4: 3 },
+              },
+              {
+                id: "no_trust",
+                label: "Недоверие со стороны покупателей",
+                weights: { S3: 3 },
+              },
+              {
+                id: "no_time",
+                label: "Нет времени заниматься этим процессом",
+                weights: { S4: 3 },
+              },
+            ],
+          },
+          {
+            id: "q10_expectation",
+            type: "single",
+            required: true,
+            affectsScore: false,
+            text: "Чего вы ожидаете от этого теста?",
+            answers: [
+              { id: "understand_reason", label: "Хочу понять, в чём причина" },
+              { id: "useful_tips", label: "Хочу получить полезные советы" },
+              {
+                id: "consider_help",
+                label: "Рассматриваю помощь профессионалов",
+              },
+              { id: "just_curiosity", label: "Просто интересно" },
+            ],
+          },
+        ],
+      };
+      const quizResultsJSON = {
+        quiz_results: {
+          S1: {
+            scenario: "price",
+            title:
+              "Цена — первое, что останавливает покупателя ещё до звонка. Даже хороший автомобиль могут не купить из-за неудачно выбранной цены.",
+            description:
+              "Даже разница в 5–10% от рыночной цены может полностью остановить интерес. Покупатели сравнивают десятки похожих автомобилей и просто не видят причины обращаться именно к вам.",
+            tips: [
+              "Сравнивайте реальные сделки, а не только объявления с желаемыми ценами.",
+              "Определяйте ценовой коридор, а не одну фиксированную сумму.",
+              "Объясняйте логику цены: состояние, обслуживание, комплектация.",
+              "Выбирайте понятный формат торга — например, после осмотра.",
+            ],
+            transition:
+              "На практике правильная цена — это не интуиция, а постоянная работа с рынком и спросом. Именно этим ежедневно занимаются менеджеры AutoXata, анализируя, по каким ценам автомобили действительно продаются.",
+            cta_text:
+              "Узнайте, как выставить цену так, чтобы автомобиль начали смотреть и покупать уже сегодня. Консультация с менеджерами AutoXata бесплатна.",
+            cta_button: "Связаться с менеджером",
+          },
+          S2: {
+            scenario: "presentation",
+            title:
+              "Автомобиль может быть хорошим, но объявление этого не показывает.",
+            description:
+              "Покупатель сначала покупает доверие, и только потом приезжает смотреть автомобиль. Если фото и описание не дают ощущения прозрачности, он выбирает другое объявление.",
+            tips: [
+              "Делайте фото при дневном свете: кузов, салон, багажник, приборную панель, шины.",
+              "Начинайте описание с конкретики, а не общих фраз.",
+              "Честно указывайте нюансы — это повышает доверие.",
+              "Структурируйте текст: состояние, история, что делалось, что важно знать.",
+            ],
+            transition:
+              "Эффективная подача — это не красивые слова, а опыт реального общения с покупателями. В AutoXata мы знаем, какие формулировки работают, а какие отпугивают ещё до звонка.",
+            cta_text:
+              "Получите профессиональный совет, как подать автомобиль так, чтобы он вызывал доверие с первого взгляда. Консультация с менеджерами AutoXata бесплатна.",
+            cta_button: "Связаться с менеджером",
+          },
+          S3: {
+            scenario: "trust",
+            title:
+              "Когда есть сомнения по состоянию или истории, покупатель просто не приезжает.",
+            description:
+              "Даже мелкие вопросы по состоянию, истории или документам могут остановить продажу. Покупатель боится риска и выбирает автомобиль, где всё понятно с первого контакта.",
+            tips: [
+              "Подготовьте историю обслуживания, чеки и информацию о ремонтах.",
+              "Сразу проговаривайте нюансы — это уменьшает исчезновения после звонков.",
+              "По возможности сделайте базовую диагностику перед показами.",
+            ],
+            transition:
+              "Прозрачность — ключ к продаже. Менеджеры AutoXata помогают показать реальное состояние автомобиля без подозрений, отвечают на типовые вопросы и отсеивают нецелевых покупателей.",
+            cta_text:
+              "Менеджеры AutoXata помогут подготовить автомобиль к продаже без лишних рисков. Получите бесплатную консультацию уже сегодня.",
+            cta_button: "Связаться с менеджером",
+          },
+          S4: {
+            scenario: "process",
+            title:
+              "Продажа автомобиля — это не только объявление, а постоянный процесс.",
+            description:
+              "Звонки, переписка, показы и договорённости требуют времени и внимания. Если процесс проседает, даже хороший автомобиль может не дойти до сделки.",
+            tips: [
+              "Отвечайте на обращения максимально быстро.",
+              "Имейте чёткий сценарий звонка и показа.",
+              "Фильтруйте нецелевые обращения.",
+            ],
+            transition:
+              "В AutoXata этот процесс уже налажен: менеджеры берут на себя коммуникацию, показы и переговоры, а вы получаете результат без постоянного вовлечения.",
+            cta_text:
+              "AutoXata может взять на себя весь процесс продажи — от первого звонка до сделки. Передайте процесс продажи менеджерам AutoXata и начните эффективную продажу вашего автомобиля уже сегодня.",
+            cta_button: "Связаться с менеджером",
+          },
+        },
+      };
+
+      const APPS_SCRIPT_URL =
+        "https://script.google.com/macros/s/AKfycbyfMKJeqVGehj-60-zOd_BIRfO998y_rOaWSZFx55gtw3MsQjZ9tnPufMWaNrM0EjGt/exec";
+
+      const quizEl = document.getElementById("quiz");
+      const resultEl = document.getElementById("result");
+      const progressEl = document.getElementById("quizProgress");
+      const questionEl = document.getElementById("quizQuestion");
+      const answersEl = document.getElementById("quizAnswers");
+      const btnNext = document.getElementById("btnNext");
+      const btnBack = document.getElementById("btnBack");
+      const resultTitle = document.getElementById("resultTitle");
+      const resultText = document.getElementById("resultText");
+      const resultTips = document.getElementById("resultTips");
+      const resultTransition = document.getElementById("resultTransition");
+      const resultCtaText = document.getElementById("resultCtaText");
+      const resultImage = document.getElementById("resultImage");
+      const ctaSecondary = document.getElementById("ctaSecondary");
+      const submissionId =
+        Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
+      let state = {
+        step: 0,
+        answers: {},
+        score: {},
+        result: {},
+      };
+
+      let ctaClicked = false;
+      let isSubmittingFinal = false;
+
+      // --- Вспомогательные функции ---
+      function getUrlParam(name) {
+        return new URLSearchParams(window.location.search).get(name) || "";
       }
-    };
 
-    const APPS_SCRIPT_URL = 'https://script.google.com/macros/s/AKfycbyfMKJeqVGehj-60-zOd_BIRfO998y_rOaWSZFx55gtw3MsQjZ9tnPufMWaNrM0EjGt/exec';
+      // Простая валидация Q1
+      function validateCarInput(inputs) {
+        const makePattern = /^[A-Za-z0-9\s\-]{1,20}$/; // простая проверка, буквы, цифры, пробел, дефис
+        const modelPattern = /^[A-Za-z0-9\s\-]{1,30}$/;
+        const yearPattern = /^(19[8-9]\d|20[0-2]\d|2026)$/; // 1980–2026
+        const makeValid = makePattern.test(inputs.make.value.trim());
+        const modelValid = modelPattern.test(inputs.model.value.trim());
+        const yearValid = yearPattern.test(inputs.year.value.trim());
+        return makeValid && modelValid && yearValid;
+      }
 
-    const quizEl = document.getElementById('quiz');
-    const resultEl = document.getElementById('result');
-    const progressEl = document.getElementById('quizProgress');
-    const questionEl = document.getElementById('quizQuestion');
-    const answersEl = document.getElementById('quizAnswers');
-    const btnNext = document.getElementById('btnNext');
-    const btnBack = document.getElementById('btnBack');
-    const resultTitle = document.getElementById('resultTitle');
-    const resultText = document.getElementById('resultText');
-    const resultTips = document.getElementById('resultTips');
-    const resultTransition = document.getElementById('resultTransition');
-    const resultCtaText = document.getElementById('resultCtaText');
-    const resultImage = document.getElementById('resultImage');
-    const ctaSecondary = document.getElementById('ctaSecondary');
-    const submissionId =
-      Date.now().toString(36) + Math.random().toString(36).substring(2, 8);
-    let state = {
-      step: 0,
-      answers: {},
-      score: {},
-      result: {}
-    };
+      // --- Рендер вопроса ---
+      function renderQuestion() {
+        const q = quizData.questions[state.step];
+        progressEl.textContent = `Вопрос ${state.step + 1} из ${quizData.questions.length}`;
+        questionEl.textContent = q.text;
 
-    let ctaClicked = false;
-    let isSubmittingFinal = false;
+        answersEl.innerHTML = "";
+        btnNext.disabled = true;
 
-    // --- Вспомогательные функции ---
-    function getUrlParam(name) {
-      return new URLSearchParams(window.location.search).get(name) || '';
-    }
+        if (q.type === "car_input") {
+          // Q1 с ручным вводом
+          const makeInput = document.createElement("input");
+          makeInput.placeholder = "Марка авто";
+          makeInput.value = state.answers.q1_car_make || "";
+          const modelInput = document.createElement("input");
+          modelInput.placeholder = "Модель авто";
+          modelInput.value = state.answers.q1_car_model || "";
+          const yearInput = document.createElement("input");
+          yearInput.placeholder = "Год выпуска";
+          yearInput.type = "number";
+          yearInput.value = state.answers.q1_car_year || "";
 
-    // Простая валидация Q1
-    function validateCarInput(inputs) {
-      const makePattern = /^[A-Za-z0-9\s\-]{1,20}$/; // простая проверка, буквы, цифры, пробел, дефис
-      const modelPattern = /^[A-Za-z0-9\s\-]{1,30}$/;
-      const yearPattern = /^(19[8-9]\d|20[0-2]\d|2026)$/; // 1980–2026
-      const makeValid = makePattern.test(inputs.make.value.trim());
-      const modelValid = modelPattern.test(inputs.model.value.trim());
-      const yearValid = yearPattern.test(inputs.year.value.trim());
-      return makeValid && modelValid && yearValid;
-    }
+          answersEl.appendChild(makeInput);
+          answersEl.appendChild(modelInput);
+          answersEl.appendChild(yearInput);
 
-    // --- Рендер вопроса ---
-    function renderQuestion() {
-      const q = quizData.questions[state.step];
-      progressEl.textContent = `Вопрос ${state.step + 1} из ${quizData.questions.length}`;
-      questionEl.textContent = q.text;
+          const inputs = {
+            make: makeInput,
+            model: modelInput,
+            year: yearInput,
+          };
 
-      answersEl.innerHTML = '';
-      btnNext.disabled = true;
+          Object.values(inputs).forEach((inp) => {
+            inp.addEventListener("input", () => {
+              btnNext.disabled = !validateCarInput(inputs);
+            });
+          });
+          if (validateCarInput(inputs)) {
+            btnNext.disabled = false;
+          }
+        } else {
+          q.answers.forEach((a) => {
+            const btn = document.createElement("button");
+            btn.className = "quiz__answer";
+            btn.textContent = a.label;
+            btn.onclick = () => {
+              state.answers[q.id] = a.id;
+              [...answersEl.children].forEach((b) =>
+                b.classList.remove("selected"),
+              );
+              btn.classList.add("selected");
+              btnNext.disabled = false;
+            };
+            answersEl.appendChild(btn);
+          });
+        }
 
-      if (q.type === 'car_input') {
-        // Q1 с ручным вводом
-        const makeInput = document.createElement('input');
-        makeInput.placeholder = 'Марка авто';
-        makeInput.value = state.answers.q1_car_make || '';
-        const modelInput = document.createElement('input');
-        modelInput.placeholder = 'Модель авто';
-        modelInput.value = state.answers.q1_car_model || '';
-        const yearInput = document.createElement('input');
-        yearInput.placeholder = 'Год выпуска';
-        yearInput.type = 'number';
-        yearInput.value = state.answers.q1_car_year || '';
+        btnBack.style.visibility = state.step === 0 ? "hidden" : "visible";
+      }
 
-        answersEl.appendChild(makeInput);
-        answersEl.appendChild(modelInput);
-        answersEl.appendChild(yearInput);
+      // --- Подсчет результата ---
+      function calculateResult() {
+        state.score = { S1: 0, S2: 0, S3: 0, S4: 0 };
 
-        const inputs = { make: makeInput, model: modelInput, year: yearInput };
-
-        Object.values(inputs).forEach(inp => {
-          inp.addEventListener('input', () => {
-            btnNext.disabled = !validateCarInput(inputs);
+        quizData.questions.forEach((q) => {
+          const answerId = state.answers[q.id];
+          if (!answerId) return;
+          const ans = q.answers?.find((a) => a.id === answerId);
+          if (!ans || !ans.weights) return;
+          Object.entries(ans.weights).forEach(([s, v]) => {
+            state.score[s] += v;
           });
         });
-        if (validateCarInput(inputs)) {
-          btnNext.disabled = false;
+
+        const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
+        state.result.scenario_top = sorted[0][0];
+        state.result.scenario2 = sorted[1][0];
+        state.result.data =
+          quizResultsJSON.quiz_results[state.result.scenario_top];
+        console.log("🏁 FINAL RESULT:", {
+          answers: state.answers,
+          score: state.score,
+          result: state.result,
+        });
+      }
+
+      // --- Формируем payload для отправки в Google Sheets ---
+      function buildPayload(eventType, cta = "none") {
+        const q = state.answers;
+
+        return {
+          // --- обязательные поля ---
+          timestamp_iso: new Date().toISOString(),
+          referrer: "seller_quiz_why_car_not_selling", // фиксированная строка
+          page_url: location.href,
+          leadId,
+          referrer_url: getUrlParam("referrer") || document.referrer || "",
+          utm_source: getUrlParam("utm_source"),
+          utm_medium: getUrlParam("utm_medium"),
+          utm_campaign: getUrlParam("utm_campaign"),
+          utm_content: getUrlParam("utm_content"),
+          utm_term: getUrlParam("utm_term"),
+
+          // --- поля Q1 отдельными колонками ---
+          car_make: q.q1_car_make || "",
+          car_model: q.q1_car_model || "",
+          car_year: q.q1_car_year || "",
+
+          // --- поля Q2–Q10 (id выбранного ответа) ---
+          q2: q.q2_listed_for || "",
+          q3: q.q3_contacts || "",
+          q4: q.q4_price_set || "",
+          q5: q.q5_photos || "",
+          q6: q.q6_description || "",
+          q7: q.q7_communication || "",
+          q8: q.q8_tech_history_questions || "",
+          q9: q.q9_hardest_part || "",
+          q10: q.q10_expectation || "",
+
+          // --- результаты сценариев ---
+          scenario_top: state.result?.scenario_top || "",
+          scenario2: state.result?.scenario2 || "",
+
+          // --- CTA ---
+          cta_clicked: cta, // 'none' или 'manager'
+        };
+      }
+
+      function sendPayload(payload) {
+        navigator.sendBeacon(APPS_SCRIPT_URL, JSON.stringify(payload));
+      }
+
+      // --- Обработчики кнопок ---
+      btnNext.onclick = async () => {
+        const q = quizData.questions[state.step];
+        if (q.type === "car_input") {
+          const inputs = answersEl.querySelectorAll("input");
+          state.answers.q1_car_make = inputs[0].value.trim();
+          state.answers.q1_car_model = inputs[1].value.trim();
+          state.answers.q1_car_year = inputs[2].value.trim();
         }
-      } else {
-        q.answers.forEach(a => {
-          const btn = document.createElement('button');
-          btn.className = 'quiz__answer';
-          btn.textContent = a.label;
-          btn.onclick = () => {
-            state.answers[q.id] = a.id;
-            [...answersEl.children].forEach(b => b.classList.remove('selected'));
-            btn.classList.add('selected');
-            btnNext.disabled = false;
-          };
-          answersEl.appendChild(btn);
-        });
-      }
 
-      btnBack.style.visibility = state.step === 0 ? 'hidden' : 'visible';
-    }
+        if (state.step < quizData.questions.length - 1) {
+          state.step++;
+          renderQuestion();
+          return;
+        }
 
-    // --- Подсчет результата ---
-    function calculateResult() {
-      state.score = { S1: 0, S2: 0, S3: 0, S4: 0 };
+        if (isSubmittingFinal) return;
+        isSubmittingFinal = true;
+        btnNext.disabled = true;
+        btnNext.textContent = "Обрабатываем...";
 
-      quizData.questions.forEach(q => {
-        const answerId = state.answers[q.id];
-        if (!answerId) return;
-        const ans = q.answers?.find(a => a.id === answerId);
-        if (!ans || !ans.weights) return;
-        Object.entries(ans.weights).forEach(([s, v]) => { state.score[s] += v; });
-      });
+        calculateResult();
 
-      const sorted = Object.entries(state.score).sort((a, b) => b[1] - a[1]);
-      state.result.scenario_top = sorted[0][0];
-      state.result.scenario2 = sorted[1][0];
-      state.result.data = quizResultsJSON.quiz_results[state.result.scenario_top];
-      console.log('🏁 FINAL RESULT:', {
-        answers: state.answers,
-        score: state.score,
-        result: state.result
-      });
-    }
+        // отображаем результат
+        const res = state.result.data;
+        resultTitle.textContent = res.title;
+        resultText.textContent = res.description;
+        resultTips.innerHTML = "";
+        if (Array.isArray(res.tips)) {
+          res.tips.forEach((tip) => {
+            const li = document.createElement("li");
+            li.textContent = tip;
+            resultTips.appendChild(li);
+          });
+        }
 
-    // --- Формируем payload для отправки в Google Sheets ---
-    function buildPayload(eventType, cta = 'none') {
-      const q = state.answers;
+        // transition
+        resultTransition.textContent = res.transition || "";
 
-      return {
-        // --- обязательные поля ---
-        timestamp_iso: new Date().toISOString(),
-        referrer: 'seller_quiz_why_car_not_selling', // фиксированная строка
-        page_url: location.href,
-        leadId,
-        referrer_url: getUrlParam('referrer') || document.referrer || '',
-        utm_source: getUrlParam('utm_source'),
-        utm_medium: getUrlParam('utm_medium'),
-        utm_campaign: getUrlParam('utm_campaign'),
-        utm_content: getUrlParam('utm_content'),
-        utm_term: getUrlParam('utm_term'),
+        // CTA текст
+        resultCtaText.textContent = res.cta_text || "";
+        if (resultImage) {
+          resultImage.src = res.image || "";
+          resultImage.alt = res.title;
+        }
+        console.log(res);
+        quizEl.style.display = "none";
+        resultEl.style.display = "block";
 
-        // --- поля Q1 отдельными колонками ---
-        car_make: q.q1_car_make || '',
-        car_model: q.q1_car_model || '',
-        car_year: q.q1_car_year || '',
-
-        // --- поля Q2–Q10 (id выбранного ответа) ---
-        q2: q.q2_listed_for || '',
-        q3: q.q3_contacts || '',
-        q4: q.q4_price_set || '',
-        q5: q.q5_photos || '',
-        q6: q.q6_description || '',
-        q7: q.q7_communication || '',
-        q8: q.q8_tech_history_questions || '',
-        q9: q.q9_hardest_part || '',
-        q10: q.q10_expectation || '',
-
-        // --- результаты сценариев ---
-        scenario_top: state.result?.scenario_top || '',
-        scenario2: state.result?.scenario2 || '',
-
-        // --- CTA ---
-        cta_clicked: cta // 'none' или 'manager'
+        try {
+          sendPayload(buildPayload("logQuizResult"));
+        } catch (e) {
+          console.error(e);
+        }
       };
-    }
 
+      btnBack.onclick = () => {
+        if (state.step > 0) {
+          state.step--;
+          renderQuestion();
+        }
+      };
 
-    function sendPayload(payload) {
-      navigator.sendBeacon(
-        APPS_SCRIPT_URL,
-        JSON.stringify(payload)
-      );
-    }
+      document.addEventListener("click", (e) => {
+        const btn = e.target.closest("#ctaSecondary.open-popup");
+        if (!btn) return;
 
-    // --- Обработчики кнопок ---
-    btnNext.onclick = async () => {
-      const q = quizData.questions[state.step];
-      if (q.type === 'car_input') {
-        const inputs = answersEl.querySelectorAll('input');
-        state.answers.q1_car_make = inputs[0].value.trim();
-        state.answers.q1_car_model = inputs[1].value.trim();
-        state.answers.q1_car_year = inputs[2].value.trim();
-      }
+        if (ctaClicked) {
+          console.log("CTA already tracked");
+          return;
+        }
 
-      if (state.step < quizData.questions.length - 1) {
-        state.step++;
-        renderQuestion();
-        return;
-      }
+        ctaClicked = true;
+        console.log("CTA click tracked");
 
-      if (isSubmittingFinal) return;
-      isSubmittingFinal = true;
-      btnNext.disabled = true;
-      btnNext.textContent = 'Обрабатываем...';
+        sendPayload(buildPayload("logCtaClick", "manager"));
+      });
 
-      calculateResult();
+      // --- Запуск ---
+      renderQuestion();
+    </script>
 
-      // отображаем результат
-      const res = state.result.data;
-      resultTitle.textContent = res.title;
-      resultText.textContent = res.description;
-      resultTips.innerHTML = '';
-      if (Array.isArray(res.tips)) {
-        res.tips.forEach(tip => {
-          const li = document.createElement('li');
-          li.textContent = tip;
-          resultTips.appendChild(li);
-        });
-      }
-
-      // transition
-      resultTransition.textContent = res.transition || '';
-
-      // CTA текст
-      resultCtaText.textContent = res.cta_text || '';
-      if (resultImage) { resultImage.src = res.image || ''; resultImage.alt = res.title; }
-      console.log(res)
-      quizEl.style.display = 'none';
-      resultEl.style.display = 'block';
-
-      try {
-        sendPayload(buildPayload('logQuizResult'));
-
-      } catch (e) { console.error(e); }
-    };
-
-    btnBack.onclick = () => { if (state.step > 0) { state.step--; renderQuestion(); } };
-
-    document.addEventListener('click', (e) => {
-      const btn = e.target.closest('#ctaSecondary.open-popup');
-      if (!btn) return;
-
-      if (ctaClicked) {
-        console.log('CTA already tracked');
-        return;
-      }
-
-      ctaClicked = true;
-      console.log('CTA click tracked');
-
-      sendPayload(buildPayload('logCtaClick', 'manager'));
-    });
-
-    // --- Запуск ---
-    renderQuestion();
-
-  </script>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
-  <script src="../assets/js/menu.js" defer></script>
-  <script src="../assets/js/popup.js" defer></script>
-  <script src="../assets/js/form-ru.js"></script>
-  <script src="../assets/js/lang.js" defer></script>
-
-</body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../assets/js/menu.js" defer></script>
+    <script src="../assets/js/popup.js" defer></script>
+    <script src="../assets/js/form-ru.js"></script>
+    <script src="../assets/js/lang.js" defer></script>
+  </body>
 </html>
